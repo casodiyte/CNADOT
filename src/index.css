@@ -11,6 +11,7 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   color: #333;
   background: #fff;
+  overflow-x: hidden;
 }
 a {
   color: #0099CC;
@@ -150,4 +151,45 @@ input:focus, select:focus, textarea:focus {
 .cn-anim-visible { opacity: 1; transform: translateY(0); }
 
 @keyframes cnMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.cn-marquee { animation: cnMarquee 12s linear infinite; }
+.cn-marquee { animation: cnMarquee 6s linear infinite; }
+
+/* RESPONSIVE LAYOUT CLASSES */
+.grid-hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; padding: 44px 0 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-split { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 26px; align-items: start; }
+.grid-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.pad-section { padding: 40px 0; }
+.pad-cta { padding: 52px 40px; }
+.text-hero { font-size: 32px; }
+.text-section { font-size: 36px; }
+.text-stats { font-size: 52px; }
+
+.header-inner { display: flex; align-items: center; gap: 20px; }
+@media (max-width: 968px) {
+  .header-inner { flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  .header-inner nav { order: 3; width: 100%; max-width: 100% !important; margin: 4px 0 0 !important; }
+}
+
+@media (max-width: 968px) {
+  .grid-hero { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .grid-hero > div:last-child { display: none; } /* Hide illustration on mobile if needed, or just let it stack */
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-split { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-form { grid-template-columns: 1fr; }
+  .pad-section { padding: 24px 0; }
+  .pad-cta { padding: 32px 20px; }
+  .text-hero { font-size: 26px; }
+  .text-section { font-size: 26px; }
+  .text-stats { font-size: 40px; }
+  .grid-hero > div { text-align: left; }
+  .cn-blob { display: none; } /* Hide blobs on mobile to improve performance and prevent overflow */
+}

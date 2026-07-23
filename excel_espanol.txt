@@ -1,0 +1,603 @@
+[
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "OBJETIVO GENERAL"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Desarrollar y consolidar competencias teórico-prácticas, clínicas, quirúrgicas en el equipo de salud multidisciplinario de donación y trasplantes, mediante entornos virtuales, simulación de alta fidelidad y modelos experimentales in vivo, orientados a optimizar la detección, el mantenimiento del donante y la viabilidad de los injertos bajo el marco normativo nacional e internacional."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "OBJETIVOS PARTICULARES"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "1. Actualizar el marco teórico y normativo vigente en México e internacionalmente respecto a las diversas modalidades de donación de órganos y tejidos.\n\n2. Perfeccionar habilidades críticas de comunicación asertiva para el manejo de malas noticias y la entrevista de solicitud de donación familiar en escenarios de crisis.\n\n3. Sistematizar la toma de decisiones clínicas y logísticas en escenarios complejos mediante simulación clínica, incorporando soporte orgánico avanzado (ECMO) y el mantenimiento crítico del donante.\n\n4. Desarrollar destrezas quirúrgicas avanzadas in vivo y ex situ para la procuración, canulación y preservación de órganos y tejidos en modelos experimentales, integrando el entrenamiento especializado en bipartición hepática (técnica split) y perfusión de órganos ex situ."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Dirigido"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "El programa está diseñado bajo un modelo de Educación Médica Continua Multidisciplinaria. Está dirigido estrictamente a profesionales en activo que forman parte del eslabón crítico en la cadena de donación y trasplantes:\n\nCoordinadores de Donación: Responsables de la detección, logística hospitalaria, vínculo legal-administrativo y la aproximación familiar.\n\nIntensivistas (Medicina Crítica): Encargados del mantenimiento hemodinámico óptimo del donante en la UCI y la certificación clínica de la Muerte Encefálica.\n\nAnestesiólogos: Responsables de mantener la homeostasis y estabilidad del donante en el quirófano durante los tiempos críticos y la extracción.\n\nCirujanos de Tórax, Cardiovasculares y Abdomen: Líderes de la técnica quirúrgica de procuración, canulación y evaluación in situ de la viabilidad de los injertos.\n\nPerfusionistas: Especialistas a cargo del cebado, monitorización y manejo del soporte circulatorio extracorpóreo (CEC/ECMO) para preservación orgánica.\n\nEnfermeras Quirúrgicas: Profesionales clave en la instrumentación especializada, la gestión de soluciones de preservación celular y la preparación de la mesa de banco (back-table)."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "FASE 1: TEÓRICA VIRTUAL HÍBRIDA (ASINCRÓNICA Y SINCRÓNICA)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Objetivo de la Fase: Homogeneizar las bases teórico-conceptuales del equipo multidisciplinario a través de la revisión selectiva de literatura científica y la introducción formal a los modelos de comunicación en crisis."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Acceso desde el 17 de Septiembre",
+    "__EMPTY": "Duración: 1 semana. Revisión de Material Previo. Examen Diagnóstico Inicial"
+  },
+  {
+    "__EMPTY": "Revisión del Manual Clínico de Comunicación en Situaciones de Crisis y Malas Noticias."
+  },
+  {
+    "__EMPTY": "Cierre con Clase Virtual el 21 de Septiembre de 9 a 12 hrs de Comunicación Intrahospitalaria, Herramientas de Comunicación y Entrevista Familiar. Ponentes: Dr. Rodrigo López Falcony, Dr. Juan Rodríguez, Dr Martínez Bernal y Dra Kenia Reyes"
+  },
+  {
+    "__EMPTY": "Clase Virtual 24 Septiembre Perspectiva Internacional de la Donación y Marco Normativo (OPS) por el Dr. Mauricio Beltrán (Washignston)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "FASE 2: TEÓRICA PRESENCIAL "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Objetivo de la Fase: Integrar los paradigmas asistenciales, legales y bioéticos de vanguardia en donación y trasplantes mediante ponencias magistrales interactivas con expertos de la red nacional e internacional."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "28 SEPTIEMBRE (Auditorio de Recotría -  Universidad Anáhuac) "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "HORARIO",
+    "__EMPTY": "No.",
+    "__EMPTY_1": "Título",
+    "__EMPTY_2": "Objetivo de Aprendizaje",
+    "__EMPTY_3": "NOMBRE DEL PONENTE",
+    "__EMPTY_4": "Duración",
+    "__EMPTY_5": "PAÍS"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": 0.3541666666666667,
+    "__EMPTY": "LLEGADA ALUMNOS"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": 0.3680555555555556,
+    "__EMPTY": "BIENVENIDA A LA UNIVERSIDAD ANÁHUAC POR AUTORIDADES"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:00-9:15 AM",
+    "__EMPTY": 1,
+    "__EMPTY_1": "El Modelo Mexicano de Donación y Trasplantes: Realidad Actual y Retos Normativos (CENATRA)",
+    "__EMPTY_2": "Contextualizar el marco legal y regulatorio vigente en México frente al panorama global para identificar áreas de oportunidad en la práctica institucional.",
+    "__EMPTY_3": " Dra. Rosa Erro",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:15-9:30 AM",
+    "__EMPTY": 2,
+    "__EMPTY_1": "El Modelo Español de Donación: Lecciones Aprendidas y Estrategias de Éxito (ONT)",
+    "__EMPTY_2": "Analizar el sistema organizativo y de gestión de la Organización Nacional de Trasplantes de España para adaptar sus casos de éxito al entorno nacional.",
+    "__EMPTY_3": "Dr. Alonso Mateos Rodríguez",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:30-9:45 AM",
+    "__EMPTY": 3,
+    "__EMPTY_1": "Estrategia Panamericana: Perspectiva, Marco Normativo y Cooperación Regional de la Donación (OPS)",
+    "__EMPTY_2": "Comparar los indicadores de donación en Latinoamérica con el fin de alinear las estrategias locales a las metas de la Organización Panamericana de la Salud.",
+    "__EMPTY_3": "Dr Jose Moya Medina",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:45-10:00 AM",
+    "__EMPTY": 4,
+    "__EMPTY_1": "Gobernanza y Gestión de Calidad en los Procesos de Donación Hospitalaria (CETRA GTO)",
+    "__EMPTY_2": "Analizar indicadores clave de rendimiento (KPIs) y control de procesos para auditar la eficiencia de los programas de donación hospitalaria.",
+    "__EMPTY_3": "Dr. Rodrigo López Falcony",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:00-10:15 AM",
+    "__EMPTY": 5,
+    "__EMPTY_1": "Gestión de Riesgos y Seguridad del Paciente en el Proceso de Donación (CETRA GTO)",
+    "__EMPTY_2": "Identificar y mitigar proactivamente los riesgos clínicos y administrativos que comprometen la viabilidad de los procesos de procuración.",
+    "__EMPTY_3": "Dr. Juan Salvador Rodríguez Jamaica",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:15-10:30 AM",
+    "__EMPTY": 6,
+    "__EMPTY_1": "Criterios Avanzados de Detección, Evaluación y Validación del Donante Potencial",
+    "__EMPTY_2": "Sistematizar las estrategias clínicas para la identificación oportuna y la validación estricta del donante potencial basándose en criterios de seguridad biológica.",
+    "__EMPTY_3": "Dra. Nubia Avilez",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:30-10:45 AM",
+    "__EMPTY": "COFFEE BREAK"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:45-11:00 AM",
+    "__EMPTY": 7,
+    "__EMPTY_1": "Estrategias Críticas de Soporte Fisiológico y Mantenimiento Hemodinámico del Donante",
+    "__EMPTY_2": "Revisar las metas terapéuticas avanzadas (metabólicas, ventilatorias y hemodinámicas) para contrarrestar la tormenta autonómica y optimizar la perfusión orgánica.",
+    "__EMPTY_3": "Dr. Walter Querebalu",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:00-11:15 AM",
+    "__EMPTY": 8,
+    "__EMPTY_1": "Clasificación y Criterios de Selección en las Modalidades de Donación",
+    "__EMPTY_2": "Categorizar las vías de obtención de órganos y tejidos, aplicando criterios de inclusión/exclusión para ampliar el pool de donantes de manera segura.",
+    "__EMPTY_3": "Dr. Juan Ignacio Torres González",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:15-11:30 AM",
+    "__EMPTY": 9,
+    "__EMPTY_1": "Certificación de la Muerte Encefálica: Del Tamizaje con Glasgow 7 al Test de Apnea",
+    "__EMPTY_2": "Estandarizar la exploración clínica neurológica, el uso de pruebas confirmatorias de gabinete y la ejecución del test de apnea bajo la consigna del protocolo Glasgow 7.",
+    "__EMPTY_3": "Dra. Ericka Rivera",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:30-11:45 AM",
+    "__EMPTY": 10,
+    "__EMPTY_1": "Donación en Asistolia Controlada (DAC): Límites del Tratamiento y Tiempos Críticos",
+    "__EMPTY_2": "Analizar la secuencia temporal, los requisitos bioéticos para la adecuación del esfuerzo terapéutico y los periodos de touch-off en el donante en asistolia.",
+    "__EMPTY_3": "Dr. Juan Ignacio Torres González",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:45-12:00 PM",
+    "__EMPTY": 11,
+    "__EMPTY_1": "Donación en Asistolia No Controlada (DANC): Coordinación Prehospitalaria y Hospitalaria",
+    "__EMPTY_2": "Esquematizar la cadena logístico-asistencial del donante en paro cardiaco refractario, optimizando los tiempos de respuesta desde el medio prehospitalario",
+    "__EMPTY_3": "Dr. Alonso Mateos Rodríguez",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:00-12:15 PM",
+    "__EMPTY": 12,
+    "__EMPTY_1": "Donación Pediátrica y Neonatal: Consideraciones Fisiológicas, Legales y Abordaje Familiar",
+    "__EMPTY_2": "Determinar las particularidades fisiopatológicas del donante pediátrico y las directrices éticas específicas para el manejo del duelo familiar con padres o tutores.",
+    "__EMPTY_3": "Dr. Belén Estébanez Montiel",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:15-12:30 PM",
+    "__EMPTY": 13,
+    "__EMPTY_1": "Oxigenación por Membrana Extracorpórea (ECMO) y Perfusión Regional Normotérmica",
+    "__EMPTY_2": "Evaluar la integración de sistemas ECMO/PRN como estrategia avanzada de perfusión y rescate de órganos en protocolos de Donación en Asistolia.",
+    "__EMPTY_3": "Perf. Gilberto Pérez",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:30-12:45 PM",
+    "__EMPTY": 14,
+    "__EMPTY_1": "Preservación Avanzada, Triple Embalaje y Cadena de Custodia de Órganos y Tejidos",
+    "__EMPTY_2": "Aplicar técnicas de preservación hipotérmica estática, resguardo documental legal y empaque especializado para asegurar la viabilidad celular en el traslado.",
+    "__EMPTY_3": "Dra. Magdalena García Baysa",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:45-13:00 PM",
+    "__EMPTY": 15,
+    "__EMPTY_1": "Logística y Transporte Biológico Seguro: Gestión de Rutas Críticas Críticas",
+    "__EMPTY_2": "Objetivo: Revisar los protocolos del traslado de órganos y tejidos seguro y oportuno. Revisión de la secuencia de procesos desde salida hasta destino final y vías (aérea y terrestre) utilizadas para el Traslado.",
+    "__EMPTY_3": "Dr. Victor Figueroa   (RED KAIROS)",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:00-13:15 PM",
+    "__EMPTY": 16,
+    "__EMPTY_1": "Dilemas Bioéticos en el Futuro de la Donación de Órganos y Tejidos en México: El Impacto de la DAC",
+    "__EMPTY_2": "Debatir los desafíos éticos, legales y deontológicos que plantea la implementación masiva de la Donación en Asistolia Controlada en el entorno nacional.",
+    "__EMPTY_3": "Dr. Patricio Santillán",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:15-14:15 PM",
+    "__EMPTY": "COMIDA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "14:15-15:50 PM",
+    "__EMPTY": 17,
+    "__EMPTY_1": "Perlas de la Comunicación de Malas Noticias y Entrevista Familiar",
+    "__EMPTY_2": "Ejecutar herramientas de contención emocional, comunicación no verbal y destrezas dialécticas para conducir de forma efectiva la entrevista familiar de donación.",
+    "__EMPTY_3": "Dr. Juan Rodriguez, Dr Martínez Bernal y Dra Kenia Reyes",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MÉXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "15:50-16:00 PM",
+    "__EMPTY": "Q&A Y CIERRE PRIMER DÍA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "FASE 3: PRÁCTICA PRESENCIAL SIMULACIÓN CLÍNICA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Objetivo de la Fase: Transferir el conocimiento teórico a la resolución de problemas clínicos complejos en tiempo real, mediante la inmersión en escenarios simulados de alta fidelidad y técnicas estructuradas de debriefing."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "29 DE SEPTIEMBRE (CENTRO DE SIMULACIÓN ANAHUAC)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": 0.375,
+    "__EMPTY": "HORARIO DE LLEGADA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:00-9:15 AM",
+    "__EMPTY": "BIENVENIDA AL CENTRO DE SIMULACIÓN Y REGLAS/COMPROMISOS"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "HORARIO",
+    "__EMPTY": "Round",
+    "__EMPTY_1": "Escenario 1: Diagnóstico Muerte Encefálica                   ",
+    "__EMPTY_2": "Escenario 2: Comunicación de Malas Noticias                ",
+    "__EMPTY_3": "Escenario 3: Manejo ECMO                                                ",
+    "__EMPTY_4": "Escenario 4: Logística DAC                                                  "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:15-10:15 AM",
+    "__EMPTY": 1,
+    "__EMPTY_1": "GRUPO A",
+    "__EMPTY_2": "GRUPO B",
+    "__EMPTY_3": "GRUPO C",
+    "__EMPTY_4": "GRUPO D"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:15-10:30 AM",
+    "__EMPTY": "COFFEE BREAK"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:30-11:30 AM",
+    "__EMPTY": 2,
+    "__EMPTY_1": "GRUPO D",
+    "__EMPTY_2": "GRUPO A",
+    "__EMPTY_3": "GRUPO B",
+    "__EMPTY_4": "GRUPO C"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:30-12:30 PM",
+    "__EMPTY": 3,
+    "__EMPTY_1": "GRUPO C",
+    "__EMPTY_2": "GRUPO D",
+    "__EMPTY_3": "GRUPO A",
+    "__EMPTY_4": "GRUPO B"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:30-13:45 PM",
+    "__EMPTY": "COMIDA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:45-14:45 PM",
+    "__EMPTY": 4,
+    "__EMPTY_1": "GRUPO B",
+    "__EMPTY_2": "GRUPO C",
+    "__EMPTY_3": "GRUPO D",
+    "__EMPTY_4": "GRUPO A"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "14:45-15:00 pm",
+    "__EMPTY": "Q&A Y CIERRE DÍA 2"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "30 DE SEPTIEMBRE"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": 0.375,
+    "__EMPTY": "HORARIO DE LLEGADA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "HORARIO",
+    "__EMPTY": "Round",
+    "__EMPTY_1": "Escenario 5: Entrevista para Donación                                                                               ",
+    "__EMPTY_2": "Escenario 6: Manejo, Preservación y Envió de Órganos         ",
+    "__EMPTY_3": "Escenario 7: Mantenimiento del Donante con Muerte Encefálica                                             ",
+    "__EMPTY_4": "Escenario 8: Logística de Donación en Asistolia No Controlada                                              "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:00-10:00 AM",
+    "__EMPTY": 5,
+    "__EMPTY_1": "GRUPO A",
+    "__EMPTY_2": "GRUPO B",
+    "__EMPTY_3": "GRUPO C",
+    "__EMPTY_4": "GRUPO D"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:00-10:15 AM",
+    "__EMPTY": "COFFEE BREAK"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:15-11:15 AM",
+    "__EMPTY": 6,
+    "__EMPTY_1": "GRUPO D",
+    "__EMPTY_2": "GRUPO A",
+    "__EMPTY_3": "GRUPO B",
+    "__EMPTY_4": "GRUPO C"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:15-12:15 PM",
+    "__EMPTY": 7,
+    "__EMPTY_1": "GRUPO C",
+    "__EMPTY_2": "GRUPO D",
+    "__EMPTY_3": "GRUPO A",
+    "__EMPTY_4": "GRUPO B"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:15-13:30 PM",
+    "__EMPTY": "COMIDA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:30-14:30 PM",
+    "__EMPTY": 8,
+    "__EMPTY_1": "GRUPO B",
+    "__EMPTY_2": "GRUPO C",
+    "__EMPTY_3": "GRUPO D",
+    "__EMPTY_4": "GRUPO A"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "14:30-14:45:00 PM",
+    "__EMPTY": "Q&A DEL CURSO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "14:45-15:00 PM",
+    "__EMPTY": "CLAUSURA Y ENTRGEA DE CONSTANCIAS"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "FASE 5: Fase Teórica Quirúrgica Experimental"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Objetivo de la Fase: Integrar y sistematizar los fundamentos anatómicos, criterios de selección avanzados, innovaciones tecnológicas y variantes de técnica quirúrgica compleja (Split, DAC, Robótica y Perfusión Dinámica), con el fin de unificar criterios clínicos y estandarizar la toma de decisiones críticas que los cirujanos y equipo multidisciplinario ejecutarán de forma práctica e inmediata en los modelos biológicos in vivo y ex situ."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "1 OCTUBRE (UVM)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": 0.3541666666666667,
+    "__EMPTY": "HORARIO DE LLEGADA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": 0.3680555555555556,
+    "__EMPTY": "BIENVENIDA A LA UVM POR AUTORIDADES"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:00-9:15 AM",
+    "__EMPTY": 1,
+    "__EMPTY_1": "De la Donación Convencional a la Vanguardia: Evolución y Perspectivas de la Procuración Multiorgánica en México",
+    "__EMPTY_2": "Analizar la evolución histórica, los retos técnico-quirúrgicos actuales y las proyecciones futuras de la procura multiorgánica en el país para identificar áreas de oportunidad en la optimización de los sistemas de donación nacionales.",
+    "__EMPTY_3": "Dr. Rosa Erro",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MEXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:15-9:30 AM",
+    "__EMPTY": 2,
+    "__EMPTY_1": "Criterios de Excelencia: Protocolo y Selección del Donante Ideal para la Técnica Split",
+    "__EMPTY_2": "Sistematizar los criterios morfológicos, antropométricos y clínico-metabólicos de selección del donante para la técnica de bipartición hepática, garantizando la seguridad del procedimiento y reduciendo el riesgo de disfunción primaria del injerto.",
+    "__EMPTY_3": "Dr. Rosa Erro",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MEXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:30-9:45 AM",
+    "__EMPTY": 3,
+    "__EMPTY_1": "Bipartición Hepática In Situ y Ex Situ: Estrategias Quirúrgicas (Tips & Tricks) para Optimizar la Lista de Espera",
+    "__EMPTY_2": "Evaluar las variantes técnicas, maniobras críticas y recomendaciones prácticas en los abordajes de bipartición hepática (in situ y ex situ), orientadas a maximizar la disponibilidad de injertos y reducir la mortalidad en lista de espera.",
+    "__EMPTY_3": "Dr. Francisco Hernández Oliveros",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "9:45-10:00 AM",
+    "__EMPTY": 4,
+    "__EMPTY_1": "Cirugía Hepática Extrema: Indicaciones y Técnica Quirúrgica en Trasplante de Monosegmento y Segmento III",
+    "__EMPTY_2": "Determinar las indicaciones clínicas precisas y dominar los pasos técnicos quirúrgicos de la segmentectomía lateral izquierda (segmento III y monosegmento) como solución terapéutica de alta especialidad en el trasplante hepático pediátrico.",
+    "__EMPTY_3": "Dr. Héctor Vilca Meléndez",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "INGLATERRA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:00-10:15 AM",
+    "__EMPTY": 5,
+    "__EMPTY_1": "Imagenología Avanzada y Modelado 3D para la Planificación Quirúrgica del Injerto Hepático",
+    "__EMPTY_2": "Aplicar herramientas de imagen tridimensional y volumetría hepática para anticipar variantes anatómicas vasculares/biliares y planificar con precisión los planos de sección en cirugías de división hepática.",
+    "__EMPTY_3": "Almirante Francisco Sachiñas",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MEXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:15-10:30 AM",
+    "__EMPTY": 6,
+    "__EMPTY_1": "Prevención y Resolución Colectiva de Complicaciones Quirúrgicas Vasculares y Biliares Tempranas en Split",
+    "__EMPTY_2": "Identificar y resolver de manera oportuna las complicaciones técnicas vasculares y de la vía biliar derivadas de la partición hepática para salvaguardar la viabilidad y sobrevida del injerto.",
+    "__EMPTY_3": "Dr. Constantino Fondevila Campo",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "INGLATERRA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:30-10:45 AM",
+    "__EMPTY": 7,
+    "__EMPTY_1": "Fisiopatología Hemodinámica Hepática: Manejo del Síndrome Small-for-Size y Large-for-Size",
+    "__EMPTY_2": "Analizar los cambios hemodinámicos y de presión portal asociados al desajuste volumétrico del injerto para establecer estrategias de manejo clínico y quirúrgico preventivo.",
+    "__EMPTY_3": "Dr. Héctor Vilca Meléndez",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MEXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "10:45-11:00 AM",
+    "__EMPTY": "COFFEE BREAK"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:00-11:15 AM",
+    "__EMPTY": 8,
+    "__EMPTY_1": "Innovación Quirúrgica: Estado Actual de la Hepatectomía y Procuración Asistida por Robótica",
+    "__EMPTY_2": "Evaluar la aplicabilidad, las ventajas ergonómicas y los límites técnicos de la cirugía asistida por plataforma robótica en la hepatectomía y la procuración abdominal.",
+    "__EMPTY_3": "Dr. Constantino Fondevila Campo",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:15-11:30 AM",
+    "__EMPTY": 9,
+    "__EMPTY_1": "Cirugía Multivisceral: Abordajes Técnicos Avanzados en el Trasplante de Intestino y Bloque Abdominal",
+    "__EMPTY_2": "Describir los tiempos quirúrgicos, los retos de reconstrucción vascular y las complejidades inmunológicas del trasplante multivisceral y de intestino delgado.",
+    "__EMPTY_3": "Dr. Gustaf Herlenius",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "SUECIA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:30-11:45 AM",
+    "__EMPTY": 10,
+    "__EMPTY_1": "Perfusión Dinámica Ex Situ: Beneficios Clínicos del Uso de Máquinas de Perfusión Hipotérmica y Normotérmica",
+    "__EMPTY_2": "Contrastar las modalidades de perfusión mecánica ex situ para optimizar la preservación celular, reducir el daño por isquemia-reperfusión y evaluar el metabolismo del injerto.",
+    "__EMPTY_3": "Dr. Francisco Hernández Oliveros",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "11:45-12:00 PM",
+    "__EMPTY": 11,
+    "__EMPTY_1": "Rescate de Órganos Marginales a través del soporte ECMO y Preservación Regional Normotérmica",
+    "__EMPTY_2": "Implementar protocolos de asistencia circulatoria extracorpórea (ECMO) orientados al rescate, soporte metabólico y acondicionamiento normotérmico de órganos marginales.",
+    "__EMPTY_3": "PENDIENTE",
+    "__EMPTY_4": "15 min"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:00-12:15 PM",
+    "__EMPTY": 12,
+    "__EMPTY_1": "Preservación Catiónica y Quirúrgica en la Procuración Cardio-Pulmonar Compleja",
+    "__EMPTY_2": "Analizar las técnicas de infusión de soluciones de preservación celular y protección tisular específica durante la extracción multiorgánica torácica compleja.",
+    "__EMPTY_3": "PENDIENTE",
+    "__EMPTY_4": "15 min"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:15-12:30 PM",
+    "__EMPTY": 13,
+    "__EMPTY_1": "El Cambio de Paradigma Quirúrgico: Implementación y Futuro de la DAC en México",
+    "__EMPTY_2": "Valorar el impacto clínico, operativo, legal y bioético de la Donación en Asistolia Controlada (DAC) como alternativa fundamental para incrementar el pool de órganos disponibles en el país.",
+    "__EMPTY_3": "Dr. Francisco Hernández Oliveros",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "ESPAÑA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:30-12:45 PM",
+    "__EMPTY": 14,
+    "__EMPTY_1": "Validación y Score de Viabilidad Quirúrgica en Donantes de Asistolia Controlada",
+    "__EMPTY_2": "Aplicar escalas de puntuación pronóstica y criterios objetivos de validación histológica/funcional para certificar la aceptación segura de injertos provenientes de donantes en asistolia.",
+    "__EMPTY_3": "Dr. Rosa Erro",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MEXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:45-13:00 PM",
+    "__EMPTY": 15,
+    "__EMPTY_1": "Análisis de Video Clínico: Pasos Críticos en la Donación en Asistolia Controlada",
+    "__EMPTY_2": "Analizar mediante la revisión de registros videográficos reales los puntos críticos, los tiempos de isquemia caliente funcional y las desviaciones técnicas más frecuentes en la DAC.",
+    "__EMPTY_3": "Dr. Rosa Erro",
+    "__EMPTY_4": "15 min",
+    "__EMPTY_5": "MEXICO"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:00-13:15 PM",
+    "__EMPTY": "Q&A y Cierre"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:15-14:15 PM",
+    "__EMPTY": "COMIDA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "FASE 6: PRACTICA PRESENCIAL EXPERIMENTAL QUIRÚRGICA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "Objetivo de la Fase: Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad."
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "1 OCTUBRE (UVM)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "14:15-14:30 PM",
+    "__EMPTY": "Prácticas",
+    "__EMPTY_1": "VESTIDORES/PREPARACIÓN- Laboratorio Quirúrgico Experimental (Bloques Prácticos)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "14:30-17:30 HRS",
+    "__EMPTY": 1,
+    "__EMPTY_1": "Estación Quirúrgica A: Donación en Asistolia Controlada (Modelos Quirúrgicos In Vivo)",
+    "__EMPTY_2": "Estación Quirúrgica B: Perfusión de Órganos Ex Situ (Sala Quirúrgica)",
+    "__EMPTY_3": "Bipartición Hepática (SALA)"
+  },
+  {
+    "__EMPTY_1": "Objetivo: entrenar DAC con el fin de aprender una estrategia adicional para incrementar la tsa de donacion con miras del futuro cercano en mexico",
+    "__EMPTY_2": "mejora de resultados  de sobrevida en trasplante y Recuperar mas organos marginales disponible a traves de la perfusion ex situ",
+    "__EMPTY_3": "Adquirir habilidades técnicas para la bipartición y el trasplante de ambos segmentos "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "17:30-18:00 PM",
+    "__EMPTY": "Debriefing y Cierre"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "2 OCTUBRE (UVM)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "08:30-09:00 AM",
+    "__EMPTY": "Prácticas",
+    "__EMPTY_1": "VESTIDORES/PREPARACIÓN- Laboratorio Quirúrgico Experimental (Bloques Prácticos)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "09:00-12:00 PM",
+    "__EMPTY": 2,
+    "__EMPTY_1": "Estación Quirúrgica A: Donación en Asistolia Controlada (Modelos Quirúrgicos In Vivo)",
+    "__EMPTY_2": "Estación Quirúrgica B: Perfusión de Órganos Ex Situ (Sala Quirúrgica)",
+    "__EMPTY_3": "Bipartición Hepática (SALA)"
+  },
+  {
+    "__EMPTY_1": "Objetivo: entrenar DAC con el fin de aprender una estrategia adicional para incrementar la tsa de donacion con miras del futuro cercano en mexico",
+    "__EMPTY_2": "mejora de resultados  de sobrevida en trasplante y Recuperar mas organos marginales disponible a traves de la perfusion ex situ",
+    "__EMPTY_3": "Adquirir habilidades técnicas para la bipartición y el trasplante de ambos segmentos "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:00-12:30 PM",
+    "__EMPTY": "Debriefing "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "12:30-13:30 PM",
+    "__EMPTY": "COMIDA"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:30-13:45 Pm",
+    "__EMPTY": "Prácticas",
+    "__EMPTY_1": "VESTIDORES/PREPARACIÓN- Laboratorio Quirúrgico Experimental (Bloques Prácticos)"
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "13:45-16:45 PM",
+    "__EMPTY": 3,
+    "__EMPTY_1": "Estación Quirúrgica A: Donación en Asistolia Controlada (Modelos Quirúrgicos In Vivo)",
+    "__EMPTY_2": "Estación Quirúrgica B: Perfusión de Órganos Ex Situ (Sala Quirúrgica)",
+    "__EMPTY_3": "Bipartición Hepática (SALA)"
+  },
+  {
+    "__EMPTY_1": "Objetivo: entrenar DAC con el fin de aprender una estrategia adicional para incrementar la tsa de donacion con miras del futuro cercano en mexico",
+    "__EMPTY_2": "mejora de resultados  de sobrevida en trasplante y Recuperar mas organos marginales disponible a traves de la perfusion ex situ",
+    "__EMPTY_3": "Adquirir habilidades técnicas para la bipartición y el trasplante de ambos segmentos "
+  },
+  {
+    "CURSO NACIONAL AVANZADO DE LOS PROCESOS DE DONACIÓN DE ÓRGANOS Y TEJIDOS CON FINES DE TRASPLANTE HACIA UN MODELO MEXICANO.": "16:45-17:15 PM",
+    "__EMPTY": "Debriefing y Clausura"
+  }
+]
