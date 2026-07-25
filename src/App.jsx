@@ -344,7 +344,7 @@ function App() {
         {section === 'programa' && (
           <section className="cn-reveal pad-section">
             <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
-            <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Programa Completo (5 Fases)</h2>
+            <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Programa Completo</h2>
             <p style={{ color: '#666', margin: '0 0 28px', fontSize: 16 }}>Un programa escalado de complejidad creciente. Haz clic en cada fase para ver el detalle de los temas.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {programa.map((f, i) => {
@@ -398,15 +398,16 @@ function App() {
             <div className="grid-2" style={{ gap: 24 }}>
               {escenarios.map((e, i) => (
                 <div key={i} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid #e8f1f0', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 16px rgba(0,0,0,.03)' }}>
-                  <div style={{ position: 'relative', height: 160, backgroundImage: `url(${e.image})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 100%)' }}></div>
+                  <div style={{ position: 'relative', height: 160 }}>
+                    <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${e.image})`, backgroundSize: e.bgSize || 'cover', backgroundPosition: e.bgPos || 'center', backgroundRepeat: 'no-repeat', transform: e.flip ? 'scaleX(-1)' : 'none' }}></div>
+                    <div style={{ position: 'absolute', inset: 0, background: e.overlay || 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 55%, rgba(255,255,255,0) 100%)' }}></div>
                     <div style={{ position: 'relative', zIndex: 1, padding: 24, display: 'flex', alignItems: 'center', gap: 16, height: '100%' }}>
                       <div style={{ width: 54, height: 54, borderRadius: 14, background: e.color, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                         {e.icon}
                       </div>
                       <div>
-                        <span style={{ fontFamily: "'Poppins'", fontWeight: 800, fontSize: 11, letterSpacing: '.06em', textTransform: 'uppercase', color: e.color }}>ESCENARIO {e.num}</span>
-                        <h3 style={{ fontFamily: "'Poppins'", fontWeight: 800, fontSize: 20, color: '#1c3f4a', margin: '2px 0 0', lineHeight: 1.2 }}>{e.title}</h3>
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 800, fontSize: 11, letterSpacing: '.06em', textTransform: 'uppercase', color: e.color, textShadow: '0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.8)' }}>ESCENARIO {e.num}</span>
+                        <h3 style={{ fontFamily: "'Poppins'", fontWeight: 800, fontSize: 20, color: '#1c3f4a', margin: '2px 0 0', lineHeight: 1.2, textShadow: '0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.8)' }}>{e.title}</h3>
                       </div>
                     </div>
                   </div>
@@ -542,12 +543,12 @@ function App() {
                         <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Especialidad / Rol *</span>
                         <select value={form.rol} onChange={setF('rol')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.rol ? red : '#d6e3e8'}`, borderRadius: 10, background: '#fff' }}>
                           <option value="">Selecciona…</option>
-                          <option value="Coordinador">Coordinador de Donación</option>
+                          <option value="Coordinador">Coordinador(a) de Donación</option>
                           <option value="Intensivista">Intensivista</option>
-                          <option value="Anestesiólogo">Anestesiólogo</option>
-                          <option value="Cirujano">Cirujano</option>
+                          <option value="Anestesiólogo">Anestesiólogo(a)</option>
+                          <option value="Cirujano">Cirujano(a)</option>
                           <option value="Perfusionista">Perfusionista</option>
-                          <option value="Enfermera">Enfermera Quirúrgica</option>
+                          <option value="Enfermera">Enfermero(a) Quirúrgico(a)</option>
                         </select>
                       </label>
                       <label style={{ display: 'block' }}>
@@ -592,8 +593,8 @@ function App() {
                   <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede Anáhuac</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-                    <li>Auditorio de Rectoría · 28 Sep</li>
-                    <li>Centro de Simulación · 29–30 Sep</li>
+                    <li><strong style={{color:'#0099CC'}}>28 de Septiembre</strong> · Auditorio de Rectoría</li>
+                    <li><strong style={{color:'#0099CC'}}>29 y 30 de Septiembre</strong> · Centro de Simulación</li>
                   </ul>
                   <iframe src="https://maps.google.com/maps?q=Universidad+Anahuac+Mexico+Norte&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
                 </div>
@@ -602,7 +603,7 @@ function App() {
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
                     <li><strong style={{color:'#66CC00'}}>30 de Septiembre</strong> · Centro de Simulación UVM</li>
-                    <li><strong style={{color:'#66CC00'}}>1–2 de Octubre</strong> · UVM Hospital Veterinario - Universidad del Valle de México</li>
+                    <li><strong style={{color:'#66CC00'}}>1 y 2 de Octubre</strong> · UVM Hospital Veterinario</li>
                   </ul>
                   <iframe src="https://maps.google.com/maps?q=Calz.+de+Tlalpan+3058,+Coapa,+Sta.+Ursula+Coapa,+Coyoacan,+CDMX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
                 </div>
@@ -623,10 +624,7 @@ function App() {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   </div>
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cupo Limitado</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
-                    <li><strong>24 lugares</strong> · Simulación Clínica</li>
-                    <li><strong>48 lugares</strong> · Práctica Experimental Quirúrgica</li>
-                  </ul>
+                  <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Una vez aprobado por el comité podrá completar su inscripción.</p>
                 </div>
 
                 <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
@@ -636,7 +634,7 @@ function App() {
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Requisitos</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
                     <li>• Curriculum Vitae (CV) actualizado</li>
-                    <li>• Carta de motivos (1 cuartilla)</li>
+                    <li>• Carta de motivos (Máx. 1 cuartilla)</li>
                   </ul>
                 </div>
 
@@ -651,7 +649,9 @@ function App() {
                   </ul>
                 </div>
                 <div style={{ background: '#FFE6CC', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPhone}</div>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Soporte</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.75 }}>
                     <li>Correo: <a href="mailto:dgcenatra@salud.gob.mx" style={{color: '#FF6600', fontWeight: 600, textDecoration: 'none'}}>dgcenatra@salud.gob.mx</a></li>

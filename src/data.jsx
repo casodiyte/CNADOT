@@ -58,12 +58,12 @@ export const objetivos = [
 ];
 
 export const perfiles=[
-  {titulo:'Coordinadores de Donación', color:blue, tint:'#E6F7FF', icon:ic(['M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2', 'M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z', 'M12 11h4', 'M12 16h4', 'M8 11h.01', 'M8 16h.01']), desc:'Responsables de la detección, logística hospitalaria, vínculo legal-administrativo y la aproximación familiar.'},
-  {titulo:'Intensivistas (Medicina Crítica)', color:green, tint:'#EEF9D9', icon:icc([<path key={1} d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />,<path key={2} d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />,<circle key={3} cx="20" cy="10" r="2" />]), desc:'Encargados del mantenimiento hemodinámico óptimo del donante en la UCI y la certificación clínica de la Muerte Encefálica.'},
-  {titulo:'Anestesiólogos', color:orange, tint:'#FFE6CC', icon:ic(['m18 2 4 4', 'm17 7-1-1', 'm19 9-1-1', 'm18 8-8 8-3-3 8-8', 'm10 16-6 6', 'm4.5 13.5 6 6', 'm2 22 3-3']), desc:'Responsables de mantener la homeostasis y estabilidad del donante en el quirófano durante los tiempos críticos y la extracción.'},
-  {titulo:'Cirujanos de Tórax, Cardiovasculares y Abdomen', color:blue, tint:'#E6F7FF', icon:icc([<circle key={1} cx="6" cy="6" r="3" />,<circle key={2} cx="6" cy="18" r="3" />,<path key={3} d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12" />]), desc:'Líderes de la técnica quirúrgica de procuración, canulación y evaluación in situ de la viabilidad de los injertos.'},
-  {titulo:'Perfusionistas', color:green, tint:'#EEF9D9', icon:ic(['M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z']), desc:'Especialistas a cargo del cebado, monitorización y manejo del soporte circulatorio extracorpóreo (CEC/ECMO) para preservación orgánica.'},
-  {titulo:'Enfermeras Quirúrgicas', color:orange, tint:'#FFE6CC', icon:ic(['M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.5 0 4.5 1 7 2a1 1 0 0 1 1 1z', 'M8 12h8', 'M12 8v8']), desc:'Profesionales clave en la instrumentación especializada, la gestión de soluciones de preservación celular y la preparación de la mesa de banco (back-table).'}
+  {titulo:'Coordinador(a) de Donación', color:blue, tint:'#E6F7FF', icon:ic(['M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2', 'M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z', 'M12 11h4', 'M12 16h4', 'M8 11h.01', 'M8 16h.01']), desc:'Responsables de la detección, logística hospitalaria, vínculo legal-administrativo y la aproximación familiar.'},
+  {titulo:'Intensivista (Medicina Crítica)', color:green, tint:'#EEF9D9', icon:icc([<path key={1} d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />,<path key={2} d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />,<circle key={3} cx="20" cy="10" r="2" />]), desc:'Encargados del mantenimiento hemodinámico óptimo del donante en la UCI y la certificación clínica de la Muerte Encefálica.'},
+  {titulo:'Anestesiólogo(a)', color:orange, tint:'#FFE6CC', icon:ic(['m18 2 4 4', 'm17 7-1-1', 'm19 9-1-1', 'm18 8-8 8-3-3 8-8', 'm10 16-6 6', 'm4.5 13.5 6 6', 'm2 22 3-3']), desc:'Responsables de mantener la homeostasis y estabilidad del donante en el quirófano durante los tiempos críticos y la extracción.'},
+  {titulo:'Cirujano(a) de Tórax, Cardiovascular y Abdomen', color:blue, tint:'#E6F7FF', icon:icc([<circle key={1} cx="6" cy="6" r="3" />,<circle key={2} cx="6" cy="18" r="3" />,<path key={3} d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12" />]), desc:'Líderes de la técnica quirúrgica de procuración, canulación y evaluación in situ de la viabilidad de los injertos.'},
+  {titulo:'Perfusionista', color:green, tint:'#EEF9D9', icon:ic(['M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z']), desc:'Especialistas a cargo del cebado, monitorización y manejo del soporte circulatorio extracorpóreo (CEC/ECMO) para preservación orgánica.'},
+  {titulo:'Enfermero(a) Quirúrgico(a)', color:orange, tint:'#FFE6CC', icon:ic(['M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.5 0 4.5 1 7 2a1 1 0 0 1 1 1z', 'M8 12h8', 'M12 8v8']), desc:'Profesionales clave en la instrumentación especializada, la gestión de soluciones de preservación celular y la preparación de la mesa de banco.'}
 ];
 
 export const programa = [
@@ -78,7 +78,7 @@ export const programa = [
     ]
   },
   {
-    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
+    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9',
     objetivo: 'Integrar los paradigmas asistenciales, legales y bioéticos de vanguardia en donación y trasplantes mediante ponencias magistrales interactivas con expertos de la red nacional e internacional.',
     temas: [
       { t: 'El Modelo Mexicano de Donación y Trasplantes: Realidad Actual y Retos Normativos (CENATRA)', d: 'Objetivo: Contextualizar el marco legal y regulatorio vigente en México frente al panorama global para identificar áreas de oportunidad en la práctica institucional.' },
@@ -101,7 +101,7 @@ export const programa = [
     ]
   },
   {
-    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026', meta: 'Centro de Simulación Anáhuac', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
+    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Centro de Simulación Anáhuac', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
     objetivo: 'Aplicación en tiempo real de habilidades no técnicas en escenarios de crisis (Muerte encefálica y comunicación de malas noticias), mediante la inmersión en escenarios simulados de alta fidelidad y técnicas estructuradas de debriefing.',
     temas: [
       { t: '29 de Septiembre | Día 1: Escenarios Clínicos Básicos', d: 'Escenario 1: Diagnóstico Muerte Encefálica\nEscenario 2: Comunicación de Malas Noticias\nEscenario 3: Manejo ECMO\nEscenario 4: Logística DAC' },
@@ -109,11 +109,17 @@ export const programa = [
     ]
   },
   {
-    n: '4', titulo: 'Simulación Clínica y Teórica Quirúrgica', cuando: '30 Septiembre y 1 de Octubre 2026', meta: 'UVM', color: blue, color2: green, tint: '#EAF6EC',
+    n: '4', titulo: 'Simulación Clínica', cuando: '30 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Centro de Simulación UVM', color: blue, color2: blue, tint: '#E6F7FF',
+    objetivo: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).',
+    temas: [
+      { t: 'Simulación Clínica DAC', d: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).' }
+    ]
+  },
+  {
+    n: '5', titulo: 'Teórica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'UVM Hospital Veterinario', color: orange, color2: orange, tint: '#FFE6CC',
     objetivo: 'Integrar y sistematizar los fundamentos anatómicos, criterios de selección avanzados, innovaciones tecnológicas y variantes de técnica quirúrgica compleja (Split, DAC, Robótica y Perfusión Dinámica), con el fin de unificar criterios clínicos y estandarizar la toma de decisiones críticas que los cirujanos y equipo multidisciplinario ejecutarán de forma práctica e inmediata en los modelos biológicos in vivo y ex situ.',
     temas: [
-      { t: 'DÍA 1: FASE SIMULACIÓN CLÍNICA DAC (30 Septiembre - UVM Hospital Veterinario)', d: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).' },
-      { t: 'DÍA 2: FASE TEÓRICA QUIRÚRGICA EXPERIMENTAL (1 Octubre - UVM)', d: 'De la Donación Convencional a la Vanguardia: Evolución y Perspectivas de la Procuración Multiorgánica en México.' },
+      { t: 'De la Donación Convencional a la Vanguardia: Evolución y Perspectivas de la Procuración Multiorgánica en México', d: 'Objetivo: Introducción a la fase teórica quirúrgica experimental.' },
       { t: 'Criterios de Excelencia: Protocolo y Selección del Donante Ideal para la Técnica Split', d: 'Objetivo: Sistematizar los criterios morfológicos, antropométricos y clínico-metabólicos de selección del donante para la técnica de bipartición hepática.' },
       { t: 'Bipartición Hepática In Situ y Ex Situ: Estrategias Quirúrgicas (Tips & Tricks) para Optimizar la Lista de Espera', d: 'Objetivo: Evaluar las variantes técnicas, maniobras críticas y recomendaciones prácticas en los abordajes de bipartición hepática.' },
       { t: 'Cirugía Hepática Extrema: Indicaciones y Técnica Quirúrgica en Trasplante de Monosegmento y Segmento III', d: 'Objetivo: Determinar las indicaciones clínicas precisas y dominar los pasos técnicos quirúrgicos de la segmentectomía lateral izquierda.' },
@@ -127,12 +133,12 @@ export const programa = [
       { t: 'Preservación Catiónica y Quirúrgica en la Procuración Cardio-Pulmonar Compleja', d: 'Objetivo: Analizar las técnicas de infusión de soluciones de preservación celular y protección tisular específica durante la extracción multiorgánica torácica compleja.' },
       { t: 'El Cambio de Paradigma Quirúrgico: Implementación y Futuro de la DAC en México', d: 'Objetivo: Valorar el impacto clínico, operativo, legal y bioético de la Donación en Asistolia Controlada (DAC) como alternativa fundamental.' },
       { t: 'Validación y Score de Viabilidad Quirúrgica en Donantes de Asistolia Controlada', d: 'Objetivo: Aplicar escalas de puntuación pronóstica y criterios objetivos de validación histológica/funcional para certificar la aceptación segura de injertos.' },
-      { t: 'Instrumentación Quirúrgica Avanzada en Donación en Asistolia: Gestión de Tiempos Críticos y Preservación Orgánica', d: 'Objetivo: Sistematizar los protocolos de instrumentación quirúrgica, preparación de la mesa de banco (back-table) y manejo rápido de soluciones de preservación celular.' },
+      { t: 'Instrumentación Quirúrgica Avanzada en Donación en Asistolia: Gestión de Tiempos Críticos y Preservación Orgánica', d: 'Objetivo: Sistematizar los protocolos de instrumentación quirúrgica, preparación de la mesa de banco y manejo rápido de soluciones de preservación celular.' },
       { t: 'Análisis de Video Clínico: Pasos Críticos en la Donación en Asistolia Controlada', d: 'Objetivo: Analizar mediante la revisión de registros videográficos reales los puntos críticos, los tiempos de isquemia caliente funcional y las desviaciones técnicas más frecuentes en la DAC.' }
     ]
   },
   {
-    n: '5', titulo: 'Práctica Presencial Quirúrgica', cuando: '1 y 2 de Octubre 2026', meta: 'Laboratorio Experimental UVM', color: green, color2: orange, tint: '#FBF1E6',
+    n: '6', titulo: 'Práctica Quirúrgica Experimental', cuando: '1 y 2 de Octubre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9',
     objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad.',
     temas: [
       { t: 'Estación A: Donación en Asistolia Controlada (DAC)', d: 'Objetivo: Capacitar al personal en la estrategia DAC para diversificar los mecanismos de procuración de órganos, con el propósito de incrementar a corto y mediano plazo la tasa de donación en México.' },
@@ -184,7 +190,7 @@ export const paises = [
 ].filter(x=>x.count>0);
 
 export const stats = [
-  {value:'5',label:'Fases',color:blue},
+  {value:'6',label:'Fases',color:blue},
   {value:'20',label:'Expertos nacionales e internacionales',color:green},
   {value:'5',label:'Países invitados',color:orange},
   {value:'100+',label:'Horas',color:blue}
@@ -228,7 +234,11 @@ export const escenarios = [
   {
     num: 3,
     title: 'Manejo de ECMO',
-    image: 'assets/escenario_ecmo_real.jpg',
+    image: 'assets/1616_ecmo.png',
+    flip: true,
+    bgSize: 'auto 100%',
+    bgPos: 'left center',
+    overlay: 'linear-gradient(90deg, #fff 0%, #fff 65%, rgba(255,255,255,0) 95%)',
     color: orange,
     tint: '#FFE6CC',
     icon: ic(['M2 5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V5z', 'M2 19h20', 'M12 21v-2', 'M8 21h8', 'M6 10l3-3 2 6 3-8 2 5']),
