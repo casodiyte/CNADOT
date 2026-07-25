@@ -613,18 +613,14 @@ function App() {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                   </div>
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cuota de recuperación</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 6, height: 6, borderRadius: 3, background: '#FF4D4D' }}></div>Coordinadores de Donación</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 6, height: 6, borderRadius: 3, background: '#FF4D4D' }}></div>Demás especialidades</li>
-                  </ul>
+                  <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Una vez aprobado por el comité podrá completar su inscripción.</p>
                 </div>
 
                 <div style={{ background: '#F0E6FF', borderRadius: 16, padding: 22 }}>
                   <div style={{ width: 42, height: 42, borderRadius: 11, background: '#9966CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   </div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cupo Limitado</h4>
-                  <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Una vez aprobado por el comité podrá completar su inscripción.</p>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: 0 }}>Cupo Limitado</h4>
                 </div>
 
                 <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
