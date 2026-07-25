@@ -7,10 +7,57 @@ import {
   objetivos, stats, navItems, escenarios
 } from './data';
 
+const LogosGrid = () => (
+  <div className="cn-reveal" style={{ margin: '40px 0 70px', textAlign: 'center', width: '100%' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '8%', flexWrap: 'wrap', marginBottom: 50 }}>
+      {/* ORGANIZA */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', margin: 0, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase' }}>ORGANIZA:</h4>
+        <img src="assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 75, objectFit: 'contain' }} />
+      </div>
+
+      {/* MASCOTA */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'translateX(-70px)' }}>
+        <img src="assets/alianza.png" alt="Mascota" style={{ height: 95, objectFit: 'contain' }} />
+      </div>
+      
+      {/* AVAL */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', margin: 0, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase' }}>AVAL:</h4>
+        <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+          <img src="assets/Logos_03_UNAM.svg" alt="UNAM" style={{ height: 85, objectFit: 'contain' }} />
+          <img src="assets/Logos_04_Facultad de Medicina.svg" alt="Facultad de Medicina" style={{ height: 85, objectFit: 'contain' }} />
+        </div>
+      </div>
+    </div>
+
+    {/* ALIADOS */}
+    <div>
+      <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', marginBottom: 24, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase' }}>ALIADOS:</h4>
+      <div style={{ display: 'flex', gap: 40, justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', marginBottom: 30 }}>
+        <img src="assets/Logos_01_HCE.svg" alt="HCE" style={{ height: 50, objectFit: 'contain' }} />
+        <img src="assets/Logos_05_Anahuac.svg" alt="Anahuac" style={{ height: 55, objectFit: 'contain' }} />
+        <img src="assets/Logos_06_UVM.svg" alt="UVM" style={{ height: 45, objectFit: 'contain' }} />
+        <img src="assets/Logos_07_UFV.svg" alt="UFV" style={{ height: 50, objectFit: 'contain' }} />
+        <img src="assets/TransPlantChild.png" alt="TransPlantChild" style={{ height: 85, objectFit: 'contain' }} />
+      </div>
+      <div style={{ display: 'flex', gap: 40, justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+        <img src="assets/stalyc.png" alt="STALYC" style={{ height: 65, objectFit: 'contain' }} />
+        <img src="assets/Logos_08_SET.svg" alt="SET" style={{ height: 50, objectFit: 'contain' }} />
+        <img src="assets/LOGO ORCT.jfif" alt="ORCT" style={{ height: 55, objectFit: 'contain' }} />
+        <img src="assets/SMEE-Imagotipo (1).png" alt="SMEE" style={{ height: 60, objectFit: 'contain' }} />
+        <img src="assets/logo-SERMAS_SMS.png" alt="SERMAS" style={{ height: 55, objectFit: 'contain' }} />
+        <img src="assets/ont.png" alt="ONT" style={{ height: 60, objectFit: 'contain' }} />
+      </div>
+    </div>
+  </div>
+);
+
+
 function App() {
   const [section, setSection] = useState('home');
   const [query, setQuery] = useState('');
-  const [form, setForm] = useState({nombre:'',email:'',tel:'',inst:'',rol:'',cedula:'',cv:null,exp:'',msg:''});
+  const [form, setForm] = useState({nombre:'',email:'',tel:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [showErr, setShowErr] = useState(false);
@@ -72,8 +119,11 @@ function App() {
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) er.email = 1;
     if (!/^\d{10}$/.test(form.tel.replace(/\D/g, ''))) er.tel = 1;
     if (!form.inst.trim()) er.inst = 1;
+    if (!form.profesion) er.profesion = 1;
     if (!form.rol) er.rol = 1;
+    if (!form.cedula.trim()) er.cedula = 1;
     if (!form.cv) er.cv = 1;
+    if (!form.carta) er.carta = 1;
     return er;
   };
 
@@ -92,7 +142,7 @@ function App() {
 
   const resetForm = () => {
     setSubmitted(false);
-    setForm({nombre:'',email:'',tel:'',inst:'',rol:'',cedula:'',cv:null,exp:'',msg:''});
+    setForm({nombre:'',email:'',tel:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
     setErrors({});
     setShowErr(false);
   };
@@ -134,15 +184,16 @@ function App() {
       {/* NAV */}
       <header style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(255,255,255,.86)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e4eef1' }}>
         <div className="header-inner" style={{ maxWidth: 1240, margin: '0 auto', padding: '12px 24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }} onClick={() => go('home')}>
-            <img src="assets/cnadot.png" alt="CNADOT" style={{ height: 44, width: 'auto' }} />
-            <img src="assets/logo_extra2.png" alt="Salud" style={{ height: 44, width: 'auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, cursor: 'pointer' }} onClick={() => go('home')}>
+            <img src="assets/cnadot.png" alt="CNADOT" style={{ height: 70, width: 'auto' }} />
+            <div style={{ height: 40, width: 1, background: '#dcdcdc' }}></div>
+            <img src="assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 45, width: 'auto' }} />
           </div>
           <nav className="cn-scroll" style={{ display: 'flex', gap: 2, marginLeft: 'auto', overflowX: 'auto', maxWidth: '62vw' }}>
             {navItems.map(([k, label]) => (
               <button key={k} onClick={() => go(k)} className="nav-btn">
                 {label}
-                {section === k && <span style={{ position: 'absolute', left: 12, right: 12, bottom: 2, height: 3, borderRadius: 3, background: 'linear-gradient(90deg,#0099CC,#66CC00)' }}></span>}
+                {section === k && <span style={{ position: 'absolute', left: 12, right: 12, bottom: 2, height: 3, borderRadius: 3, background: 'linear-gradient(90deg, #12d2b3, #8af298)' }}></span>}
               </button>
             ))}
           </nav>
@@ -164,7 +215,7 @@ function App() {
             <div className="cn-reveal grid-hero">
               <div>
                 <span style={{ display: 'inline-block', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 12.5, letterSpacing: '.1em', textTransform: 'uppercase', color: '#66CC00', background: '#eef9d9', padding: '6px 14px', borderRadius: 999 }}>Curso Nacional Avanzado</span>
-                <h1 className="text-hero" style={{ fontFamily: "'Poppins'", fontWeight: 800, lineHeight: 1.12, color: '#1c3f4a', margin: '18px 0 10px', textWrap: 'balance' }}>Donación de Órganos y Tejidos<br /><span style={{ background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Hacia un Modelo Mexicano</span></h1>
+                <h1 className="text-hero" style={{ fontFamily: "'Poppins'", fontWeight: 800, lineHeight: 1.12, color: '#1c3f4a', margin: '18px 0 10px', textWrap: 'balance' }}>Donación de Órganos y Tejidos<br /><span style={{ background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Hacia un Modelo Mexicano</span></h1>
                 <p style={{ fontSize: 17, lineHeight: 1.6, color: '#555', maxWidth: 560 }}>Programa escalado de complejidad creciente: entornos virtuales, simulación de alta fidelidad y modelos experimentales in vivo para el equipo multidisciplinario de donación y trasplantes.</p>
                 <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 26 }}>
                   <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(255,102,0,.3)', transition: '.2s' }}>{ctaLabel}</button>
@@ -197,7 +248,9 @@ function App() {
                   </div>
                   <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 19, color: '#1c3f4a', margin: '0 0 8px', lineHeight: 1.25 }}>{f.titulo}</h3>
                   <p style={{ color: '#666', fontSize: 14, margin: '0 0 4px' }}><strong style={{ color: '#333' }}>{f.cuando}</strong></p>
-                  <p style={{ color: '#888', fontSize: 13, margin: '0 0 18px', flex: 1 }}>{f.meta}</p>
+                  <p style={{ color: '#888', fontSize: 13, margin: '0 0 6px' }}>{f.meta}</p>
+                  {f.alerta && <p style={{ color: '#D32F2F', fontSize: 12.5, fontWeight: 600, margin: '0 0 12px' }}>{f.alerta}</p>}
+                  <div style={{ flex: 1 }}></div>
                   <button onClick={() => go('programa')} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14, color: f.color, cursor: 'pointer', padding: 0 }}>Ver programa completo →</button>
                 </div>
               ))}
@@ -215,7 +268,7 @@ function App() {
             <div className="grid-4" style={{ margin: '30px 0 52px' }}>
               {objetivos.map((o, i) => (
                 <div key={i} className="cn-reveal" style={{ background: o.tint, borderRadius: 16, padding: 26, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ width: 46, height: 46, borderRadius: 12, background: o.color === blue ? '#0099CC' : o.color === green ? '#66CC00' : '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
+                  <div style={{ width: 46, height: 46, borderRadius: 12, background: o.color === blue ? '#0099CC' : o.color === green ? '#66CC00' : '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14, color: '#fff' }}>
                     {o.icon}
                   </div>
                   <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 6px' }}>{o.titulo}</h3>
@@ -224,19 +277,11 @@ function App() {
               ))}
             </div>
 
-            {/* LOGOS CARRUSEL (HOME) */}
-            <div className="cn-reveal" style={{ margin: '20px 0 60px' }}>
-              <h3 style={{ fontFamily: "'Poppins'", fontWeight: 700, fontSize: 20, color: '#1c3f4a', margin: '0 0 16px', textAlign: 'center', opacity: 0.8 }}>Instituciones Aliadas</h3>
-              <div style={{ overflow: 'hidden', position: 'relative', padding: '10px 0', WebkitMask: 'linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)', mask: 'linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)' }}>
-                <div className="cn-marquee" style={{ display: 'flex', gap: 56, alignItems: 'center', width: 'max-content' }}>
-                  {logos.map((l, i) => <img key={`home1-${i}`} src={l} style={{ height: 50, width: 'auto', objectFit: 'contain', filter: 'grayscale(.2)' }} alt="logo" />)}
-                  {logos.map((l, i) => <img key={`home2-${i}`} src={l} style={{ height: 50, width: 'auto', objectFit: 'contain', filter: 'grayscale(.2)' }} alt="logo" />)}
-                </div>
-              </div>
-            </div>
+            {/* LOGOS GRID (HOME) */}
+            <LogosGrid />
 
             {/* CTA */}
-            <div className="cn-reveal pad-cta" style={{ borderRadius: 24, textAlign: 'center', background: 'linear-gradient(120deg,#0099CC,#0a7fa8 55%,#66CC00)', color: '#fff', boxShadow: '0 16px 40px rgba(0,120,150,.25)' }}>
+            <div className="cn-reveal pad-cta" style={{ borderRadius: 24, textAlign: 'center', background: 'linear-gradient(120deg, #1c5b76, #12d2b3)', color: '#fff', boxShadow: '0 16px 40px rgba(18,210,179,.25)' }}>
               <h2 className="text-hero" style={{ fontFamily: "'Poppins'", fontWeight: 800, margin: '0 0 12px', textWrap: 'balance' }}>Únete a la Red de Especialistas en Donación y Trasplantes</h2>
               <p style={{ fontSize: 17, opacity: 0.92, margin: '0 0 28px' }}>Plazas limitadas para profesionales de la cadena crítica de donación.</p>
               <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -249,7 +294,7 @@ function App() {
         {/* OBJETIVOS */}
         {section === 'objetivos' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 30px' }}>Objetivos del Curso</h2>
             <div style={{ background: '#fff', border: '1px solid #e8f1f0', borderLeft: '5px solid #0099CC', borderRadius: 16, padding: '30px 34px', boxShadow: '0 2px 12px rgba(0,0,0,.04)', marginBottom: 34 }}>
               <h3 style={{ fontFamily: "'Poppins'", fontWeight: 700, fontSize: 22, color: '#0099CC', margin: '0 0 14px' }}>Objetivo General</h3>
@@ -259,7 +304,7 @@ function App() {
               {objetivos.map((o, i) => (
                 <div key={i} style={{ background: '#fff', border: '1px solid #eef3f4', borderTop: '3px solid transparent', borderRadius: 14, padding: 26, transition: '.25s' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 12 }}>
-                    <div style={{ width: 48, height: 48, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: o.tint }}>{o.icon}</div>
+                    <div style={{ width: 48, height: 48, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', background: o.tint, color: o.color }}>{o.icon}</div>
                     <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 18, color: '#1c3f4a', margin: 0 }}>{o.titulo}</h3>
                   </div>
                   <p style={{ color: '#556', fontSize: 14.5, lineHeight: 1.6, margin: 0 }}>{o.texto}</p>
@@ -272,7 +317,7 @@ function App() {
         {/* DIRIGIDO A */}
         {section === 'perfiles' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 12px', textTransform: 'uppercase' }}>Dirigido a:</h2>
             <p style={{ color: '#1c3f4a', fontSize: 16, lineHeight: 1.6, marginBottom: 32, maxWidth: 800 }}>
               El programa está diseñado bajo un modelo de Educación Médica Continua Multidisciplinaria. Está dirigido estrictamente a profesionales en activo que forman parte del eslabón crítico en la cadena de donación y trasplantes:
@@ -298,7 +343,7 @@ function App() {
         {/* PROGRAMA UNIFICADO */}
         {section === 'programa' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Programa Completo (5 Fases)</h2>
             <p style={{ color: '#666', margin: '0 0 28px', fontSize: 16 }}>Un programa escalado de complejidad creciente. Haz clic en cada fase para ver el detalle de los temas.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -311,6 +356,7 @@ function App() {
                       <div style={{ flex: 1 }}>
                         <div style={{ fontFamily: "'Poppins'", fontWeight: 700, fontSize: 20, color: '#1c3f4a' }}>Fase {f.n}: {f.titulo}</div>
                         <div style={{ color: '#556', fontSize: 14, marginTop: 2 }}>{f.cuando} · {f.meta}</div>
+                        {f.alerta && <div style={{ color: '#D32F2F', fontSize: 13, fontWeight: 600, marginTop: 4 }}>{f.alerta}</div>}
                       </div>
                       <span style={{ fontSize: 24, color: f.color, transition: '.2s', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}>⌄</span>
                     </button>
@@ -327,7 +373,7 @@ function App() {
                                 <span style={{ color: f.color, fontWeight: 'bold' }}>›</span>
                                 <div>
                                   <div style={{ color: '#1c3f4a', fontWeight: 600, fontSize: 15 }}>{t.t}</div>
-                                  <div style={{ color: '#556', fontSize: 14.5, marginTop: 2 }}>{t.d}</div>
+                                  <div style={{ color: '#556', fontSize: 14.5, marginTop: 2, whiteSpace: 'pre-line' }}>{t.d}</div>
                                 </div>
                               </div>
                             ))}
@@ -345,7 +391,7 @@ function App() {
         {/* ESCENARIOS */}
         {section === 'escenarios' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 8px' }}>Escenarios de Simulación Clínica</h2>
             <p style={{ color: '#666', margin: '0 0 34px', fontSize: 16 }}>Aprendizaje experiencial en alta fidelidad · rotación en grupos A, B, C, D con debriefing estructurado.</p>
             
@@ -389,7 +435,7 @@ function App() {
         {/* EXPERTOS */}
         {section === 'expertos' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Equipo Docente Internacional</h2>
             <p style={{ color: '#666', margin: '0 0 22px', fontSize: 16 }}>Expertos de México, España y Estados Unidos.</p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 30 }}>
@@ -414,13 +460,9 @@ function App() {
               ))}
             </div>
 
-            {/* LOGOS CARRUSEL */}
-            <h3 style={{ fontFamily: "'Poppins'", fontWeight: 700, fontSize: 22, color: '#1c3f4a', margin: '48px 0 20px', textAlign: 'center' }}>Instituciones Aliadas</h3>
-            <div className="cn-reveal" style={{ overflow: 'hidden', position: 'relative', padding: '10px 0', WebkitMask: 'linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)', mask: 'linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)' }}>
-              <div className="cn-marquee" style={{ display: 'flex', gap: 56, alignItems: 'center', width: 'max-content' }}>
-                {logos.map((l, i) => <img key={`exp1-${i}`} src={l} style={{ height: 56, width: 'auto', objectFit: 'contain', filter: 'grayscale(.2)' }} alt="logo" />)}
-                {logos.map((l, i) => <img key={`exp2-${i}`} src={l} style={{ height: 56, width: 'auto', objectFit: 'contain', filter: 'grayscale(.2)' }} alt="logo" />)}
-              </div>
+            {/* LOGOS GRID */}
+            <div style={{ marginTop: 60 }}>
+              <LogosGrid />
             </div>
           </section>
         )}
@@ -428,11 +470,11 @@ function App() {
         {/* CRONOGRAMA */}
         {section === 'cronograma' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Timeline del Programa</h2>
             <p style={{ color: '#666', margin: '0 0 34px', fontSize: 16 }}>Formación intensiva entre septiembre y octubre.</p>
             <div style={{ position: 'relative', paddingLeft: 44 }}>
-              <div style={{ position: 'absolute', left: 15, top: 8, bottom: 8, width: 3, background: 'linear-gradient(180deg,#0099CC,#66CC00,#FF6600)' }}></div>
+              <div style={{ position: 'absolute', left: 15, top: 8, bottom: 8, width: 3, background: 'linear-gradient(180deg, #1c5b76, #12d2b3, #8af298)' }}></div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
                 {timeline.map((t, i) => (
                   <div key={i} className="cn-reveal" style={{ position: 'relative' }}>
@@ -454,11 +496,11 @@ function App() {
         {/* INSCRIPCION */}
         {section === 'inscripcion' && (
           <section className="cn-reveal pad-section">
-            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg,#0099CC,#66CC00,#FF6600)', marginBottom: 16 }}></div>
+            <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Pre-regístrate al Programa</h2>
-            <p style={{ color: '#666', margin: '0 0 28px', fontSize: 16 }}>Plazas limitadas — asegura tu lugar.</p>
-            <div className="grid-split">
-              <div style={{ background: '#fff', border: '1px solid #e8f1f0', borderRadius: 18, padding: 32, boxShadow: '0 2px 12px rgba(0,0,0,.04)' }}>
+            <p style={{ color: '#666', margin: '0 0 28px', fontSize: 16 }}>Por favor, completa el siguiente formulario con tus datos. Asegúrate de adjuntar tu CV y carta de motivos para que el comité evalúe tu perfil.</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+              <div style={{ background: '#fff', border: '1px solid #e8f1f0', borderRadius: 18, padding: 32, boxShadow: '0 2px 12px rgba(0,0,0,.04)', maxWidth: 800, margin: '0 auto', width: '100%' }}>
                 {submitted ? (
                   <div style={{ textAlign: 'center', padding: '40px 10px', position: 'relative' }}>
                     <div style={{ width: 80, height: 80, borderRadius: '50%', background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', animation: 'cnPop .5s ease both' }}>
@@ -489,6 +531,14 @@ function App() {
                         <input value={form.inst} onChange={setF('inst')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.inst ? red : '#d6e3e8'}`, borderRadius: 10 }} />
                       </label>
                       <label style={{ display: 'block' }}>
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Profesión *</span>
+                        <select value={form.profesion} onChange={setF('profesion')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.profesion ? red : '#d6e3e8'}`, borderRadius: 10, background: '#fff' }}>
+                          <option value="">Selecciona…</option>
+                          <option value="Médico">Médico</option>
+                          <option value="Enfermero">Enfermero/a</option>
+                        </select>
+                      </label>
+                      <label style={{ display: 'block' }}>
                         <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Especialidad / Rol *</span>
                         <select value={form.rol} onChange={setF('rol')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.rol ? red : '#d6e3e8'}`, borderRadius: 10, background: '#fff' }}>
                           <option value="">Selecciona…</option>
@@ -501,29 +551,34 @@ function App() {
                         </select>
                       </label>
                       <label style={{ display: 'block' }}>
-                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Cédula profesional (opcional)</span>
-                        <input value={form.cedula} onChange={setF('cedula')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: '1px solid #d6e3e8', borderRadius: 10 }} />
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Cédula profesional *</span>
+                        <input value={form.cedula} onChange={setF('cedula')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.cedula ? red : '#d6e3e8'}`, borderRadius: 10 }} />
                       </label>
                       <label style={{ display: 'block' }}>
                         <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Curriculum Vitae (CV) *</span>
-                        <input type="file" accept=".pdf,.doc,.docx" onChange={(e) => setForm(s => ({...s, cv: e.target.files[0]}))} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '8px 14px', border: `1px solid ${errors.cv ? red : '#d6e3e8'}`, borderRadius: 10, background: '#fff' }} />
+                        <div style={{ position: 'relative', overflow: 'hidden', display: 'inline-block', width: '100%' }}>
+                          <input type="file" accept=".pdf,.doc,.docx" onChange={(e) => setForm(s => ({...s, cv: e.target.files[0]}))} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer', zIndex: 2 }} />
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 14px', border: `1px solid ${errors.cv ? red : '#d6e3e8'}`, borderRadius: 10, background: '#f8fbfc', color: form.cv ? '#1c3f4a' : '#889' }}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={form.cv ? "#0099CC" : "#889"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            <span style={{ fontSize: 14, fontFamily: "'Inter'", fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              {form.cv ? form.cv.name : 'Subir archivo...'}
+                            </span>
+                          </div>
+                        </div>
+                      </label>
+                      <label style={{ display: 'block', gridColumn: '1 / -1' }}>
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Carta de motivos *</span>
+                        <div style={{ position: 'relative', overflow: 'hidden', display: 'inline-block', width: '100%' }}>
+                          <input type="file" accept=".pdf,.doc,.docx" onChange={(e) => setForm(s => ({...s, carta: e.target.files[0]}))} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer', zIndex: 2 }} />
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 14px', border: `1px solid ${errors.carta ? red : '#d6e3e8'}`, borderRadius: 10, background: '#f8fbfc', color: form.carta ? '#1c3f4a' : '#889' }}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={form.carta ? "#0099CC" : "#889"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            <span style={{ fontSize: 14, fontFamily: "'Inter'", fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              {form.carta ? form.carta.name : 'Subir archivo...'}
+                            </span>
+                          </div>
+                        </div>
                       </label>
                     </div>
-                    <div style={{ marginTop: 18 }}>
-                      <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 8 }}>Experiencia en trasplantes *</span>
-                      <div style={{ display: 'flex', gap: 20 }}>
-                        {expOpts.map((o, i) => (
-                          <label key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', color: '#444', fontSize: 14 }}>
-                            <input type="radio" name="exp" checked={form.exp === o[0]} onChange={() => setForm(s => ({ ...s, exp: o[0] }))} style={{ accentColor: '#0099CC', width: 17, height: 17 }} />
-                            {o[1]}
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-                    <label style={{ display: 'block', marginTop: 18 }}>
-                      <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Mensaje / pregunta</span>
-                      <textarea value={form.msg} onChange={setF('msg')} rows={3} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: '1px solid #d6e3e8', borderRadius: 10, resize: 'vertical' }}></textarea>
-                    </label>
                     {showErr && <p style={{ color: '#D32F2F', fontSize: 13.5, margin: '16px 0 0' }}>Revisa los campos marcados en rojo antes de enviar.</p>}
                     <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 22 }}>
                       <button type="submit" style={{ background: '#FF6600', color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 15, padding: '13px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 4px 14px rgba(255,102,0,.28)', transition: '.2s' }}>Enviar Pre-registro</button>
@@ -532,23 +587,68 @@ function App() {
                 )}
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
                 <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
                   <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Ubicaciones</h4>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede Anáhuac</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-                    <li>Auditorio Anáhuac · 28 Sep</li>
-                    <li>Centro de Simulación Anáhuac · 29–30 Sep</li>
-                    <li>UVM · 1–2 Oct</li>
+                    <li>Auditorio de Rectoría · 28 Sep</li>
+                    <li>Centro de Simulación · 29–30 Sep</li>
                   </ul>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                    <iframe src="https://maps.google.com/maps?q=Universidad+Anahuac+Mexico+Norte&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
-                    <iframe src="https://maps.google.com/maps?q=Universidad+del+Valle+de+Mexico+Coyoacan&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
-                  </div>
+                  <iframe src="https://maps.google.com/maps?q=Universidad+Anahuac+Mexico+Norte&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
                 </div>
                 <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icMoney}</div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0' }}>Cuota de recuperación</h4>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
+                    <li>UVM Hospital Veterinario - Universidad del Valle de México · 1–2 Oct</li>
+                  </ul>
+                  <iframe src="https://maps.google.com/maps?q=Calz.+de+Tlalpan+3058,+Coapa,+Sta.+Ursula+Coapa,+Coyoacan,+CDMX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
+                </div>
+                <div style={{ background: '#FFF0F0', borderRadius: 16, padding: 22 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF4D4D', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  </div>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cuota de recuperación</h4>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
+                    <li><strong style={{ color: '#FF4D4D' }}>$8,000 MXN</strong> · Coordinadores de Donación</li>
+                    <li><strong style={{ color: '#FF4D4D' }}>$10,000 MXN</strong> · Demás especialidades</li>
+                  </ul>
+                </div>
+
+                <div style={{ background: '#F0E6FF', borderRadius: 16, padding: 22 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#9966CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cupo Limitado</h4>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
+                    <li><strong>24 lugares</strong> · Simulación Clínica</li>
+                    <li><strong>48 lugares</strong> · Práctica Experimental Quirúrgica</li>
+                  </ul>
+                </div>
+
+                <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </div>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Requisitos</h4>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
+                    <li>• Curriculum Vitae (CV) actualizado</li>
+                    <li>• Carta de motivos (1 cuartilla)</li>
+                    <li>• Reacreditación (Solo Coordinadores Hosp.)</li>
+                  </ul>
+                </div>
+
+                <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                  </div>
+                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Avales Curriculares</h4>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
+                    <li>• UNAM</li>
+                    <li>• Universidad Anáhuac</li>
+                    <li>• Consejo Mexicano de Cirugía (8 puntos)</li>
+                  </ul>
                 </div>
                 <div style={{ background: '#FFE6CC', borderRadius: 16, padding: 22 }}>
                   <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPhone}</div>
@@ -564,10 +664,15 @@ function App() {
 
         {/* FOOTER */}
         <footer style={{ marginTop: 60, padding: '34px 0 10px', borderTop: '1px solid #e4eef1', display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <img src="assets/cnadot.png" alt="CNADOT" style={{ height: 40 }} />
-            <img src="assets/logo_extra2.png" alt="Salud" style={{ height: 40 }} />
-            <img src="assets/hce.png" alt="HCE" style={{ height: 34 }} />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <img src="assets/cnadot.png" alt="CNADOT" style={{ height: 70, width: 'auto' }} />
+              <div style={{ height: 40, width: 1, background: '#dcdcdc' }}></div>
+              <img src="assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 45, width: 'auto' }} />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginTop: 8, opacity: 0.7, marginLeft: 16 }}>
+              <img src="assets/Logos_01_HCE.svg" alt="HCE" style={{ height: 18, width: 'auto' }} />
+            </div>
           </div>
           <div style={{ color: '#888', fontSize: 13, textAlign: 'right' }}>
             Curso Nacional Avanzado de Donación de Órganos y Tejidos<br /><a href="mailto:dgcenatra@salud.gob.mx" style={{color: '#888', textDecoration: 'none'}}>dgcenatra@salud.gob.mx</a>

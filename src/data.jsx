@@ -4,13 +4,13 @@ export const blue = '#0099CC';
 export const green = '#66CC00';
 export const orange = '#FF6600';
 
-const ic = (paths, color) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color || '#fff'} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+const ic = (paths) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
     {paths.map((d, i) => <path key={i} d={d} />)}
   </svg>
 );
-const icc = (children, color) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color || '#fff'} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+const icc = (children) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
     {children}
   </svg>
 );
@@ -34,11 +34,20 @@ export const navItems = [
 ];
 
 export const logos = [
-  'assets/consejo.png',
-  'assets/alianza.png',
-  'assets/hce.png',
-  'assets/stalyc.png',
-  'assets/orct.jfif'
+  'assets/TransPlantChild.png',
+  'assets/LOGO ORCT.jfif',
+  'assets/Logos_01_HCE.svg',
+  'assets/Logos_02_Salud-CENATRA.svg',
+  'assets/Logos_03_UNAM.svg',
+  'assets/Logos_04_Facultad de Medicina.svg',
+  'assets/Logos_05_Anahuac.svg',
+  'assets/Logos_06_UVM.svg',
+  'assets/Logos_07_UFV.svg',
+  'assets/Logos_08_SET.svg',
+  'assets/logo-SERMAS_SMS.png',
+  'assets/ont.png',
+  'assets/SMEE-Imagotipo (1).png',
+  'assets/STALYC.png'
 ];
 
 export const objetivos = [
@@ -59,82 +68,87 @@ export const perfiles=[
 
 export const programa = [
   {
-    n: '1', titulo: 'Fase Teórica Virtual Híbrida', cuando: 'Hasta el 28 de Septiembre 2026', meta: 'Asincrónica + Sincrónica', color: blue, color2: blue, tint: '#E6F7FF',
+    n: '1', titulo: 'Fase Teórica Virtual Híbrida', cuando: 'Desde el 17 al 28 de Septiembre 2026', meta: 'Asincrónica + Sincrónica', color: blue, color2: blue, tint: '#E6F7FF',
     objetivo: 'Homogeneizar las bases teórico-conceptuales del equipo multidisciplinario a través de la revisión selectiva de literatura científica y la introducción formal a los modelos de comunicación en crisis.',
     temas: [
+      { t: 'Duración: 1 semana', d: 'Acceso desde el 17 de Septiembre. Revisión de Material Previo. Examen Diagnóstico Inicial.' },
       { t: 'Material Previo', d: 'Revisión del Manual Clínico de Comunicación en Situaciones de Crisis y Malas Noticias.' },
-      { t: 'Comunicación Intrahospitalaria', d: 'Herramientas de Comunicación y Entrevista Familiar. Ponentes: Dr. Rodrigo López Falcony, Dr. Juan Rodríguez, Dr. Martínez Bernal y Dra. Kenia Reyes.' },
-      { t: 'Perspectiva Internacional de la Donación y Marco Normativo', d: 'Perspectiva por parte de la OPS. Ponente: Dr. Mauricio Beltrán (Washington).' }
+      { t: 'Cierre con Clase Virtual (21 Sept, 9 a 12 hrs)', d: 'Comunicación Intrahospitalaria, Herramientas de Comunicación y Entrevista Familiar. Ponentes: Dr. Rodrigo López Falcony, Dr. Juan Rodríguez, Dr Martínez Bernal y Dra Kenia Reyes.' },
+      { t: 'Clase Virtual (24 o 25 Sept)', d: 'Perspectiva Internacional de la Donación y Marco Normativo (OPS). Ponente: Dr. Mauricio Beltrán (Washington).' }
     ]
   },
   {
-    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9',
+    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
     objetivo: 'Integrar los paradigmas asistenciales, legales y bioéticos de vanguardia en donación y trasplantes mediante ponencias magistrales interactivas con expertos de la red nacional e internacional.',
     temas: [
-      { t: 'El Modelo Mexicano de Donación y Trasplantes', d: 'Realidad Actual y Retos Normativos. Contextualizar el marco legal y regulatorio vigente en México frente al panorama global.' },
-      { t: 'El Modelo Español de Donación', d: 'Lecciones Aprendidas y Estrategias de Éxito. Analizar el sistema organizativo y de gestión de la ONT.' },
-      { t: 'Estrategia Panamericana', d: 'Perspectiva, Marco Normativo y Cooperación Regional de la Donación (OPS).' },
-      { t: 'Gobernanza y Gestión de Calidad', d: 'Análisis de indicadores clave (KPIs) en los Procesos de Donación Hospitalaria.' },
-      { t: 'Gestión de Riesgos y Seguridad del Paciente', d: 'Identificar y mitigar proactivamente los riesgos clínicos y administrativos en el Proceso de Donación.' },
-      { t: 'Criterios Avanzados de Detección', d: 'Evaluación y Validación estricta del Donante Potencial basándose en criterios de seguridad biológica.' },
-      { t: 'Soporte Fisiológico y Mantenimiento Hemodinámico', d: 'Estrategias críticas y metas terapéuticas avanzadas (metabólicas, ventilatorias y hemodinámicas).' },
-      { t: 'Clasificación y Criterios de Selección', d: 'Categorización en las modalidades de donación para ampliar el pool de donantes de manera segura.' },
-      { t: 'Certificación de la Muerte Encefálica', d: 'Del Tamizaje con Glasgow 7 al Test de Apnea. Estandarización clínica y uso de pruebas confirmatorias.' },
-      { t: 'Donación en Asistolia Controlada (DAC)', d: 'Límites del Tratamiento y Tiempos Críticos.' },
-      { t: 'Donación en Asistolia No Controlada (DANC)', d: 'Coordinación Prehospitalaria y Hospitalaria. Optimización de tiempos de respuesta.' },
-      { t: 'Donación Pediátrica y Neonatal', d: 'Consideraciones Fisiológicas, Legales y Abordaje Familiar.' },
-      { t: 'Soporte ECMO y PRN', d: 'Oxigenación por Membrana Extracorpórea (ECMO) y Perfusión Regional Normotérmica (PRN).' },
-      { t: 'Preservación Avanzada', d: 'Triple Embalaje y Cadena de Custodia de Órganos y Tejidos.' },
-      { t: 'Logística y Transporte Biológico Seguro', d: 'Gestión de Rutas Críticas (aérea y terrestre).' },
-      { t: 'Dilemas Bioéticos en el Futuro', d: 'El Impacto de la DAC y los desafíos éticos, legales y deontológicos.' },
-      { t: 'Perlas de la Comunicación', d: 'Comunicación de Malas Noticias y Entrevista Familiar. Herramientas de contención emocional.' }
+      { t: '09:00 - 09:15 AM | El Modelo Mexicano de Donación y Trasplantes: Realidad Actual y Retos Normativos (CENATRA)', d: 'Objetivo: Contextualizar el marco legal y regulatorio vigente en México frente al panorama global para identificar áreas de oportunidad en la práctica institucional.\nPonente: Dra. Rosa Erro Aboytia (MÉXICO)' },
+      { t: '09:15 - 09:30 AM | El Modelo Español de Donación: Lecciones Aprendidas y Estrategias de Éxito (ONT)', d: 'Objetivo: Analizar el sistema organizativo y de gestión de la Organización Nacional de Trasplantes de España para adaptar sus casos de éxito al entorno nacional.\nPonente: Dr. Alonso Mateos Rodríguez (ESPAÑA)' },
+      { t: '09:30 - 09:45 AM | Estrategia Panamericana: Perspectiva, Marco Normativo y Cooperación Regional de la Donación (OPS)', d: 'Objetivo: Comparar los indicadores de donación en Latinoamérica con el fin de alinear las estrategias locales a las metas de la Organización Panamericana de la Salud.\nPonente: Dr Jose Moya Medina (MÉXICO)' },
+      { t: '09:45 - 10:00 AM | Gobernanza y Gestión de Calidad en los Procesos de Donación Hospitalaria (CETRA GTO)', d: 'Objetivo: Analizar indicadores clave de rendimiento (KPIs) y control de procesos para auditar la eficiencia de los programas de donación hospitalaria.\nPonente: Dr. Rodrigo López Falcony (MÉXICO)' },
+      { t: '10:00 - 10:15 AM | Gestión de Riesgos y Seguridad del Paciente en el Proceso de Donación (CETRA GTO)', d: 'Objetivo: Identificar y mitigar proactivamente los riesgos clínicos y administrativos que comprometen la viabilidad de los procesos de procuración.\nPonente: Dr. Juan Salvador Rodríguez Jamaica (MÉXICO)' },
+      { t: '10:15 - 10:30 AM | Criterios Avanzados de Detección, Evaluación y Validación del Donante Potencial', d: 'Objetivo: Sistematizar las estrategias clínicas para la identificación oportuna y la validación estricta del donante potencial basándose en criterios de seguridad biológica.\nPonente: Dra. Nubia Avilez Pacheco (MÉXICO)' },
+      { t: '10:30 - 10:45 AM | COFFEE BREAK', d: '' },
+      { t: '10:45 - 11:00 AM | Estrategias Críticas de Soporte Fisiológico y Mantenimiento Hemodinámico del Donante', d: 'Objetivo: Revisar las metas terapéuticas avanzadas (metabólicas, ventilatorias y hemodinámicas) para contrarrestar la tormenta autonómica y optimizar la perfusión orgánica.\nPonente: Dr. Walter Querebalu (MÉXICO)' },
+      { t: '11:00 - 11:15 AM | Clasificación y Criterios de Selección en las Modalidades de Donación', d: 'Objetivo: Categorizar las vías de obtención de órganos y tejidos, aplicando criterios de inclusión/exclusión para ampliar el pool de donantes de manera segura.\nPonente: Dr. Juan Ignacio Torres González (ESPAÑA)' },
+      { t: '11:15 - 11:30 AM | Certificación de la Muerte Encefálica: Del Tamizaje con Glasgow 7 al Test de Apnea', d: 'Objetivo: Estandarizar la exploración clínica neurológica, el uso de pruebas confirmatorias de gabinete y la ejecución del test de apnea bajo la consigna del protocolo Glasgow 7.\nPonente: Dra. Ericka Rivera (MÉXICO)' },
+      { t: '11:30 - 11:45 AM | Donación en Asistolia Controlada (DAC): Límites del Tratamiento y Tiempos Críticos', d: 'Objetivo: Analizar la secuencia temporal, los requisitos bioéticos para la adecuación del esfuerzo terapéutico y los periodos de touch-off en el donante en asistolia.\nPonente: Dr. Juan Ignacio Torres González (ESPAÑA)' },
+      { t: '11:45 - 12:00 PM | Donación en Asistolia No Controlada (DANC): Coordinación Prehospitalaria y Hospitalaria', d: 'Objetivo: Esquematizar la cadena logístico-asistencial del donante en paro cardiaco refractario, optimizando los tiempos de respuesta desde el medio prehospitalario.\nPonente: Dr. Alonso Mateos Rodríguez (ESPAÑA)' },
+      { t: '12:00 - 12:15 PM | Donación Pediátrica y Neonatal: Consideraciones Fisiológicas, Legales y Abordaje Familiar', d: 'Objetivo: Determinar las particularidades fisiopatológicas del donante pediátrico y las directrices éticas específicas para el manejo del duelo familiar con padres o tutores.\nPonente: Dr. Belén Estébanez Montiel (ESPAÑA)' },
+      { t: '12:15 - 12:30 PM | Oxigenación por Membrana Extracorpórea (ECMO) y Perfusión Regional Normotérmica', d: 'Objetivo: Evaluar la integración de sistemas ECMO/PRN como estrategia avanzada de perfusión y rescate de órganos en protocolos de Donación en Asistolia.\nPonente: Perf. Gilberto Díaz Pérez (MÉXICO)' },
+      { t: '12:30 - 12:45 PM | Preservación Avanzada, Triple Embalaje y Cadena de Custodia de Órganos y Tejidos', d: 'Objetivo: Aplicar técnicas de preservación hipotérmica estática, resguardo documental legal y empaque especializado para asegurar la viabilidad celular en el traslado.\nPonente: Dra. Magdalena García Baysa (MÉXICO)' },
+      { t: '12:45 - 13:00 PM | Logística y Transporte Biológico Seguro: Gestión de Rutas Críticas Críticas', d: 'Objetivo: Revisar los protocolos del traslado de órganos y tejidos seguro y oportuno. Revisión de la secuencia de procesos desde salida hasta destino final y vías (aérea y terrestre) utilizadas para el Traslado.\nPonente: Dr. Victor Figueroa (RED KAIROS) (MÉXICO)' },
+      { t: '13:00 - 13:15 PM | Dilemas Bioéticos en el Futuro de la Donación de Órganos y Tejidos en México: El Impacto de la DAC', d: 'Objetivo: Debatir los desafíos éticos, legales y deontológicos que plantea la implementación masiva de la Donación en Asistolia Controlada en el entorno nacional.\nPonente: Dr. Patricio Santillán (MÉXICO)' },
+      { t: '13:15 - 14:15 PM | COMIDA', d: '' },
+      { t: '14:15 - 15:50 PM | Perlas de la Comunicación de Malas Noticias y Entrevista Familiar', d: 'Objetivo: Ejecutar herramientas de contención emocional, comunicación no verbal y destrezas dialécticas para conducir de forma efectiva la entrevista familiar de donación.\nPonente: Dr. Juan Rodriguez, Dr Martínez Bernal y Dra Kenia Reyes (MÉXICO)' },
+      { t: '15:50 - 16:00 PM | Q&A Y CIERRE PRIMER DÍA', d: '' }
     ]
   },
   {
     n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026', meta: 'Centro de Simulación Anáhuac', color: orange, color2: orange, tint: '#FFE6CC',
     objetivo: 'Transferir el conocimiento teórico a la resolución de problemas clínicos complejos en tiempo real, mediante la inmersión en escenarios simulados de alta fidelidad y técnicas estructuradas de debriefing.',
     temas: [
-      { t: 'Escenario 1: Diagnóstico Muerte Encefálica', d: 'Práctica con grupos rotativos para aplicar los criterios clínicos.' },
-      { t: 'Escenario 2: Comunicación de Malas Noticias', d: 'Simulación de contención y abordaje familiar.' },
-      { t: 'Escenario 3: Manejo ECMO', d: 'Simulación clínica y mantenimiento.' },
-      { t: 'Escenario 4: Logística DAC', d: 'Simulación de los tiempos críticos y procesos en asistolia controlada.' },
-      { t: 'Escenario 5: Entrevista para Donación', d: 'Ejecución práctica de estrategias de comunicación.' },
-      { t: 'Escenario 6: Manejo, Preservación y Envío de Órganos', d: 'Proceso logístico práctico.' },
-      { t: 'Escenario 7: Mantenimiento del Donante', d: 'Mantenimiento del Donante con Muerte Encefálica.' },
-      { t: 'Escenario 8: Logística DANC', d: 'Logística de Donación en Asistolia No Controlada.' }
+      { t: '29 de Septiembre | Día 1: Escenarios Clínicos Básicos', d: '09:00 - 09:15 AM | BIENVENIDA AL CENTRO DE SIMULACIÓN Y REGLAS/COMPROMISOS.\nRotación de grupos (A, B, C, D) por 4 escenarios: Escenario 1: Diagnóstico Muerte Encefálica (Dra. Belén / Instructores Anáhuac). Escenario 2: Comunicación de Malas Noticias (Dr. Salvador y Equipo). Escenario 3: Manejo ECMO (Dr. Juan Ignacio / Instructores Anáhuac). Escenario 4: Logística DAC (Dr. Alonso / Dra. Laura / Instructores Anáhuac). Horarios: R1 9:15-10:15, R2 10:30-11:30, R3 11:30-12:30, R4 13:45-14:45. Comida 12:30-13:45. Cierre 14:45-15:00.' },
+      { t: '30 de Septiembre | Día 2: Escenarios Clínicos Avanzados', d: '09:00 AM | HORARIO DE LLEGADA.\nRotación de grupos (A, B, C, D) por 4 escenarios: Escenario 5: Entrevista para Donación (Dr. Juan Ignacio / Instructores Anáhuac). Taller: Manejo, Preservación y Envío de Órganos (Dra. Alma Itzel, Dra. Reyna Moreno, Dr. Diego Osvaldo). Escenario 7: Mantenimiento del Donante con Muerte Encefálica (Dra. Belén / Dra. Laura / Instructores Anáhuac). Escenario 8: Logística DANC (Dr. Alonso / Instructores Anáhuac). Horarios: R5 9:00-10:00, R6 10:15-11:15, R7 11:15-12:15, R8 13:30-14:30. Comida 12:15-13:30. Q&A 14:30-14:45. Clausura 14:45-15:00.' }
     ]
   },
   {
-    n: '4', titulo: 'Fase Teórica Quirúrgica Experimental', cuando: '1 de Octubre 2026', meta: 'UVM', color: blue, color2: green, tint: '#EAF6EC',
-    objetivo: 'Integrar y sistematizar los fundamentos anatómicos, criterios de selección avanzados, innovaciones tecnológicas y variantes de técnica quirúrgica compleja, con el fin de unificar criterios clínicos y estandarizar la toma de decisiones críticas.',
+    n: '4', titulo: 'Simulación Clínica y Teórica Quirúrgica', cuando: '30 Septiembre y 1 de Octubre 2026', meta: 'UVM', color: blue, color2: green, tint: '#EAF6EC',
+    objetivo: 'Integrar y sistematizar los fundamentos anatómicos, criterios de selección avanzados, innovaciones tecnológicas y variantes de técnica quirúrgica compleja (Split, DAC, Robótica y Perfusión Dinámica), con el fin de unificar criterios clínicos y estandarizar la toma de decisiones críticas que los cirujanos y equipo multidisciplinario ejecutarán de forma práctica e inmediata en los modelos biológicos in vivo y ex situ.',
     temas: [
-      { t: 'De la Donación Convencional a la Vanguardia', d: 'Evolución y Perspectivas de la Procuración Multiorgánica en México.' },
-      { t: 'Criterios de Excelencia: Protocolo Split', d: 'Protocolo y Selección del Donante Ideal para la Técnica Split.' },
-      { t: 'Bipartición Hepática', d: 'Bipartición Hepática In Situ y Ex Situ: Estrategias Quirúrgicas (Tips & Tricks) para Optimizar la Lista de Espera.' },
-      { t: 'Cirugía Hepática Extrema', d: 'Indicaciones y Técnica Quirúrgica en Trasplante de Monosegmento y Segmento III.' },
-      { t: 'Imagenología Avanzada y Modelado 3D', d: 'Planificación Quirúrgica del Injerto Hepático.' },
-      { t: 'Prevención y Resolución de Complicaciones', d: 'Complicaciones Quirúrgicas Vasculares y Biliares Tempranas en Split.' },
-      { t: 'Fisiopatología Hemodinámica Hepática', d: 'Manejo del Síndrome Small-for-Size y Large-for-Size.' },
-      { t: 'Innovación Quirúrgica Robótica', d: 'Estado Actual de la Hepatectomía y Procuración Asistida por Robótica.' },
-      { t: 'Cirugía Multivisceral', d: 'Abordajes Técnicos Avanzados en el Trasplante de Intestino y Bloque Abdominal.' },
-      { t: 'Perfusión Dinámica Ex Situ', d: 'Beneficios Clínicos del Uso de Máquinas de Perfusión Hipotérmica y Normotérmica.' },
-      { t: 'Rescate de Órganos Marginales', d: 'A través del soporte ECMO y Preservación Regional Normotérmica.' },
-      { t: 'Preservación Catiónica y Quirúrgica', d: 'En la Procuración Cardio-Pulmonar Compleja.' },
-      { t: 'El Cambio de Paradigma Quirúrgico', d: 'Implementación y Futuro de la DAC en México.' },
-      { t: 'Validación y Score de Viabilidad', d: 'Validación Quirúrgica en Donantes de Asistolia Controlada.' },
-      { t: 'Análisis de Video Clínico', d: 'Pasos Críticos en la Donación en Asistolia Controlada.' }
+      { t: 'DÍA 1: FASE SIMULACIÓN CLÍNICA DAC (30 Septiembre - UVM Hospital Veterinario)', d: '16:00 - 16:15 PM | LLEGADA\n16:15 - 16:30 PM | BIENVENIDA A LA UVM CENTRO DE SIMULACIÓN\n16:30 - 18:30 PM | SIMULACIÓN DAC\n18:30 - 18:45 PM | DEBRIEFING Y CIERRE' },
+      { t: 'DÍA 2: FASE TEÓRICA QUIRÚRGICA EXPERIMENTAL (1 Octubre - UVM)', d: '08:30 - 09:00 AM | LLEGADA Y BIENVENIDA A LA UVM POR AUTORIDADES' },
+      { t: '09:00 - 09:15 AM | De la Donación Convencional a la Vanguardia: Evolución y Perspectivas de la Procuración Multiorgánica en México', d: 'Objetivo: Analizar la evolución histórica, los retos técnico-quirúrgicos actuales y las proyecciones futuras de la procuración multiorgánica en el país.\nPonente: Dra. Rosa Erro Aboytia (MÉXICO)' },
+      { t: '09:15 - 09:30 AM | Criterios de Excelencia: Protocolo y Selección del Donante Ideal para la Técnica Split', d: 'Objetivo: Sistematizar los criterios morfológicos, antropométricos y clínico-metabólicos de selección del donante para la técnica de bipartición hepática.\nPonente: Dra. Rosa Erro Aboytia (MÉXICO)' },
+      { t: '09:30 - 09:45 AM | Bipartición Hepática In Situ y Ex Situ: Estrategias Quirúrgicas (Tips & Tricks) para Optimizar la Lista de Espera', d: 'Objetivo: Evaluar las variantes técnicas, maniobras críticas y recomendaciones prácticas en los abordajes de bipartición hepática.\nPonente: Dr. Francisco Hernández Oliveros (ESPAÑA)' },
+      { t: '09:45 - 10:00 AM | Cirugía Hepática Extrema: Indicaciones y Técnica Quirúrgica en Trasplante de Monosegmento y Segmento III', d: 'Objetivo: Determinar las indicaciones clínicas precisas y dominar los pasos técnicos quirúrgicos de la segmentectomía lateral izquierda.\nPonente: Dr. Héctor Vilca Meléndez (INGLATERRA)' },
+      { t: '10:00 - 10:15 AM | Imagenología Avanzada y Modelado 3D para la Planificación Quirúrgica del Injerto Hepático', d: 'Objetivo: Aplicar herramientas de imagen tridimensional y volumetría hepática para anticipar variantes anatómicas vasculares/biliares.\nPonente: Dr. Francisco Sachiñas (MÉXICO)' },
+      { t: '10:15 - 10:30 AM | Prevención y Resolución Colectiva de Complicaciones Quirúrgicas Vasculares y Biliares Tempranas en Split', d: 'Objetivo: Identificar y resolver de manera oportuna las complicaciones técnicas vasculares y de la vía biliar derivadas de la partición hepática.\nPonente: Dr. Constantino Fondevila Campo (ESPAÑA)' },
+      { t: '10:30 - 10:45 AM | Fisiopatología Hemodinámica Hepática: Manejo del Síndrome Small-for-Size y Large-for-Size', d: 'Objetivo: Analizar los cambios hemodinámicos y de presión portal asociados al desajuste volumétrico del injerto.\nPonente: Dr. Héctor Vilca Meléndez (INGLATERRA)' },
+      { t: '10:45 - 11:00 AM | COFFEE BREAK', d: '' },
+      { t: '11:00 - 11:15 AM | Innovación Quirúrgica: Estado Actual de la Hepatectomía y Procuración Asistida por Robótica', d: 'Objetivo: Evaluar la aplicabilidad, las ventajas ergonómicas y los límites técnicos de la cirugía asistida por plataforma robótica.\nPonente: Dr. Constantino Fondevila Campo (ESPAÑA)' },
+      { t: '11:15 - 11:30 AM | Cirugía Multivisceral: Abordajes Técnicos Avanzados en el Trasplante de Intestino y Bloque Abdominal', d: 'Objetivo: Describir los tiempos quirúrgicos, los retos de reconstrucción vascular y las complejidades inmunológicas del trasplante multivisceral.\nPonente: Dr. Héctor Vilca Meléndez (SUECIA)' },
+      { t: '11:30 - 11:45 AM | Perfusión Dinámica Ex Situ: Beneficios Clínicos del Uso de Máquinas de Perfusión Hipotérmica y Normotérmica', d: 'Objetivo: Contrastar las modalidades de perfusión mecánica ex situ para optimizar la preservación celular, reducir el daño por isquemia-reperfusión.\nPonente: Dr. Francisco Hernández Oliveros (ESPAÑA)' },
+      { t: '11:45 - 12:00 PM | Rescate de Órganos Marginales a través del soporte ECMO y Preservación Regional Normotérmica', d: 'Objetivo: Implementar protocolos de asistencia circulatoria extracorpórea (ECMO) orientados al rescate, soporte metabólico y acondicionamiento normotérmico de órganos marginales.\nPonente: Dr. Aczel Sánchez Cedillo (MÉXICO)' },
+      { t: '12:00 - 12:15 PM | Preservación Catiónica y Quirúrgica en la Procuración Cardio-Pulmonar Compleja', d: 'Objetivo: Analizar las técnicas de infusión de soluciones de preservación celular y protección tisular específica durante la extracción multiorgánica torácica compleja.\nPonente: Dr. Edgar Hernández (MÉXICO)' },
+      { t: '12:15 - 12:30 PM | El Cambio de Paradigma Quirúrgico: Implementación y Futuro de la DAC en México', d: 'Objetivo: Valorar el impacto clínico, operativo, legal y bioético de la Donación en Asistolia Controlada (DAC) como alternativa fundamental.\nPonente: Dr. Francisco Hernández Oliveros (ESPAÑA)' },
+      { t: '12:30 - 12:45 PM | Validación y Score de Viabilidad Quirúrgica en Donantes de Asistolia Controlada', d: 'Objetivo: Aplicar escalas de puntuación pronóstica y criterios objetivos de validación histológica/funcional para certificar la aceptación segura de injertos.\nPonente: Dra. Rosa Erro Aboytia (MÉXICO)' },
+      { t: '12:45 - 13:00 PM | Instrumentación Quirúrgica Avanzada en Donación en Asistolia: Gestión de Tiempos Críticos y Preservación Orgánica', d: 'Objetivo: Sistematizar los protocolos de instrumentación quirúrgica, preparación de la mesa de banco (back-table) y manejo rápido de soluciones de preservación celular.\nPonente: EEQ. Sulem Piña Ocampo (MÉXICO)' },
+      { t: '13:00 - 13:15 PM | Análisis de Video Clínico: Pasos Críticos en la Donación en Asistolia Controlada', d: 'Objetivo: Analizar mediante la revisión de registros videográficos reales los puntos críticos, los tiempos de isquemia caliente funcional y las desviaciones técnicas más frecuentes en la DAC.\nPonente: Dra. Rosa Erro Aboytia (MÉXICO)' },
+      { t: '13:15 - 14:20 PM | Q&A y Cierre, COMIDA', d: '' }
     ]
   },
   {
     n: '5', titulo: 'Práctica Presencial Quirúrgica', cuando: '1 y 2 de Octubre 2026', meta: 'Laboratorio Experimental UVM', color: green, color2: orange, tint: '#FBF1E6',
     objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad.',
     temas: [
-      { t: 'Estación Quirúrgica A: Donación en Asistolia Controlada', d: 'Modelos Quirúrgicos In Vivo. Objetivo: entrenar DAC para incrementar la tasa de donación.' },
-      { t: 'Estación Quirúrgica B: Perfusión de Órganos Ex Situ', d: 'Sala Quirúrgica. Recuperar más órganos marginales.' },
-      { t: 'Estación Quirúrgica C: Bipartición Hepática', d: 'Adquirir habilidades técnicas para la bipartición y el trasplante de ambos segmentos.' }
+      { t: '1 de Octubre | Prácticas In Vivo (14:20 a 18:00)', d: '14:20-14:30 | VESTIDORES/PREPARACIÓN - Laboratorio Quirúrgico Experimental. \n14:30-17:30 | Bloque 1: Rotación A (Donación en Asistolia Controlada), Rotación B (Perfusión de Órganos Ex Situ), Rotación C (Bipartición Hepática). \n17:30-18:00 | Debriefing y Cierre.' },
+      { t: '2 de Octubre | Prácticas In Vivo (08:45 a 16:30)', d: '08:45-09:00 | HORARIO DE LLEGADA. \n09:15-12:15 | Bloque 2: Rotación A (DAC), Rotación B (Perfusión Ex Situ), Rotación C (Bipartición Hepática). \n12:15-12:30 | Debriefing. \n12:30-13:30 | COMIDA. \n13:45-16:15 | Bloque 3: Rotación A (DAC), Rotación B (Perfusión Ex Situ), Rotación C (Bipartición Hepática). \n16:15-16:30 | Debriefing y Clausura.' },
+      { t: 'Estación A: Donación en Asistolia Controlada', d: 'Objetivo: Capacitar al personal en la estrategia DAC para diversificar los mecanismos de procuración de órganos, con el propósito de incrementar a corto y mediano plazo la tasa de donación en México.' },
+      { t: 'Estación B: Perfusión de Órganos Ex Situ', d: 'Objetivo: Optimizar los resultados de supervivencia en trasplantes e incrementar la tasa de rescate de órganos con criterios expandidos (marginales) mediante la implementación de tecnología de perfusión ex situ.' },
+      { t: 'Estación C: Bipartición Hepática', d: 'Objetivo: Desarrollar competencias y destrezas quirúrgicas avanzadas para la realización del trasplante hepático split (bipartición) y el implante exitoso de ambos segmentos.' }
     ]
   }
-];
+];;
 
 const expertosRaw=[
   {nombre:'Dra. Rosa Erro',pais:'MX',color:blue,org:'CENATRA',expertise:'Marco normativo, regulación y gobernanza del modelo mexicano.'},
@@ -220,7 +234,7 @@ export const escenarios = [
   {
     num: 3,
     title: 'Manejo de ECMO',
-    image: 'assets/escenario_3.jpg',
+    image: 'assets/escenario_ecmo_new.jpg',
     color: orange,
     tint: '#FFE6CC',
     icon: ic(['M2 5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V5z', 'M2 19h20', 'M12 21v-2', 'M8 21h8', 'M6 10l3-3 2 6 3-8 2 5']),
@@ -254,7 +268,7 @@ export const escenarios = [
   {
     num: 5,
     title: 'Entrevista para Donación',
-    image: 'assets/escenario_5.jpg',
+    image: 'assets/escenario_entrevista_new.jpg',
     color: green,
     tint: '#EEF9D9',
     icon: ic(['M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2', 'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', 'M23 21v-2a4 4 0 0 0-3-3.87', 'M16 3.13a4 4 0 0 1 0 7.75']),
@@ -267,5 +281,56 @@ export const escenarios = [
       'Apoyo psicosocial'
     ],
     pills: ['Comunicación estratégica', 'Negociación asertiva', 'Manejo de emociones']
+  },
+  {
+    num: 6,
+    title: 'Manejo, Preservación y Envío de Órganos',
+    image: 'assets/escenario_6.jpg',
+    color: orange,
+    tint: '#FFE6CC',
+    icon: ic(['M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.5 0 4.5 1 7 2a1 1 0 0 1 1 1z', 'M8 12h8', 'M12 8v8']),
+    objetivos: [
+      'Embalaje de hígado, riñones y páncreas',
+      'Embalaje de corazón y pulmón',
+      'Preservación de tejidos',
+      'Manejo estéril y bioseguridad',
+      'Trazabilidad de muestras',
+      'Gestión de envío'
+    ],
+    pills: ['Cadena de Custodia', 'Preservación', 'Precisión técnica']
+  },
+  {
+    num: 7,
+    title: 'Mantenimiento del Donante con Muerte Encefálica',
+    image: 'assets/escenario_7.jpg',
+    color: blue,
+    tint: '#E6F7FF',
+    icon: ic(['M22 12h-4l-3 9L9 3l-3 9H2']),
+    objetivos: [
+      'Soporte ventilatorio y gasometría',
+      'Soporte hemodinámico avanzado',
+      'Manejo de diabetes insípida',
+      'Control térmico y metabólico',
+      'Reposición electrolítica',
+      'Monitorización invasiva'
+    ],
+    pills: ['Fisiología', 'Terapia intensiva', 'Metas terapéuticas']
+  },
+  {
+    num: 8,
+    title: 'Logística de Donación en Asistolia No Controlada',
+    image: 'assets/escenario_8.jpg',
+    color: green,
+    tint: '#EEF9D9',
+    icon: ic(['M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.3 1.5 1.5 2.5', 'M9 18h6', 'M10 22h4']),
+    objetivos: [
+      'Cadena de supervivencia',
+      'Coordinación con urgencias y rescate',
+      'Control del tiempo de isquemia caliente',
+      'Evaluación de viabilidad en DANC',
+      'Soporte vital y canulación urgente',
+      'Perfiles éticos y legales'
+    ],
+    pills: ['Urgencias', 'Logística rápida', 'Marco legal']
   }
 ];
