@@ -9,18 +9,18 @@ import {
 
 const LogosGrid = () => (
   <div className="cn-reveal" style={{ margin: '40px 0 70px', textAlign: 'center', width: '100%' }}>
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '8%', flexWrap: 'wrap', marginBottom: 50 }}>
+    <div className="logos-top-row">
       {/* ORGANIZA */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
-        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', margin: 0, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase' }}>ORGANIZA:</h4>
-        <img src="assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 75, objectFit: 'contain' }} />
-      </div>
-
-      {/* MASCOTA */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'translateX(-70px)' }}>
-        <img src="assets/alianza.png" alt="Mascota" style={{ height: 95, objectFit: 'contain' }} />
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', margin: 0, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase', paddingLeft: 40 }}>ORGANIZA:</h4>
+        <img src="assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 60, objectFit: 'contain' }} />
       </div>
       
+      {/* MASCOTA */}
+      <div className="mascota-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="assets/alianza.png" alt="Mascota" style={{ height: 95, objectFit: 'contain' }} />
+      </div>
+
       {/* AVAL */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', margin: 0, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase' }}>AVAL:</h4>
@@ -247,7 +247,7 @@ function App() {
                     <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 12, color: '#888' }}>FASE {f.n}</div>
                   </div>
                   <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 19, color: '#1c3f4a', margin: '0 0 8px', lineHeight: 1.25 }}>{f.titulo}</h3>
-                  <p style={{ color: '#666', fontSize: 14, margin: '0 0 4px' }}><strong style={{ color: '#333' }}>{f.cuando}</strong></p>
+                  <p style={{ color: '#666', fontSize: 14, margin: '0 0 4px' }}><strong style={{ color: f.color }}>{f.cuando}</strong></p>
                   <p style={{ color: '#888', fontSize: 13, margin: '0 0 6px' }}>{f.meta}</p>
                   {f.alerta && <p style={{ color: '#D32F2F', fontSize: 12.5, fontWeight: 600, margin: '0 0 12px' }}>{f.alerta}</p>}
                   <div style={{ flex: 1 }}></div>
@@ -441,7 +441,7 @@ function App() {
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 30 }}>
               {paises.map((p, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, background: '#fff', border: '1px solid #e8f1f0', borderRadius: 999, padding: '8px 18px' }}>
-                  <img src={p.flagImg} style={{ height: 18, width: 'auto', borderRadius: 3, boxShadow: '0 0 0 1px rgba(0,0,0,.06)' }} alt="flag" />
+                  <img src={p.flagImg} style={{ width: 26, height: 18, objectFit: 'cover', borderRadius: 3, boxShadow: '0 0 0 1px rgba(0,0,0,.06)' }} alt="flag" />
                   <span style={{ fontFamily: "'Poppins'", fontWeight: 800, fontSize: 20, color: p.color }}>{p.count}</span>
                   <span style={{ color: '#556', fontSize: 14 }}>{p.label}</span>
                 </div>
@@ -452,7 +452,7 @@ function App() {
                 <div key={i} className="experto-card" style={{ borderLeft: `4px solid ${x.color}` }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
                     <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: 0, lineHeight: 1.25 }}>{x.nombre}</h3>
-                    <img src={x.flagImg} style={{ flex: '0 0 auto', height: 16, width: 'auto', borderRadius: 2, boxShadow: '0 0 0 1px rgba(0,0,0,.08)' }} alt="flag" />
+                    <img src={x.flagImg} style={{ flex: '0 0 auto', width: 24, height: 16, objectFit: 'cover', borderRadius: 2, boxShadow: '0 0 0 1px rgba(0,0,0,.08)' }} alt="flag" />
                   </div>
                   <div style={{ color: x.color, fontSize: 12.5, fontWeight: 600, margin: '6px 0 8px' }}>{x.org}</div>
                   <p style={{ color: '#666', fontSize: 13, margin: 0, lineHeight: 1.5 }}>{x.expertise}</p>
@@ -601,18 +601,20 @@ function App() {
                   <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-                    <li>UVM Hospital Veterinario - Universidad del Valle de México · 1–2 Oct</li>
+                    <li><strong style={{color:'#66CC00'}}>30 de Septiembre</strong> · Centro de Simulación UVM</li>
+                    <li><strong style={{color:'#66CC00'}}>1–2 de Octubre</strong> · UVM Hospital Veterinario - Universidad del Valle de México</li>
                   </ul>
                   <iframe src="https://maps.google.com/maps?q=Calz.+de+Tlalpan+3058,+Coapa,+Sta.+Ursula+Coapa,+Coyoacan,+CDMX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
                 </div>
+
                 <div style={{ background: '#FFF0F0', borderRadius: 16, padding: 22 }}>
                   <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF4D4D', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                   </div>
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cuota de recuperación</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
-                    <li><strong style={{ color: '#FF4D4D' }}>$8,000 MXN</strong> · Coordinadores de Donación</li>
-                    <li><strong style={{ color: '#FF4D4D' }}>$10,000 MXN</strong> · Demás especialidades</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 6, height: 6, borderRadius: 3, background: '#FF4D4D' }}></div>Coordinadores de Donación</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 6, height: 6, borderRadius: 3, background: '#FF4D4D' }}></div>Demás especialidades</li>
                   </ul>
                 </div>
 
@@ -635,7 +637,6 @@ function App() {
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
                     <li>• Curriculum Vitae (CV) actualizado</li>
                     <li>• Carta de motivos (1 cuartilla)</li>
-                    <li>• Reacreditación (Solo Coordinadores Hosp.)</li>
                   </ul>
                 </div>
 
@@ -646,7 +647,6 @@ function App() {
                   <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Avales Curriculares</h4>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
                     <li>• UNAM</li>
-                    <li>• Universidad Anáhuac</li>
                     <li>• Consejo Mexicano de Cirugía (8 puntos)</li>
                   </ul>
                 </div>

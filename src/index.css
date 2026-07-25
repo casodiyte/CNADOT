@@ -191,5 +191,27 @@ input:focus, select:focus, textarea:focus {
   .text-section { font-size: 26px; }
   .text-stats { font-size: 40px; }
   .grid-hero > div { text-align: left; }
-  .cn-blob { display: none; } /* Hide blobs on mobile to improve performance and prevent overflow */
+  .cn-blob { display: none; }
+}
+
+/* MASCOT & LOGOS STYLES */
+.logos-top-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8%;
+  margin-bottom: 50px;
+}
+.mascota-logo {
+  transform: translateX(-70px);
+}
+@media (max-width: 968px) {
+  .logos-top-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .mascota-logo {
+    transform: none;
+    margin: 30px 0;
+  }
 }
