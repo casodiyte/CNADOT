@@ -6,13 +6,13 @@ exports.handler = async (event) => {
       return { statusCode: 405, body: 'Method Not Allowed' };
     }
     
-    const { profile, packageType, userDetails } = JSON.parse(event.body);
+    const { profile, subProfile, packageType, userDetails } = JSON.parse(event.body);
 
     let price = 0;
     let title = '';
 
     // Lógica de precios según lo indicado por el usuario
-    if (profile === 'Coordinadores') {
+    if (profile === 'Coordinador(a) de Donación' || profile === 'Coordinadores') {
       if (packageType === 'Fase 1-2-3') {
         price = 7000;
         title = 'Inscripción Fase 1-2-3 (Coordinadores Anáhuac)';
@@ -22,18 +22,18 @@ exports.handler = async (event) => {
       }
     } else if (profile === 'Cirujanos') {
       price = 9000;
-      title = 'Inscripción Fase 1-2-4-5-6 (Cirujanos)';
+      title = `Inscripción Fase 1-2-4-5-6 (Cirujanos${subProfile ? ' - ' + subProfile : ''})`;
     } else if (profile === 'Perfusionistas') {
       price = 5000;
       title = 'Inscripción Fase 1-2-4-5-6 (Perfusionistas)';
-    } else if (profile === 'Enfermeros') {
+    } else if (profile === 'Enfermeros Quirúrgicos' || profile === 'Enfermeros') {
       price = 4000;
-      title = 'Inscripción Fase 1-2-4-5-6 (Enfermeros)';
-    } else if (profile === 'Especialistas') {
+      title = 'Inscripción Fase 1-2-4-5-6 (Enfermeros Quirúrgicos)';
+    } else if (profile && profile.startsWith('Especialistas')) {
       price = 4000;
-      title = 'Inscripción Fase 1-2-4-5-6 (Especialistas)';
+      title = `Inscripción Fase 1-2-4-5-6 (Especialistas${subProfile ? ' - ' + subProfile : ''})`;
     } else {
-      return { statusCode: 400, body: JSON.stringify({ error: 'Perfil inválido' }) };
+      return { statusCode: 400, body: JSON.stringify({ error: 'Perfil inválido: ' + profile }) };
     }
 
     // Identificar el dominio base

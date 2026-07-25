@@ -68,7 +68,7 @@ export const perfiles=[
 
 export const programa = [
   {
-    n: '1', titulo: 'Fase Teórica Virtual Híbrida', cuando: 'Desde el 17 al 28 de Septiembre 2026 | Contenido asincrónico + sesiones sincrónicas en vivo', meta: 'Asincrónica + Sincrónica', color: blue, color2: blue, tint: '#E6F7FF',
+    n: '1', titulo: 'Fase Teórica Virtual Híbrida', cuando: 'Desde el 17 al 28 de Septiembre 2026', meta: 'Contenido asincrónico + sesiones sincrónicas en vivo', color: blue, color2: blue, tint: '#E6F7FF',
     objetivo: 'Homogeneizar las bases teórico-conceptuales del equipo multidisciplinario a través de la revisión selectiva de literatura científica y la introducción formal a los modelos de comunicación en crisis.',
     temas: [
       { t: 'Duración: 1 semana', d: 'Acceso desde el 17 de Septiembre. Revisión de Material Previo. Examen Diagnóstico Inicial.' },

@@ -12,32 +12,67 @@ export default function PagoStripe({ tipoUrl }) {
     tel: '',
     inst: '',
     pais: '',
-    perfil: isCoordinadorExclusivo ? 'Coordinadores' : ''
+    perfil: isCoordinadorExclusivo ? 'Coordinador(a) de Donación' : '',
+    subEspecialidad: '',
+    subEspecialidadTexto: ''
   });
 
   const [paquete, setPaquete] = useState(isCoordinadorExclusivo ? 'Fase 1-2-3' : 'Fase 1-2-4-5-6');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const perfilesGeneral = ['Cirujanos', 'Perfusionistas', 'Enfermeros', 'Especialistas'];
+  const perfilesGeneral = [
+    'Cirujanos',
+    'Perfusionistas',
+    'Enfermeros Quirúrgicos',
+    'Especialistas (anestesiólogos, intensivistas, etc.)',
+    'Coordinador(a) de Donación'
+  ];
 
   const setF = (key) => (e) => setForm({ ...form, [key]: e.target.value });
 
   const getPrecio = () => {
-    if (form.perfil === 'Coordinadores') {
+    if (form.perfil === 'Coordinador(a) de Donación') {
       return paquete === 'Fase 1-2-3' ? 7000 : 4000;
     }
     if (form.perfil === 'Cirujanos') return 9000;
     if (form.perfil === 'Perfusionistas') return 5000;
-    if (form.perfil === 'Enfermeros' || form.perfil === 'Especialistas') return 4000;
+    if (form.perfil === 'Enfermeros Quirúrgicos' || form.perfil.startsWith('Especialistas')) return 4000;
     return 0;
+  };
+
+  const getSubProfileString = () => {
+    if (form.perfil === 'Cirujanos') {
+      return form.subEspecialidad === 'Otro (especificar)' ? form.subEspecialidadTexto : form.subEspecialidad;
+    }
+    if (form.perfil.startsWith('Especialistas')) {
+      return form.subEspecialidadTexto;
+    }
+    return '';
   };
 
   const procesarPago = async (e) => {
     e.preventDefault();
     setErrorMsg('');
+    
     if (!form.nombre || !form.email || !form.perfil || !form.tel) {
-      setErrorMsg('Por favor completa los datos obligatorios.');
+      setErrorMsg('Por favor completa todos los datos obligatorios.');
+      return;
+    }
+
+    if (form.perfil === 'Cirujanos') {
+      if (!form.subEspecialidad) {
+        setErrorMsg('Por favor selecciona tu especialidad de cirugía.');
+        return;
+      }
+      if (form.subEspecialidad === 'Otro (especificar)' && !form.subEspecialidadTexto) {
+        setErrorMsg('Por favor especifica tu especialidad.');
+        return;
+      }
+    }
+
+    if (form.perfil.startsWith('Especialistas') && !form.subEspecialidadTexto) {
+      setErrorMsg('Por favor especifica tu especialidad médica.');
       return;
     }
 
@@ -49,6 +84,7 @@ export default function PagoStripe({ tipoUrl }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           profile: form.perfil,
+          subProfile: getSubProfileString(),
           packageType: paquete,
           userDetails: form
         })
@@ -60,7 +96,6 @@ export default function PagoStripe({ tipoUrl }) {
         throw new Error(data.error || 'Error al procesar la solicitud');
       }
 
-      // La API de Stripe devuelve la URL de la sesión de pago
       if (data.url) {
         window.location.href = data.url;
       } else {
@@ -138,11 +173,11 @@ export default function PagoStripe({ tipoUrl }) {
               <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 0.5 }}>Perfil Profesional *</span>
               <select required value={form.perfil} onChange={(e) => {
                 const val = e.target.value;
-                setForm({ ...form, perfil: val });
-                if (val !== 'Coordinadores') setPaquete('Fase 1-2-4-5-6');
+                setForm({ ...form, perfil: val, subEspecialidad: '', subEspecialidadTexto: '' });
+                if (val !== 'Coordinador(a) de Donación') setPaquete('Fase 1-2-4-5-6');
               }} style={{ width: '100%', fontSize: 15, padding: '14px 16px', border: '1px solid #c9d8dd', borderRadius: 12, outline: 'none', cursor: 'pointer', background: '#fafcfd', appearance: 'none' }}>
                 {isCoordinadorExclusivo ? (
-                  <option value="Coordinadores">Coordinador(a) de Donación</option>
+                  <option value="Coordinador(a) de Donación">Coordinador(a) de Donación</option>
                 ) : (
                   <>
                     <option value="">-- Selecciona tu especialidad --</option>
@@ -152,7 +187,34 @@ export default function PagoStripe({ tipoUrl }) {
               </select>
             </label>
 
-            {form.perfil === 'Coordinadores' && (
+            {form.perfil === 'Cirujanos' && (
+              <label style={{ display: 'block', animation: 'cnFadeIn .3s ease-out' }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 0.5 }}>Especialidad quirúrgica *</span>
+                <select required value={form.subEspecialidad} onChange={(e) => setForm({ ...form, subEspecialidad: e.target.value, subEspecialidadTexto: '' })} style={{ width: '100%', fontSize: 15, padding: '14px 16px', border: '1px solid #c9d8dd', borderRadius: 12, outline: 'none', cursor: 'pointer', background: '#fafcfd', appearance: 'none' }}>
+                  <option value="">-- Selecciona --</option>
+                  <option value="Abdomen">Abdomen</option>
+                  <option value="Tórax">Tórax</option>
+                  <option value="Cardiovasculares">Cardiovasculares</option>
+                  <option value="Otro (especificar)">Otro (especificar)</option>
+                </select>
+              </label>
+            )}
+
+            {form.perfil === 'Cirujanos' && form.subEspecialidad === 'Otro (especificar)' && (
+              <label style={{ display: 'block', animation: 'cnFadeIn .3s ease-out' }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 0.5 }}>Especifica tu especialidad *</span>
+                <input required placeholder="Ej. Cirujano Pediatra" value={form.subEspecialidadTexto} onChange={setF('subEspecialidadTexto')} style={{ width: '100%', fontSize: 15, padding: '14px 16px', border: '1px solid #c9d8dd', borderRadius: 12, outline: 'none', transition: '.2s', background: '#fafcfd' }} onFocus={(e) => e.target.style.borderColor='#12d2b3'} onBlur={(e) => e.target.style.borderColor='#c9d8dd'} />
+              </label>
+            )}
+
+            {form.perfil.startsWith('Especialistas') && (
+              <label style={{ display: 'block', animation: 'cnFadeIn .3s ease-out' }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 0.5 }}>Especialidad Médica *</span>
+                <input required placeholder="Ej. Anestesiólogo, Intensivista..." value={form.subEspecialidadTexto} onChange={setF('subEspecialidadTexto')} style={{ width: '100%', fontSize: 15, padding: '14px 16px', border: '1px solid #c9d8dd', borderRadius: 12, outline: 'none', transition: '.2s', background: '#fafcfd' }} onFocus={(e) => e.target.style.borderColor='#12d2b3'} onBlur={(e) => e.target.style.borderColor='#c9d8dd'} />
+              </label>
+            )}
+
+            {form.perfil === 'Coordinador(a) de Donación' && (
               <label style={{ display: 'block', animation: 'cnFadeIn .3s ease-out' }}>
                 <span style={{ fontSize: 13, fontWeight: 600, color: '#0099CC', display: 'block', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 0.5 }}>Selecciona tu paquete *</span>
                 <select value={paquete} onChange={(e) => setPaquete(e.target.value)} style={{ width: '100%', fontSize: 15, padding: '14px 16px', border: '2px solid #0099CC', borderRadius: 12, outline: 'none', background: '#f4fbfe', color: '#1c3f4a', cursor: 'pointer', fontWeight: 500 }}>
