@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PagoStripe from './PagoStripe';
 import './index.css';
 import {
   blue, green, orange,
   icBook, icMsg, icBolt, icPin, icMoney, icPhone,
   programa, perfiles, expertos, paises, logos,
-  objetivos, stats, navItems, escenarios
+  objetivos, stats, navItems, escenarios, timeline
 } from './data';
 
 const LogosGrid = () => (
@@ -54,7 +56,7 @@ const LogosGrid = () => (
 );
 
 
-function App() {
+function MainApp() {
   const [section, setSection] = useState('home');
   const [query, setQuery] = useState('');
   const [form, setForm] = useState({nombre:'',email:'',tel:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
@@ -207,8 +209,6 @@ function App() {
 
       <main style={{ position: 'relative', zIndex: 10, maxWidth: 1240, margin: '0 auto', padding: '0 24px 80px' }}>
         
-
-
         {/* HOME */}
         {section === 'home' && (
           <section style={{ padding: '8px 0 0' }}>
@@ -237,7 +237,7 @@ function App() {
             </div>
 
             {/* PROGRAMA CARDS */}
-            <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 700, color: '#1c3f4a', margin: '44px 0 6px' }}>5 Fases Integradas</h2>
+            <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 700, color: '#1c3f4a', margin: '44px 0 6px' }}>6 Fases Integradas</h2>
             <p style={{ color: '#666', margin: '0 0 26px' }}>Un programa escalado de complejidad creciente.</p>
             <div className="grid-3">
               {programa.map((f, i) => (
@@ -679,4 +679,43 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainApp />} />
+        <Route path="/pago-coordinadores" element={<PagoStripe tipoUrl="pago-coordinadores" />} />
+        <Route path="/pago-general" element={<PagoStripe tipoUrl="pago-general" />} />
+        <Route path="/pago-exito" element={<PagoExito />} />
+        <Route path="/pago-cancelado" element={<PagoCancelado />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+const PagoExito = () => (
+  <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg,#ffffff 0%,#f2fbfa 45%,#eaf7ef 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ maxWidth: 600, width: '90%', background: '#fff', border: '1px solid #e8f1f0', borderRadius: 18, padding: '40px 20px', textAlign: 'center', boxShadow: '0 2px 12px rgba(0,0,0,.04)' }}>
+      <div style={{ width: 80, height: 80, borderRadius: '50%', background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+      </div>
+      <h2 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 10px' }}>¡Pago exitoso!</h2>
+      <p style={{ color: '#666', marginBottom: 24 }}>Tu inscripción se ha procesado correctamente. Recibirás un correo electrónico de Stripe con tu comprobante.</p>
+      <a href="/" style={{ display: 'inline-block', background: '#FF6600', color: '#fff', textDecoration: 'none', padding: '10px 24px', borderRadius: 999, fontFamily: "'Poppins'", fontWeight: 600 }}>Volver al inicio</a>
+    </div>
+  </div>
+);
+
+const PagoCancelado = () => (
+  <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg,#ffffff 0%,#f2fbfa 45%,#eaf7ef 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ maxWidth: 600, width: '90%', background: '#fff', border: '1px solid #e8f1f0', borderRadius: 18, padding: '40px 20px', textAlign: 'center', boxShadow: '0 2px 12px rgba(0,0,0,.04)' }}>
+      <div style={{ width: 80, height: 80, borderRadius: '50%', background: '#D32F2F', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+      </div>
+      <h2 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 10px' }}>Pago cancelado</h2>
+      <p style={{ color: '#666', marginBottom: 24 }}>El proceso de pago fue interrumpido. No se ha realizado ningún cargo a tu tarjeta.</p>
+      <a href="/" style={{ display: 'inline-block', background: '#FF6600', color: '#fff', textDecoration: 'none', padding: '10px 24px', borderRadius: 999, fontFamily: "'Poppins'", fontWeight: 600 }}>Volver al inicio</a>
+    </div>
+  </div>
+);
+

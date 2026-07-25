@@ -68,7 +68,7 @@ export const perfiles=[
 
 export const programa = [
   {
-    n: '1', titulo: 'Fase Teórica Virtual Híbrida', cuando: 'Desde el 17 al 28 de Septiembre 2026', meta: 'Asincrónica + Sincrónica', color: blue, color2: blue, tint: '#E6F7FF',
+    n: '1', titulo: 'Fase Teórica Virtual Híbrida', cuando: 'Desde el 17 al 28 de Septiembre 2026 | Contenido asincrónico + sesiones sincrónicas en vivo', meta: 'Asincrónica + Sincrónica', color: blue, color2: blue, tint: '#E6F7FF',
     objetivo: 'Homogeneizar las bases teórico-conceptuales del equipo multidisciplinario a través de la revisión selectiva de literatura científica y la introducción formal a los modelos de comunicación en crisis.',
     temas: [
       { t: 'Duración: 1 semana', d: 'Acceso desde el 17 de Septiembre. Revisión de Material Previo. Examen Diagnóstico Inicial.' },
@@ -78,7 +78,7 @@ export const programa = [
     ]
   },
   {
-    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9',
+    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 8:30 AM – 4:00 PM', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9',
     objetivo: 'Integrar los paradigmas asistenciales, legales y bioéticos de vanguardia en donación y trasplantes mediante ponencias magistrales interactivas con expertos de la red nacional e internacional.',
     temas: [
       { t: 'El Modelo Mexicano de Donación y Trasplantes: Realidad Actual y Retos Normativos (CENATRA)', d: 'Objetivo: Contextualizar el marco legal y regulatorio vigente en México frente al panorama global para identificar áreas de oportunidad en la práctica institucional.' },
@@ -101,22 +101,22 @@ export const programa = [
     ]
   },
   {
-    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Centro de Simulación Anáhuac', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
+    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026 | Horario: 9:00 AM – 3:00 PM', meta: 'Centro de Simulación Anáhuac', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
     objetivo: 'Aplicación en tiempo real de habilidades no técnicas en escenarios de crisis (Muerte encefálica y comunicación de malas noticias), mediante la inmersión en escenarios simulados de alta fidelidad y técnicas estructuradas de debriefing.',
     temas: [
-      { t: '29 de Septiembre | Día 1: Escenarios Clínicos Básicos', d: 'Escenario 1: Diagnóstico Muerte Encefálica\nEscenario 2: Comunicación de Malas Noticias\nEscenario 3: Manejo ECMO\nEscenario 4: Logística DAC' },
-      { t: '30 de Septiembre | Día 2: Escenarios Clínicos Avanzados', d: 'Escenario 5: Entrevista para Donación\nEscenario 6: Manejo, Preservación y Envío de Órganos\nEscenario 7: Mantenimiento del Donante con Muerte Encefálica\nEscenario 8: Logística DANC' }
+      { t: '29 de Septiembre', d: 'Escenario 1: Diagnóstico Muerte Encefálica\nEscenario 2: Comunicación de Malas Noticias\nEscenario 3: Manejo ECMO\nEscenario 4: Logística DAC' },
+      { t: '30 de Septiembre', d: 'Escenario 5: Entrevista para Donación\nTaller 6: Manejo, Preservación y Envío de Órganos\nEscenario 7: Mantenimiento del Donante con Muerte Encefálica\nEscenario 8: Logística DANC' }
     ]
   },
   {
-    n: '4', titulo: 'Simulación Clínica', cuando: '30 de Septiembre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'Centro de Simulación UVM', color: blue, color2: blue, tint: '#E6F7FF',
+    n: '4', titulo: 'Simulación Clínica DAC (Donación en Asistolia Controlada)', cuando: '30 de Septiembre 2026 | Horario: 4:00 PM – 6:45 PM', meta: 'Centro de Simulación UVM', color: blue, color2: blue, tint: '#E6F7FF',
     objetivo: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).',
     temas: [
       { t: 'Simulación Clínica DAC', d: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).' }
     ]
   },
   {
-    n: '5', titulo: 'Teórica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'UVM Hospital Veterinario', color: orange, color2: orange, tint: '#FFE6CC',
+    n: '5', titulo: 'Teórica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 8:30 AM – 1:25 PM', meta: 'UVM Hospital Veterinario', color: orange, color2: orange, tint: '#FFE6CC',
     objetivo: 'Integrar y sistematizar los fundamentos anatómicos, criterios de selección avanzados, innovaciones tecnológicas y variantes de técnica quirúrgica compleja (Split, DAC, Robótica y Perfusión Dinámica), con el fin de unificar criterios clínicos y estandarizar la toma de decisiones críticas que los cirujanos y equipo multidisciplinario ejecutarán de forma práctica e inmediata en los modelos biológicos in vivo y ex situ.',
     temas: [
       { t: 'De la Donación Convencional a la Vanguardia: Evolución y Perspectivas de la Procuración Multiorgánica en México', d: 'Objetivo: Introducción a la fase teórica quirúrgica experimental.' },
@@ -138,7 +138,7 @@ export const programa = [
     ]
   },
   {
-    n: '6', titulo: 'Práctica Quirúrgica Experimental', cuando: '1 y 2 de Octubre 2026 | Horario: 9:00 AM a 6:00 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9',
+    n: '6', titulo: 'Práctica Presencial Experimental Quirúrgica', cuando: '1 y 2 de Octubre 2026 | Horario 1 Oct: 2:20 PM – 6:00 PM / Horario 2 Oct: 8:45 AM – 4:30 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9',
     objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad.',
     temas: [
       { t: 'Estación A: Donación en Asistolia Controlada (DAC)', d: 'Objetivo: Capacitar al personal en la estrategia DAC para diversificar los mecanismos de procuración de órganos, con el propósito de incrementar a corto y mediano plazo la tasa de donación en México.' },
@@ -337,4 +337,13 @@ export const escenarios = [
     ],
     pills: ['Urgencias', 'Logística rápida', 'Marco legal']
   }
+];
+
+export const timeline = [
+  { week: '17 - 28 Sept', titulo: 'Fase 1: Teórica Virtual Híbrida', color: blue, items: ['Modalidad: En línea', 'Acceso desde el 17 de sept. (duración 1 semana)', '21 Sept (9:00 AM – 12:00 PM): Clase virtual sincrónica', '24 o 25 Sept: Clase virtual'] },
+  { week: '28 Sept', titulo: 'Fase 2: Teórica Presencial', color: green, items: ['Sede: Auditorio de Rectoría, Universidad Anáhuac', 'Horario: 8:30 AM – 4:00 PM'] },
+  { week: '29 Sept', titulo: 'Fase 3: Práctica Presencial (Día 1)', color: orange, items: ['Sede: Centro de Simulación Anáhuac', 'Horario: 9:00 AM – 3:00 PM'] },
+  { week: '30 Sept', titulo: 'Dos Bloques: Anáhuac → UVM', color: blue, items: ['MAÑANA (9:00 AM – 3:00 PM): Fase 3 en Centro de Simulación Anáhuac', 'TARDE (4:00 PM – 6:45 PM): Fase 4 en UVM, Hospital Veterinario'] },
+  { week: '1 Oct', titulo: 'Dos Bloques en UVM: Teoría → Práctica', color: orange, items: ['MAÑANA (8:30 AM – 1:25 PM): Fase 5 en UVM', 'TARDE (2:20 PM – 6:00 PM): Fase 6 en UVM'] },
+  { week: '2 Oct', titulo: 'Fase 6: Práctica Experimental (Día 2)', color: green, items: ['Sede: UVM, Hospital Veterinario', 'Horario: 8:45 AM – 4:30 PM'] }
 ];
