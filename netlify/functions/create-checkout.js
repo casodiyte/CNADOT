@@ -57,8 +57,8 @@ exports.handler = async (event) => {
         },
       ],
       mode: 'payment',
-      success_url: `${domain}/?seccion=pago-exito`,
-      cancel_url: `${domain}/?seccion=pago-cancelado`,
+      success_url: `${domain}/pago-exito`,
+      cancel_url: `${domain}/pago-cancelado`,
       customer_email: userDetails.email,
     });
 

@@ -60,10 +60,11 @@ export default function PagoStripe({ tipoUrl }) {
         throw new Error(data.error || 'Error al procesar la solicitud');
       }
 
-      const stripe = await stripePromise;
-      if (stripe) {
-        const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
-        if (error) throw error;
+      // La API de Stripe devuelve la URL de la sesión de pago
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No se recibió la URL de pago');
       }
     } catch (error) {
       setErrorMsg(error.message || 'Ocurrió un error al iniciar el pago.');

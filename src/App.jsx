@@ -694,27 +694,45 @@ export default function App() {
 }
 
 const PagoExito = () => (
-  <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg,#ffffff 0%,#f2fbfa 45%,#eaf7ef 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <div style={{ maxWidth: 600, width: '90%', background: '#fff', border: '1px solid #e8f1f0', borderRadius: 18, padding: '40px 20px', textAlign: 'center', boxShadow: '0 2px 12px rgba(0,0,0,.04)' }}>
-      <div style={{ width: 80, height: 80, borderRadius: '50%', background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+  <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg, #f4fbfe 0%, #ffffff 50%, #eaf7ef 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '60px 20px', fontFamily: "'Poppins', sans-serif" }}>
+    <div style={{ width: '100%', maxWidth: 540, background: '#fff', border: '1px solid #e8f1f0', borderRadius: 24, padding: '50px 40px', textAlign: 'center', boxShadow: '0 10px 40px rgba(0,0,0,.06)', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, background: '#12d2b3' }}></div>
+      
+      <div style={{ width: 90, height: 90, borderRadius: '50%', background: 'linear-gradient(135deg, #12d2b3 0%, #0fb59a 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', boxShadow: '0 8px 20px rgba(18,210,179,.3)' }}>
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
       </div>
-      <h2 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 10px' }}>¡Pago exitoso!</h2>
-      <p style={{ color: '#666', marginBottom: 24 }}>Tu inscripción se ha procesado correctamente. Recibirás un correo electrónico de Stripe con tu comprobante.</p>
-      <a href="/" style={{ display: 'inline-block', background: '#FF6600', color: '#fff', textDecoration: 'none', padding: '10px 24px', borderRadius: 999, fontFamily: "'Poppins'", fontWeight: 600 }}>Volver al inicio</a>
+      
+      <h2 style={{ fontWeight: 800, color: '#1c3f4a', margin: '0 0 12px', fontSize: 32 }}>¡Inscripción Exitosa!</h2>
+      <p style={{ color: '#556', marginBottom: 32, fontSize: 16, lineHeight: 1.6 }}>
+        Tu pago ha sido procesado correctamente y tu lugar está asegurado. En breve recibirás un correo electrónico de Stripe con tu comprobante oficial.
+      </p>
+      
+      <a href="/" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'linear-gradient(90deg, #1c3f4a, #2a5a6a)', color: '#fff', textDecoration: 'none', padding: '14px 32px', borderRadius: 12, fontWeight: 700, fontSize: 15, transition: '.2s', boxShadow: '0 6px 16px rgba(28,63,74,.2)' }}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Regresar al Inicio
+      </a>
     </div>
   </div>
 );
 
 const PagoCancelado = () => (
-  <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg,#ffffff 0%,#f2fbfa 45%,#eaf7ef 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <div style={{ maxWidth: 600, width: '90%', background: '#fff', border: '1px solid #e8f1f0', borderRadius: 18, padding: '40px 20px', textAlign: 'center', boxShadow: '0 2px 12px rgba(0,0,0,.04)' }}>
-      <div style={{ width: 80, height: 80, borderRadius: '50%', background: '#D32F2F', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+  <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg, #f4fbfe 0%, #ffffff 50%, #fff0f0 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '60px 20px', fontFamily: "'Poppins', sans-serif" }}>
+    <div style={{ width: '100%', maxWidth: 540, background: '#fff', border: '1px solid #fce8e8', borderRadius: 24, padding: '50px 40px', textAlign: 'center', boxShadow: '0 10px 40px rgba(0,0,0,.06)', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, background: '#D32F2F' }}></div>
+      
+      <div style={{ width: 90, height: 90, borderRadius: '50%', background: 'linear-gradient(135deg, #f05252 0%, #d32f2f 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', boxShadow: '0 8px 20px rgba(211,47,47,.3)' }}>
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
       </div>
-      <h2 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 10px' }}>Pago cancelado</h2>
-      <p style={{ color: '#666', marginBottom: 24 }}>El proceso de pago fue interrumpido. No se ha realizado ningún cargo a tu tarjeta.</p>
-      <a href="/" style={{ display: 'inline-block', background: '#FF6600', color: '#fff', textDecoration: 'none', padding: '10px 24px', borderRadius: 999, fontFamily: "'Poppins'", fontWeight: 600 }}>Volver al inicio</a>
+      
+      <h2 style={{ fontWeight: 800, color: '#1c3f4a', margin: '0 0 12px', fontSize: 32 }}>Pago Incompleto</h2>
+      <p style={{ color: '#556', marginBottom: 32, fontSize: 16, lineHeight: 1.6 }}>
+        El proceso de pago fue interrumpido o cancelado. <strong>No se ha realizado ningún cargo a tu tarjeta.</strong> Puedes intentarlo de nuevo cuando estés listo.
+      </p>
+      
+      <a href="/" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#f1f5f7', color: '#1c3f4a', textDecoration: 'none', padding: '14px 32px', borderRadius: 12, fontWeight: 700, fontSize: 15, transition: '.2s' }}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Volver al Inicio
+      </a>
     </div>
   </div>
 );
