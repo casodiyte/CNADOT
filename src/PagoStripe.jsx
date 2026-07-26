@@ -170,7 +170,10 @@ export default function PagoStripe({ tipoUrl }) {
                 setForm({ ...form, perfil: val, subEspecialidad: '', subEspecialidadTexto: '' });
               }} style={{ width: '100%', fontSize: 15, padding: '14px 16px', border: '1px solid #c9d8dd', borderRadius: 12, outline: 'none', cursor: 'pointer', background: '#fafcfd', appearance: 'none' }}>
                 {isCoordinadorExclusivo ? (
-                  <option value="Coordinador(a) de Donación">Coordinador(a) de Donación</option>
+                  <>
+                    <option value="Coordinador(a) de Donación">Coordinador(a) de Donación</option>
+                    <option value="Prueba (5 MXN)">Prueba (5 MXN)</option>
+                  </>
                 ) : (
                   <>
                     <option value="">-- Selecciona tu perfil --</option>
