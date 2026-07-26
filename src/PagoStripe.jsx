@@ -27,7 +27,7 @@ export default function PagoStripe({ tipoUrl }) {
     'Enfermeros Quirúrgicos',
     'Médicos Especialistas',
     'Coordinador(a) de Donación',
-    'Prueba (5 MXN)'
+    'Prueba (10 MXN)'
   ];
 
   const setF = (key) => (e) => setForm({ ...form, [key]: e.target.value });
@@ -36,7 +36,7 @@ export default function PagoStripe({ tipoUrl }) {
     if (form.perfil === 'Coordinador(a) de Donación') {
       return 7000;
     }
-    if (form.perfil === 'Prueba (5 MXN)') return 5;
+    if (form.perfil === 'Prueba (10 MXN)') return 10;
     if (form.perfil === 'Cirujanos') return 9000;
     if (form.perfil === 'Perfusionistas') return 5000;
     if (form.perfil === 'Enfermeros Quirúrgicos' || form.perfil === 'Médicos Especialistas' || form.perfil.startsWith('Especialistas')) return 4000;
@@ -172,7 +172,7 @@ export default function PagoStripe({ tipoUrl }) {
                 {isCoordinadorExclusivo ? (
                   <>
                     <option value="Coordinador(a) de Donación">Coordinador(a) de Donación</option>
-                    <option value="Prueba (5 MXN)">Prueba (5 MXN)</option>
+                    <option value="Prueba (10 MXN)">Prueba (10 MXN)</option>
                   </>
                 ) : (
                   <>

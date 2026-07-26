@@ -15,9 +15,9 @@ exports.handler = async (event) => {
     if (profile === 'Coordinador(a) de Donación' || profile === 'Coordinadores') {
       price = 7000;
       title = 'Inscripción Fase 1-2-3 (Coordinadores Anáhuac)';
-    } else if (profile === 'Prueba (5 MXN)') {
-      price = 5;
-      title = 'Inscripción de Prueba (5 MXN)';
+    } else if (profile === 'Prueba (10 MXN)') {
+      price = 10;
+      title = 'Inscripción de Prueba (10 MXN)';
     } else if (profile === 'Cirujanos') {
       price = 9000;
       title = `Inscripción Fase 1-2-4-5-6 (Cirujanos${subProfile ? ' - ' + subProfile : ''})`;
