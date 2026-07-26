@@ -13,13 +13,11 @@ exports.handler = async (event) => {
 
     // Lógica de precios según lo indicado por el usuario
     if (profile === 'Coordinador(a) de Donación' || profile === 'Coordinadores') {
-      if (packageType === 'Fase 1-2-3') {
-        price = 7000;
-        title = 'Inscripción Fase 1-2-3 (Coordinadores Anáhuac)';
-      } else {
-        price = 4000; // Asumiendo precio similar a especialistas para paquete general
-        title = 'Inscripción Fase 1-2-4-5-6 (Coordinadores)';
-      }
+      price = 7000;
+      title = 'Inscripción Fase 1-2-3 (Coordinadores Anáhuac)';
+    } else if (profile === 'Prueba (5 MXN)') {
+      price = 5;
+      title = 'Inscripción de Prueba (5 MXN)';
     } else if (profile === 'Cirujanos') {
       price = 9000;
       title = `Inscripción Fase 1-2-4-5-6 (Cirujanos${subProfile ? ' - ' + subProfile : ''})`;
@@ -29,9 +27,9 @@ exports.handler = async (event) => {
     } else if (profile === 'Enfermeros Quirúrgicos' || profile === 'Enfermeros') {
       price = 4000;
       title = 'Inscripción Fase 1-2-4-5-6 (Enfermeros Quirúrgicos)';
-    } else if (profile && profile.startsWith('Especialistas')) {
+    } else if (profile === 'Médicos Especialistas' || (profile && profile.startsWith('Especialistas'))) {
       price = 4000;
-      title = `Inscripción Fase 1-2-4-5-6 (Especialistas${subProfile ? ' - ' + subProfile : ''})`;
+      title = `Inscripción Fase 1-2-4-5-6 (Médicos Especialistas${subProfile ? ' - ' + subProfile : ''})`;
     } else {
       return { statusCode: 400, body: JSON.stringify({ error: 'Perfil inválido: ' + profile }) };
     }
