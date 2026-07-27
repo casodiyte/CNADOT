@@ -141,7 +141,7 @@ export const programa = [
     n: '6', titulo: 'Práctica Presencial Experimental Quirúrgica', cuando: '1 y 2 de Octubre 2026 | Horario 1 Oct: 2:20 PM – 6:00 PM / Horario 2 Oct: 8:45 AM – 4:30 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9',
     objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad.',
     temas: [
-      { t: 'Estación A: Donación en Asistolia Controlada (DAC)', d: 'Objetivo: Capacitar al personal en la estrategia DAC para diversificar los mecanismos de procuración de órganos, con el propósito de incrementar a corto y mediano plazo la tasa de donación en México.' },
+      { t: 'Estación A: Donación en Asistolia Controlada (DAC)', d: 'Objetivo: Entrenar DAC con el fin de aprender una estrategia adicional para incrementar la tasa de donación con visión a futuro cercano en México.' },
       { t: 'Estación B: Perfusión de Órganos Ex Situ', d: 'Objetivo: Optimizar los resultados de supervivencia en trasplantes e incrementar la tasa de rescate de órganos con criterios expandidos (marginales) mediante la implementación de tecnología de perfusión ex situ.' },
       { t: 'Estación C: Bipartición Hepática (Split)', d: 'Objetivo: Desarrollar competencias y destrezas quirúrgicas avanzadas para la realización del trasplante hepático split (bipartición) y el implante exitoso de ambos segmentos.' }
     ]
@@ -166,25 +166,24 @@ const expertosRaw=[
   {nombre:'Dr. Mauricio Beltrán',pais:'US',color:green,org:'OPS · Washington',expertise:'Perspectiva internacional y estándares regionales.'},
   {nombre:'Dr. Juan Rodríguez',pais:'MX',color:blue,org:'Comunicación',expertise:'Comunicación de malas noticias y entrevista familiar.'},
   {nombre:'Dra. Kenia Reyes',pais:'MX',color:blue,org:'Comunicación',expertise:'Entrevista de solicitud de donación en crisis.'},
-  {nombre:'Dr. Héctor Vilca Meléndez',pais:'GB',color:green,org:'Inglaterra',expertise:'Cirugía Hepática Extrema.'},
+  {nombre:'Dr. Héctor Vilca Meléndez',pais:'GB',color:green,org:'Inglaterra',expertise:'Cirugía Hepática Extrema y Multivisceral.'},
   {nombre:'Dr. Constantino Fondevila Campo',pais:'ES',color:green,org:'España',expertise:'Prevención de Complicaciones y Robótica.'},
-  {nombre:'Dr. Gustaf Herlenius',pais:'SE',color:orange,org:'Suecia',expertise:'Cirugía Multivisceral.'}
+  {nombre:'Dr. Francisco Sachiñas',pais:'GB',color:orange,org:'Inglaterra',expertise:'Imagenología Avanzada y Fisiopatología Hemodinámica.'},
+  {nombre:'Dr. Francisco Hernández Oliveros',pais:'ES',color:orange,org:'España',expertise:'Perfusión Dinámica Ex Situ.'}
 ];
 
 const cMX = expertosRaw.filter(x=>x.pais==='MX').length;
 const cES = expertosRaw.filter(x=>x.pais==='ES').length;
 const cUS = expertosRaw.filter(x=>x.pais==='US').length;
 const cGB = expertosRaw.filter(x=>x.pais==='GB').length;
-const cSE = expertosRaw.filter(x=>x.pais==='SE').length;
 const cCH = expertosRaw.filter(x=>x.pais==='CH').length;
-const flagImg = {MX:'https://flagcdn.com/w40/mx.png',ES:'https://flagcdn.com/w40/es.png',US:'https://flagcdn.com/w40/us.png',GB:'https://flagcdn.com/w40/gb.png',CH:'https://flagcdn.com/w40/ch.png',SE:'https://flagcdn.com/w40/se.png'};
+const flagImg = {MX:'https://flagcdn.com/w40/mx.png',ES:'https://flagcdn.com/w40/es.png',US:'https://flagcdn.com/w40/us.png',GB:'https://flagcdn.com/w40/gb.png',CH:'https://flagcdn.com/w40/ch.png'};
 
 export const expertos = expertosRaw.map(x=>({...x,flagImg:flagImg[x.pais]||''}));
 export const paises = [
   {count:cMX,label:'México',color:green,flagImg:flagImg.MX},
   {count:cES,label:'España',color:orange,flagImg:flagImg.ES},
   {count:cGB,label:'Inglaterra',color:blue,flagImg:flagImg.GB},
-  {count:cSE,label:'Suecia',color:orange,flagImg:flagImg.SE},
   {count:cCH,label:'Suiza',color:orange,flagImg:flagImg.CH},
   {count:cUS,label:'Estados Unidos',color:blue,flagImg:flagImg.US}
 ].filter(x=>x.count>0);

@@ -172,6 +172,78 @@ function MainApp() {
 
   const red = '#D32F2F';
 
+  const renderInfoCards = () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+      <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede Anáhuac</h4>
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
+          <li><strong style={{color:'#0099CC'}}>28 de Septiembre</strong> · Auditorio de Rectoría</li>
+          <li><strong style={{color:'#0099CC'}}>29 y 30 de Septiembre</strong> · Centro de Simulación</li>
+        </ul>
+        <iframe src="https://maps.google.com/maps?q=Universidad+Anahuac+Mexico+Norte&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
+      </div>
+      <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
+          <li><strong style={{color:'#66CC00'}}>30 de Septiembre</strong> · Centro de Simulación UVM</li>
+          <li><strong style={{color:'#66CC00'}}>1 y 2 de Octubre</strong> · UVM Hospital Veterinario</li>
+        </ul>
+        <iframe src="https://maps.google.com/maps?q=Calz.+de+Tlalpan+3058,+Coapa,+Sta.+Ursula+Coapa,+Coyoacan,+CDMX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
+      </div>
+      <div style={{ background: '#FFF0F0', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF4D4D', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cuota de recuperación</h4>
+        <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Una vez aprobado por el comité podrá completar su inscripción.</p>
+      </div>
+      <div style={{ background: '#F0E6FF', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#9966CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: 0 }}>Cupo Limitado</h4>
+      </div>
+      <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Requisitos</h4>
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
+          <li>• Curriculum Vitae (CV) actualizado</li>
+          <li>• Carta de motivos (Máx. 1 cuartilla)</li>
+        </ul>
+      </div>
+      <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Avales Curriculares</h4>
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
+          <li>• UNAM</li>
+          <li>• Consejo Mexicano de Cirugía (8 puntos)</li>
+        </ul>
+      </div>
+      <div style={{ background: '#FFF7E6', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FFB800', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Reacreditación</h4>
+        <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Servirá de reacreditación para los coordinadores.</p>
+      </div>
+      <div style={{ background: '#FFE6CC', borderRadius: 16, padding: 22 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Soporte</h4>
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.75 }}>
+          <li>Correo: <a href="mailto:dgcenatra@salud.gob.mx" style={{color: '#FF6600', fontWeight: 600, textDecoration: 'none'}}>dgcenatra@salud.gob.mx</a></li>
+        </ul>
+      </div>
+    </div>
+  );
+
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg,#ffffff 0%,#f2fbfa 45%,#eaf7ef 100%)', overflowX: 'hidden' }}>
       {bgOn && (
@@ -275,6 +347,11 @@ function MainApp() {
                   <p style={{ color: '#556', fontSize: 13.5, margin: 0, lineHeight: 1.55 }}>{o.texto}</p>
                 </div>
               ))}
+            </div>
+
+            {/* INFO CARDS (HOME) */}
+            <div style={{ marginTop: 24, marginBottom: 40 }}>
+              {renderInfoCards()}
             </div>
 
             {/* LOGOS GRID (HOME) */}
@@ -588,72 +665,7 @@ function MainApp() {
                 )}
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-                <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede Anáhuac</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-                    <li><strong style={{color:'#0099CC'}}>28 de Septiembre</strong> · Auditorio de Rectoría</li>
-                    <li><strong style={{color:'#0099CC'}}>29 y 30 de Septiembre</strong> · Centro de Simulación</li>
-                  </ul>
-                  <iframe src="https://maps.google.com/maps?q=Universidad+Anahuac+Mexico+Norte&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
-                </div>
-                <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-                    <li><strong style={{color:'#66CC00'}}>30 de Septiembre</strong> · Centro de Simulación UVM</li>
-                    <li><strong style={{color:'#66CC00'}}>1 y 2 de Octubre</strong> · UVM Hospital Veterinario</li>
-                  </ul>
-                  <iframe src="https://maps.google.com/maps?q=Calz.+de+Tlalpan+3058,+Coapa,+Sta.+Ursula+Coapa,+Coyoacan,+CDMX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
-                </div>
-
-                <div style={{ background: '#FFF0F0', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF4D4D', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                  </div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Cuota de recuperación</h4>
-                  <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Una vez aprobado por el comité podrá completar su inscripción.</p>
-                </div>
-
-                <div style={{ background: '#F0E6FF', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#9966CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  </div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: 0 }}>Cupo Limitado</h4>
-                </div>
-
-                <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                  </div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Requisitos</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
-                    <li>• Curriculum Vitae (CV) actualizado</li>
-                    <li>• Carta de motivos (Máx. 1 cuartilla)</li>
-                  </ul>
-                </div>
-
-                <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                  </div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Avales Curriculares</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 0 }}>
-                    <li>• UNAM</li>
-                    <li>• Consejo Mexicano de Cirugía (8 puntos)</li>
-                  </ul>
-                </div>
-                <div style={{ background: '#FFE6CC', borderRadius: 16, padding: 22 }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  </div>
-                  <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Soporte</h4>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.75 }}>
-                    <li>Correo: <a href="mailto:dgcenatra@salud.gob.mx" style={{color: '#FF6600', fontWeight: 600, textDecoration: 'none'}}>dgcenatra@salud.gob.mx</a></li>
-                  </ul>
-                </div>
-              </div>
+              {renderInfoCards()}
             </div>
           </section>
         )}
