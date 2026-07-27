@@ -63,6 +63,7 @@ function MainApp() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [showErr, setShowErr] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [openPrograma, setOpenPrograma] = useState({});
 
   const trackRef = useRef(null);
@@ -129,16 +130,50 @@ function MainApp() {
     return er;
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const er = validate();
     if (Object.keys(er).length) {
       setErrors(er);
       setShowErr(true);
     } else {
-      setSubmitted(true);
+      setIsSubmitting(true);
       setShowErr(false);
-      setErrors({});
+      
+      const formData = new FormData();
+      formData.append("nombre", form.nombre);
+      formData.append("email", form.email);
+      formData.append("tel", form.tel);
+      formData.append("inst", form.inst);
+      formData.append("profesion", form.profesion);
+      formData.append("rol", form.rol);
+      formData.append("cedula", form.cedula);
+      if (form.cv) formData.append("cv", form.cv);
+      if (form.carta) formData.append("carta", form.carta);
+
+      try {
+        const response = await fetch("https://formspree.io/f/mojgyzqa", {
+          method: "POST",
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          setSubmitted(true);
+          setErrors({});
+        } else {
+          setErrors({ formspree: 'Hubo un error al enviar el formulario. Intenta nuevamente.' });
+          setShowErr(true);
+        }
+      } catch (err) {
+        console.error(err);
+        setErrors({ formspree: 'Error de red. Intenta nuevamente.' });
+        setShowErr(true);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -657,9 +692,11 @@ function MainApp() {
                         </div>
                       </label>
                     </div>
-                    {showErr && <p style={{ color: '#D32F2F', fontSize: 13.5, margin: '16px 0 0' }}>Revisa los campos marcados en rojo antes de enviar.</p>}
+                    {showErr && <p style={{ color: '#D32F2F', fontSize: 13.5, margin: '16px 0 0' }}>{errors.formspree || 'Revisa los campos marcados en rojo antes de enviar.'}</p>}
                     <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 22 }}>
-                      <button type="submit" style={{ background: '#FF6600', color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 15, padding: '13px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 4px 14px rgba(255,102,0,.28)', transition: '.2s' }}>Enviar Pre-registro</button>
+                      <button type="submit" disabled={isSubmitting} style={{ background: '#FF6600', color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 15, padding: '13px 30px', borderRadius: 999, cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1, boxShadow: '0 4px 14px rgba(255,102,0,.28)', transition: '.2s' }}>
+                        {isSubmitting ? 'Enviando...' : 'Enviar Pre-registro'}
+                      </button>
                     </div>
                   </form>
                 )}
