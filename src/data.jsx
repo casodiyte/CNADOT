@@ -157,7 +157,7 @@ const expertosRaw=[
   {nombre:'Dr. En Educ. Victor Manuel Figueroa Corchado',pais:'MX',color:blue,org:'Relámpagos',expertise:'Jefe de la unidad de rescate aéreo relámpagos, Estado de México.'},
   {nombre:'Dr. Constantino Fondevila Campo',pais:'ES',color:green,org:'España',expertise:'Presidente de la sociedad española de trasplantes.'},
   {nombre:'Dr. Alonso Mateos Rodríguez',pais:'ES',color:orange,org:'ONT · España',expertise:'Coordinador adjunto oficina regional de coordinación de trasplantes comunidad de Madrid.'},
-  {nombre:'Dr. Juan Ignacio Torres González',pais:'MX',color:blue,org:'Hospital Clínico San Carlos',expertise:'Enfermero coordinador de trasplantes Hospital Clínico San Carlos.'},
+  {nombre:'Dr. Juan Ignacio Torres González',pais:'ES',color:blue,org:'Hospital Clínico San Carlos',expertise:'Enfermero coordinador de trasplantes Hospital Clínico San Carlos.'},
   {nombre:'Lic. Enf. Gilberto Díaz Pérez',pais:'MX',color:blue,org:'Perfusión',expertise:'Enfermero Perfusionista y ECMO especialista en el Grupo ECMO-ECLS MÉXICO.'},
   {nombre:'Dr. Patricio Santillán Doherty',pais:'MX',color:blue,org:'Bioética',expertise:'Titular de la Comisión Nacional de Bioética.'},
   {nombre:'Dra. Kenia Yazmin Reyes Gutierrez',pais:'MX',color:blue,org:'CETRA GTO',expertise:'Médico Coordinador de Donación de órganos y tejidos con fines de trasplante.'},
