@@ -12,6 +12,12 @@ if not os.path.exists(dest_img_dir):
 
 experts_data = []
 
+import unicodedata
+
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
 for folder_name in os.listdir(base_dir):
     folder_path = os.path.join(base_dir, folder_name)
     if not os.path.isdir(folder_path):
@@ -34,7 +40,7 @@ for folder_name in os.listdir(base_dir):
                 cv_text += f"[Error reading PDF: {e}]"
         elif ext in ['jpg', 'jpeg', 'png', 'jfif']:
             photo_path = file_path
-            new_file_name = folder_name.replace(" ", "_").lower() + "." + ext
+            new_file_name = remove_accents(folder_name).replace(" ", "_").lower() + "." + ext
             photo_dest = os.path.join(dest_img_dir, new_file_name)
             shutil.copy2(photo_path, photo_dest)
             photo_dest = f"assets/expertos/{new_file_name}"

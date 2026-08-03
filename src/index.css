@@ -215,3 +215,30 @@ input:focus, select:focus, textarea:focus {
     margin: 30px 0;
   }
 }
+.premium-input {
+  width: 100%;
+  font-size: 15px;
+  padding: 14px 16px;
+  border: 1.5px solid #e1ebf0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fcfdfe;
+  color: #1c3f4a;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.01) inset;
+}
+.premium-input::placeholder { color: #9cb1b8; }
+.premium-input:focus {
+  border-color: #12d2b3 !important;
+  box-shadow: 0 0 0 4px rgba(18, 210, 179, 0.15), 0 2px 5px rgba(0,0,0,0.01) inset !important;
+  background: #fff;
+}
+.premium-select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%234a5b60" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 48px;
+  cursor: pointer;
+}
+.premium-select:hover { border-color: #b5ced6; }

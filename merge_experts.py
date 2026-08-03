@@ -4,14 +4,21 @@ import re
 with open('experts_dump.json', 'r', encoding='utf-8') as f:
     dump = json.load(f)
 
+import unicodedata
+
 # Normalize names for matching
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
 def normalize(name):
     # remove titles
-    name = re.sub(r'^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.)\s+', '', name, flags=re.IGNORECASE)
-    name = re.sub(r'^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.)\s+', '', name, flags=re.IGNORECASE)
-    name = re.sub(r'^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.)\s+', '', name, flags=re.IGNORECASE)
+    name = re.sub(r'^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.|_)\s+', '', name, flags=re.IGNORECASE)
+    name = re.sub(r'^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.|_)\s+', '', name, flags=re.IGNORECASE)
+    name = re.sub(r'^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.|_)\s+', '', name, flags=re.IGNORECASE)
     name = name.lower()
-    name = re.sub(r'[^a-zñáéíóú]', '', name)
+    name = remove_accents(name)
+    name = re.sub(r'[^a-z]', '', name)
     return name
 
 dump_map = {normalize(d['folder']): d for d in dump}
@@ -43,11 +50,27 @@ expertos_raw = [
   {"nombre":'Edgar Hernández Rendón',"pais":'MX',"color":"blue","org":'IMSS',"expertise":'Médico Adscrito a Cirugía Cardiotorácica Hospital de Cardiología CMN Siglo XXI.'},
   {"nombre":'Lic. Enf. Sulem Piña Ocampo',"pais":'MX',"color":"blue","org":'HGM',"expertise":'Adscrita a Torre Quirúrgica Hospital General de México Dr. Eduardo Liceaga.'},
   {"nombre":'Dr. Francisco Hernández Oliveros',"pais":'ES',"color":"orange","org":'España',"expertise":'Jefe de sección de trasplante pediátrico. Hospital Universitario la Paz.'},
-  {"nombre":'Dr. Francisco Sachiñas',"pais":'MX',"color":"blue","org":'México',"expertise":'Imagenología Avanzada y Fisiopatología Hemodinámica.'}
+  {"nombre":'Dr. Francisco Sachiñas',"pais":'MX',"color":"blue","org":'México',"expertise":'Imagenología Avanzada y Fisiopatología Hemodinámica.'},
+  {"nombre":'Dr. Salvador Martínez Bernal',"pais":'MX',"color":"blue","org":'Médico',"expertise":'Especialista.'},
 ]
+
+manual_map = {
+    "aczelisidorosanchezcedillo": "aczelsanchezcedillo",
+    "victormanuelfigueroacorchado": "victorfigueroacorchado",
+    "patriciosantillandoherty": "patriciojaviersantillandoherty",
+}
+
+manual_sintesis = {
+    "drrodrigolopezfalcony": "Cirujano Urólogo y de trasplante renal. Egresado como médico cirujano de la Universidad de Guanajuato. Urología y Trasplante renal en Centro Médico Nacional de Occidente del IMSS avalado por la Universidad de Guadalajara. Director General del Centro Estatal de Trasplantes de la Secretaria de Salud del Estado de Guanajuato 2011 a la fecha.",
+    "licenfgilbertodiazperez": "Teniente de Fragata Lic. Enf. Gilberto Díaz Pérez. Enfermero Naval por parte de la Escuela de Enfermería de la Armada de México. Lic. En Enfermería Por parte de la Universidad Veracruzana. Especialista en Terapia Intensiva y Cuidados Coronarios, Por la Escuela Militar de Graduados de Sanidad, de la Secretaría de la Defensa Nacional. Especialista en Tecnología Extracorpórea, por parte del Instituto Nacional de Cardiología “Dr. Ignacio Chávez”.",
+    "drarosaerroaboytia": "Médica Cirujana con amplia trayectoria. Actualmente funge como Directora General del Centro Nacional de Trasplantes (CENATRA). Lidera las iniciativas a nivel nacional para la donación y procuración de órganos y tejidos en México, promoviendo la capacitación constante de los coordinadores de donación y la mejora en los protocolos de atención."
+}
 
 for exp in expertos_raw:
     norm_name = normalize(exp["nombre"])
+    if norm_name in manual_map:
+        norm_name = manual_map[norm_name]
+        
     if norm_name in dump_map:
         d = dump_map[norm_name]
         exp['foto'] = d['photo']
@@ -62,6 +85,10 @@ for exp in expertos_raw:
         if 'foto' not in exp:
             exp['foto'] = ""
             exp['sintesis'] = ""
+            
+    # Apply manual sintesis overrides
+    if norm_name in manual_sintesis:
+        exp['sintesis'] = manual_sintesis[norm_name]
 
 # SORTING LOGIC
 # 1. Dra. Rosa Erro Aboytia
@@ -81,10 +108,11 @@ expertos_raw.sort(key=sort_key)
 js_out = "const expertosRaw = [\n"
 for exp in expertos_raw:
     sintesis = exp['sintesis'].replace("'", "\\'").replace("\n", " ").strip()
+    expertise = exp['expertise'].replace("'", "\\'")
     foto = exp['foto']
     if not foto:
         foto = "assets/placeholder_user.png" # default fallback
-    js_out += f"  {{nombre:'{exp['nombre']}',pais:'{exp['pais']}',color:{exp['color']},org:'{exp['org']}',expertise:'{exp['expertise']}', foto:'{foto}', sintesis:'{sintesis}'}},\n"
+    js_out += f"  {{nombre:'{exp['nombre']}',pais:'{exp['pais']}',color:{exp['color']},org:'{exp['org']}',expertise:'{expertise}', foto:'{foto}', sintesis:'{sintesis}'}},\n"
 js_out += "];"
 
 with open("expertos_out.js", "w", encoding='utf-8') as f:

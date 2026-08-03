@@ -775,6 +775,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainApp />} />
         <Route path="/pago" element={<PagoStripe />} />
+        <Route path="/pago/:faseUrl" element={<PagoStripe />} />
         <Route path="/pago-exito" element={<PagoExito />} />
         <Route path="/pago-cancelado" element={<PagoCancelado />} />
       </Routes>
