@@ -563,26 +563,51 @@ function MainApp() {
               ))}
             </div>
             <div className="grid-3" style={{ alignItems: 'stretch' }}>
-              {expertos.map((x, i) => (
-                <div key={i} className="experto-card" style={{ borderLeft: `4px solid ${x.color}`, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  <div style={{ position: 'relative', width: '100%', paddingTop: '100%', borderRadius: 8, overflow: 'hidden', background: '#f4f7f8' }}>
-                    <img src={x.foto} alt={x.nombre} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+              {expertos.map((x, i) => {
+                const getInitials = (name) => {
+                  const clean = name.replace(/^(Dr\.|Dra\.|Lic\.|Enf\.|M\.|en|C\.|EEQ|Mca\.|Cja|Educ\.)\s*/gi, '').trim();
+                  const parts = clean.split(' ');
+                  return (parts[0] ? parts[0][0] : '') + (parts[1] ? parts[1][0] : '').toUpperCase();
+                };
+                const hasPhoto = x.foto && x.foto !== 'assets/placeholder_user.png';
+                
+                return (
+                  <div key={i} className="experto-card" style={{ borderLeft: `4px solid ${x.color}`, display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                      
+                      {/* Avatar */}
+                      <div style={{ flex: '0 0 64px', height: 64, borderRadius: '50%', background: '#f4f7f8', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', border: `2px solid ${x.color}33`, color: x.color, fontWeight: 700, fontSize: 20 }}>
+                        {hasPhoto ? (
+                          <img src={x.foto} alt={x.nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                        ) : null}
+                        <span style={{ display: hasPhoto ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+                          {getInitials(x.nombre)}
+                        </span>
+                      </div>
+
+                      {/* Header info */}
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+                          <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 15, color: '#1c3f4a', margin: '0 0 4px', lineHeight: 1.25 }}>{x.nombre}</h3>
+                          <img src={x.flagImg} style={{ flex: '0 0 auto', width: 22, height: 15, objectFit: 'cover', borderRadius: 2, boxShadow: '0 0 0 1px rgba(0,0,0,.08)' }} alt="flag" />
+                        </div>
+                        <div style={{ color: x.color, fontSize: 12, fontWeight: 600, margin: '0 0 4px' }}>{x.org}</div>
+                        <p style={{ color: '#556', fontSize: 13, margin: 0, lineHeight: 1.4 }}>{x.expertise}</p>
+                      </div>
+
+                    </div>
+
+                    {/* Sintesis */}
+                    {x.sintesis && (
+                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                        <p style={{ color: '#889', fontSize: 12.5, margin: 0, lineHeight: 1.5, borderTop: '1px solid #edf2f4', paddingTop: 12, marginTop: 'auto' }}>
+                          {x.sintesis.length > 200 ? x.sintesis.substring(0, 200).trim() + '...' : x.sintesis}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
-                    <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: 0, lineHeight: 1.25 }}>{x.nombre}</h3>
-                    <img src={x.flagImg} style={{ flex: '0 0 auto', width: 24, height: 16, objectFit: 'cover', borderRadius: 2, boxShadow: '0 0 0 1px rgba(0,0,0,.08)' }} alt="flag" />
-                  </div>
-                  <div>
-                    <div style={{ color: x.color, fontSize: 12.5, fontWeight: 600, margin: '0 0 4px' }}>{x.org}</div>
-                    <p style={{ color: '#445', fontSize: 13, margin: 0, lineHeight: 1.5 }}>{x.expertise}</p>
-                  </div>
-                  {x.sintesis && (
-                    <p style={{ color: '#889', fontSize: 11.5, margin: 0, lineHeight: 1.5, borderTop: '1px solid #edf2f4', paddingTop: 10, marginTop: 'auto' }}>
-                      {x.sintesis.length > 250 ? x.sintesis.substring(0, 250) + '...' : x.sintesis}
-                    </p>
-                  )}
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* LOGOS GRID */}
