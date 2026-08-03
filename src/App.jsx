@@ -118,7 +118,8 @@ function MainApp() {
 
   const validate = () => {
     const er = {};
-    if (!form.nombre.trim()) er.nombre = 1;
+    if (!form.nombres.trim()) er.nombres = 1;
+    if (!form.apellidos.trim()) er.apellidos = 1;
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) er.email = 1;
     if (!/^\d{10}$/.test(form.tel.replace(/\D/g, ''))) er.tel = 1;
     if (!form.inst.trim()) er.inst = 1;
@@ -141,7 +142,8 @@ function MainApp() {
       setShowErr(false);
       
       const formData = new FormData();
-      formData.append("nombre", form.nombre);
+      formData.append("Nombres", form.nombres);
+      formData.append("Apellidos", form.apellidos);
       formData.append("email", form.email);
       formData.append("tel", form.tel);
       formData.append("inst", form.inst);
@@ -179,7 +181,7 @@ function MainApp() {
 
   const resetForm = () => {
     setSubmitted(false);
-    setForm({nombre:'',email:'',tel:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
+    setForm({nombres:'',apellidos:'',email:'',tel:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
     setErrors({});
     setShowErr(false);
   };
@@ -560,15 +562,25 @@ function MainApp() {
                 </div>
               ))}
             </div>
-            <div className="grid-3">
+            <div className="grid-3" style={{ alignItems: 'stretch' }}>
               {expertos.map((x, i) => (
-                <div key={i} className="experto-card" style={{ borderLeft: `4px solid ${x.color}` }}>
+                <div key={i} className="experto-card" style={{ borderLeft: `4px solid ${x.color}`, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <div style={{ position: 'relative', width: '100%', paddingTop: '100%', borderRadius: 8, overflow: 'hidden', background: '#f4f7f8' }}>
+                    <img src={x.foto} alt={x.nombre} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
                     <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: 0, lineHeight: 1.25 }}>{x.nombre}</h3>
                     <img src={x.flagImg} style={{ flex: '0 0 auto', width: 24, height: 16, objectFit: 'cover', borderRadius: 2, boxShadow: '0 0 0 1px rgba(0,0,0,.08)' }} alt="flag" />
                   </div>
-                  <div style={{ color: x.color, fontSize: 12.5, fontWeight: 600, margin: '6px 0 8px' }}>{x.org}</div>
-                  <p style={{ color: '#666', fontSize: 13, margin: 0, lineHeight: 1.5 }}>{x.expertise}</p>
+                  <div>
+                    <div style={{ color: x.color, fontSize: 12.5, fontWeight: 600, margin: '0 0 4px' }}>{x.org}</div>
+                    <p style={{ color: '#445', fontSize: 13, margin: 0, lineHeight: 1.5 }}>{x.expertise}</p>
+                  </div>
+                  {x.sintesis && (
+                    <p style={{ color: '#889', fontSize: 11.5, margin: 0, lineHeight: 1.5, borderTop: '1px solid #edf2f4', paddingTop: 10, marginTop: 'auto' }}>
+                      {x.sintesis.length > 250 ? x.sintesis.substring(0, 250) + '...' : x.sintesis}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -628,8 +640,12 @@ function MainApp() {
                   <form onSubmit={submit}>
                     <div className="grid-form">
                       <label style={{ display: 'block' }}>
-                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Nombre completo *</span>
-                        <input value={form.nombre} onChange={setF('nombre')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.nombre ? red : '#d6e3e8'}`, borderRadius: 10 }} />
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Nombre(s) *</span>
+                        <input value={form.nombres} onChange={setF('nombres')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.nombres ? red : '#d6e3e8'}`, borderRadius: 10 }} />
+                      </label>
+                      <label style={{ display: 'block' }}>
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Apellidos *</span>
+                        <input value={form.apellidos} onChange={setF('apellidos')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.apellidos ? red : '#d6e3e8'}`, borderRadius: 10 }} />
                       </label>
                       <label style={{ display: 'block' }}>
                         <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Correo electrónico *</span>
@@ -733,8 +749,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainApp />} />
-        <Route path="/pago-coordinadores" element={<PagoStripe tipoUrl="pago-coordinadores" />} />
-        <Route path="/pago-general" element={<PagoStripe tipoUrl="pago-general" />} />
+        <Route path="/pago" element={<PagoStripe />} />
         <Route path="/pago-exito" element={<PagoExito />} />
         <Route path="/pago-cancelado" element={<PagoCancelado />} />
       </Routes>
