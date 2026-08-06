@@ -774,8 +774,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainApp />} />
-        <Route path="/pago" element={<PagoStripe />} />
-        <Route path="/pago/:faseUrl" element={<PagoStripe />} />
+        <Route path="/pago-de-inscripcion" element={<PagoStripe />} />
+        <Route path="/pago-de-inscripcion/:faseUrl" element={<PagoStripe />} />
         <Route path="/pago-exito" element={<PagoExito />} />
         <Route path="/pago-cancelado" element={<PagoCancelado />} />
       </Routes>

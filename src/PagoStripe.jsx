@@ -236,6 +236,30 @@ export default function PagoStripe() {
             )}
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 30 }}>
+              {/* DEFAULT FASE 1 (Cortesía) */}
+              <div 
+                style={{
+                  background: '#f4fbf7', border: '2px solid #28a745', borderRadius: 20, padding: '24px 28px', cursor: 'default',
+                  display: 'flex', flexWrap: 'wrap', gap: 20, justifyContent: 'space-between', alignItems: 'center', boxShadow: '0 12px 32px rgba(40,167,69,0.1)'
+                }}
+              >
+                <div style={{ flex: '1 1 250px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 6 }}>
+                    <div style={{ width: 24, height: 24, flexShrink: 0, borderRadius: '50%', border: '2px solid #28a745', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#28a745' }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </div>
+                    <h3 style={{ margin: 0, fontSize: 18, color: '#102a33', fontWeight: 800 }}>Fase 1 (Virtual)</h3>
+                  </div>
+                  <p style={{ margin: '0 0 0 38px', color: '#556', fontSize: 14, lineHeight: 1.5 }}>Incluida por defecto para todos los perfiles.</p>
+                </div>
+                <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                     <span style={{ fontSize: 26, fontWeight: 800, color: '#28a745', letterSpacing: -1 }}>Cortesía</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* DYNAMIC PHASES */}
               {availablePhases.map(phase => {
                 const isSelected = selectedPhases.includes(phase.id);
                 let displayPrice = phase.price;
