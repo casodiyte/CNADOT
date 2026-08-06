@@ -1,57 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY || 'pk_test_placeholder');
 
+// Custom Select Component (Reusable)
 const CustomSelect = ({ value, onChange, options, placeholder }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const containerRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) setIsOpen(false);
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
   return (
     <div ref={containerRef} style={{ position: 'relative' }}>
       <div 
-        className="premium-input premium-select"
         onClick={() => setIsOpen(!isOpen)}
-        style={{ color: value ? '#1c3f4a' : '#9cb1b8', display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+        style={{ color: value ? '#1c3f4a' : '#9cb1b8', display: 'flex', alignItems: 'center', cursor: 'pointer', background: 'rgba(255,255,255,0.8)', border: '1px solid #e1ebf0', borderRadius: 12, padding: '14px 16px' }}
       >
         {value || placeholder}
+        <span style={{ marginLeft: 'auto', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: '.2s' }}>⌄</span>
       </div>
       {isOpen && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          marginTop: 6,
-          background: '#fff',
-          borderRadius: 12,
-          boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-          border: '1px solid #e1ebf0',
-          zIndex: 50,
-          overflow: 'hidden',
-          animation: 'cnFadeIn .2s ease-out',
-          maxHeight: 250,
-          overflowY: 'auto'
-        }}>
+        <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, marginTop: 6, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', borderRadius: 12, boxShadow: '0 10px 30px rgba(0,0,0,0.1)', border: '1px solid #e1ebf0', zIndex: 50, maxHeight: 250, overflowY: 'auto', animation: 'cnFadeIn .2s ease-out' }}>
           {options.map((opt, i) => (
-            <div 
-              key={i} 
-              onClick={() => { onChange({ target: { value: opt } }); setIsOpen(false); }}
-              style={{ padding: '14px 16px', cursor: 'pointer', transition: '.2s', background: value === opt ? '#f4fbfe' : '#fff', color: value === opt ? '#00b2b8' : '#1c3f4a', fontWeight: value === opt ? 600 : 400, borderBottom: i !== options.length - 1 ? '1px solid #f0f4f5' : 'none' }}
-              onMouseOver={(e) => e.target.style.background = '#f4fbfe'}
-              onMouseOut={(e) => e.target.style.background = value === opt ? '#f4fbfe' : '#fff'}
-            >
+            <div key={i} onClick={() => { onChange({ target: { value: opt } }); setIsOpen(false); }} style={{ padding: '14px 16px', cursor: 'pointer', transition: '.2s', background: value === opt ? '#f4fbfe' : 'transparent', color: value === opt ? '#00b2b8' : '#1c3f4a', fontWeight: value === opt ? 600 : 400, borderBottom: i !== options.length - 1 ? '1px solid #f0f4f5' : 'none' }} onMouseOver={(e) => e.target.style.background = '#f4fbfe'} onMouseOut={(e) => e.target.style.background = value === opt ? '#f4fbfe' : 'transparent'}>
               {opt}
             </div>
           ))}
@@ -61,130 +37,123 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
   );
 };
 
-const packages = [
-  {
-    fase: 'Fase 2 (Teórica Anáhuac)',
-    options: [
-      { id: 'f2-cirujano', perfil: 'Cirujano(a)', price: 1500 },
-      { id: 'f2-perfusionista', perfil: 'Perfusionista', price: 1000 },
-      { id: 'f2-enfermero', perfil: 'Enfermero(a)', price: 500 },
-      { id: 'f2-medico', perfil: 'Médico Especialista', price: 1000 }
-    ]
-  },
-  {
-    fase: 'Fase 2 y 3 (Teórica y Simulación Anáhuac)',
-    options: [
-      { id: 'f23-coordinador', perfil: 'Coordinador(a) de Donación', price: 7000 }
-    ]
-  },
-  {
-    fase: 'Fase 4, 5 y 6 (Experimental)',
-    options: [
-      { id: 'f456-cirujano', perfil: 'Cirujano(a)', price: 9000 },
-      { id: 'f456-perfusionista', perfil: 'Perfusionista', price: 5000 },
-      { id: 'f456-enfermero', perfil: 'Enfermero(a)', price: 4000 },
-      { id: 'f456-medico', perfil: 'Médico Especialista', price: 4000 },
-      { id: 'f456-coordinador', perfil: 'Coordinador(a) de Donación', price: 7000 },
-      { id: 'f456-coordinador-desc', perfil: 'Coordinador(a) (Inscrito previamente a Fase 2/3)', price: 3500 }
-    ]
-  }
+const profiles = [
+  { id: 'cirujano', label: 'Cirujano(a)' },
+  { id: 'medico', label: 'Médico Especialista' },
+  { id: 'perfusionista', label: 'Perfusionista' },
+  { id: 'enfermero', label: 'Enfermero(a)' },
+  { id: 'coordinador', label: 'Coordinador(a) de Donación' }
 ];
 
-export default function PagoStripe() {
-  const { faseUrl } = useParams();
-  
-  const displayPackages = packages.filter(pkg => {
-    if (!faseUrl) return true;
-    if (faseUrl === 'fase-2' && pkg.fase.includes('Fase 2 (')) return true;
-    if (faseUrl === 'fase-2-3' && pkg.fase.includes('Fase 2 y 3')) return true;
-    if (faseUrl === 'fase-4-5-6' && pkg.fase.includes('Fase 4, 5 y 6')) return true;
-    return false;
+const getAvailablePhases = (profileId) => {
+  const phases = [];
+  phases.push({
+    id: 'fase-2',
+    name: 'Fase 2 (Teórica Anáhuac)',
+    desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
+    price: 500,
+    color: '#66CC00',
+    colorLight: '#EEF9D9',
   });
 
-  const [selectedPkg, setSelectedPkg] = useState(null);
-  
-  const [form, setForm] = useState({
-    nombres: '',
-    apellidos: '',
-    email: '',
-    tel: '',
-    inst: '',
-    pais: '',
-    subEspecialidad: '',
-    subEspecialidadTexto: ''
+  if (profileId === 'coordinador') {
+    phases.push({
+      id: 'fase-2-3',
+      name: 'Fase 2 y 3 (Teórica y Simulación Anáhuac)',
+      desc: 'Exclusivo para Coordinadores. Cupo limitado a 24 personas.',
+      price: 7000,
+      color: '#FF6600',
+      colorLight: '#FFE6CC',
+    });
+  }
+
+  const f456Prices = { 'cirujano': 9000, 'perfusionista': 5000, 'enfermero': 4000, 'medico': 4000, 'coordinador': 7000 };
+  phases.push({
+    id: 'fase-4-5-6',
+    name: 'Fases 4, 5 y 6 (Experimental)',
+    desc: 'Simulación DAC y Práctica Quirúrgica Experimental UVM.',
+    price: f456Prices[profileId],
+    color: '#0099CC',
+    colorLight: '#E6F7FF',
   });
-  
+
+  return phases;
+};
+
+export default function PagoStripe() {
+  const navigate = useNavigate();
+  const [step, setStep] = useState(1);
+  const [selectedProfileId, setSelectedProfileId] = useState(null);
+  const [selectedPhases, setSelectedPhases] = useState([]);
+  const [form, setForm] = useState({ nombres: '', apellidos: '', email: '', tel: '', inst: '', pais: '', subEspecialidad: '', subEspecialidadTexto: '' });
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const planId = params.get('plan');
-    if (planId) {
-      for (const pkg of packages) {
-        const found = pkg.options.find(opt => opt.id === planId);
-        if (found) {
-          setSelectedPkg({ fase: pkg.fase, ...found });
-          break;
-        }
-      }
-    }
-  }, []);
+  const profile = profiles.find(p => p.id === selectedProfileId);
+  const availablePhases = selectedProfileId ? getAvailablePhases(selectedProfileId) : [];
 
-  const openModal = (pkgFase, opt) => {
-    setSelectedPkg({ fase: pkgFase, ...opt });
-    const url = new URL(window.location);
-    url.searchParams.set('plan', opt.id);
-    window.history.pushState({}, '', url);
+  const handleProfileSelect = (id) => {
+    setSelectedProfileId(id);
+    setSelectedPhases([]);
+    setErrorMsg('');
+    setStep(2); // Move to Phase selection
   };
 
-  const closeModal = () => {
-    setSelectedPkg(null);
+  const togglePhase = (phaseId) => {
+    setSelectedPhases(prev => {
+      if (phaseId === 'fase-2' && prev.includes('fase-2-3')) return prev.filter(p => p !== 'fase-2-3').concat('fase-2');
+      if (phaseId === 'fase-2-3' && prev.includes('fase-2')) return prev.filter(p => p !== 'fase-2').concat('fase-2-3');
+      if (prev.includes(phaseId)) return prev.filter(p => p !== phaseId);
+      return [...prev, phaseId];
+    });
+  };
+
+  const handleContinueToForm = () => {
+    if (selectedPhases.length === 0) {
+      setErrorMsg('Debes seleccionar al menos una fase para continuar.');
+      return;
+    }
     setErrorMsg('');
-    const url = new URL(window.location);
-    url.searchParams.delete('plan');
-    window.history.pushState({}, '', url);
+    setStep(3);
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+    let hasF23 = selectedPhases.includes('fase-2-3');
+    selectedPhases.forEach(pid => {
+      const phase = availablePhases.find(p => p.id === pid);
+      if (phase) {
+        if (pid === 'fase-4-5-6' && selectedProfileId === 'coordinador' && hasF23) total += 3500;
+        else total += phase.price;
+      }
+    });
+    return total;
   };
 
   const setF = (key) => (e) => setForm({ ...form, [key]: e.target.value });
-
-  const getSubProfileString = () => {
-    if (selectedPkg && (selectedPkg.perfil === 'Cirujano(a)' || selectedPkg.perfil === 'Médico Especialista')) {
-      return form.subEspecialidad === 'Otro (especificar)' ? form.subEspecialidadTexto : form.subEspecialidad;
-    }
-    return '';
-  };
 
   const procesarPago = async (e) => {
     e.preventDefault();
     setErrorMsg('');
     
-    if (!form.nombres || !form.apellidos || !form.email || !form.tel) {
-      setErrorMsg('Por favor completa todos los datos obligatorios.');
-      return;
-    }
-
-    if (selectedPkg.perfil === 'Cirujano(a)' || selectedPkg.perfil === 'Médico Especialista') {
-      if (!form.subEspecialidad) {
-        setErrorMsg('Por favor selecciona tu especialidad médica.');
-        return;
-      }
-      if (form.subEspecialidad === 'Otro (especificar)' && !form.subEspecialidadTexto) {
-        setErrorMsg('Por favor especifica tu especialidad.');
-        return;
-      }
+    if (selectedProfileId === 'cirujano' || selectedProfileId === 'medico') {
+      if (!form.subEspecialidad) { setErrorMsg('Por favor selecciona tu especialidad médica.'); return; }
+      if (form.subEspecialidad === 'Otro (especificar)' && !form.subEspecialidadTexto) { setErrorMsg('Por favor especifica tu especialidad.'); return; }
     }
 
     setLoading(true);
+    const subProfileString = form.subEspecialidad === 'Otro (especificar)' ? form.subEspecialidadTexto : form.subEspecialidad;
+    const packageTypeStr = selectedPhases.map(pid => availablePhases.find(p => p.id === pid).name).join(' + ');
+
     try {
       const response = await fetch('/.netlify/functions/create-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          profile: selectedPkg.perfil,
-          subProfile: getSubProfileString(),
-          packageType: selectedPkg.fase,
-          precioCalculado: selectedPkg.price,
+          profile: profile.label,
+          subProfile: subProfileString,
+          packageType: packageTypeStr,
+          precioCalculado: calculateTotal(),
           userDetails: {
             nombre: `${form.nombres} ${form.apellidos}`,
             email: form.email,
@@ -196,203 +165,228 @@ export default function PagoStripe() {
       });
 
       const data = await response.json();
-      if (response.ok && data.url) {
-        window.location.href = data.url;
-      } else {
-        throw new Error(data.error || 'Error al iniciar el pago.');
-      }
+      if (response.ok && data.url) window.location.href = data.url;
+      else throw new Error(data.error || 'Error al iniciar el pago.');
     } catch (err) {
-      console.error('Error:', err);
       setErrorMsg(err.message || 'Error de conexión. Intenta nuevamente.');
       setLoading(false);
     }
   };
 
   return (
-    <div style={{ background: '#f8fbfc', minHeight: '100vh', padding: '60px 20px', fontFamily: "'Poppins', sans-serif" }}>
-      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+    <div style={{ background: '#f8fbfc', minHeight: '100vh', padding: '20px 20px 60px', fontFamily: "'Poppins', sans-serif" }}>
+      
+      {/* HEADER NAVBAR STYLE */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 30, marginBottom: 50, flexWrap: 'wrap', background: '#fff', padding: '16px 32px', borderRadius: 24, boxShadow: '0 4px 12px rgba(0,0,0,0.03)', maxWidth: 840, margin: '0 auto 40px' }}>
+        <img src="/assets/cnadot.png" alt="CNADOT" onClick={() => navigate('/')} style={{ cursor: 'pointer', height: 50, width: 'auto' }} />
+        <div style={{ width: 1, height: 30, background: '#e1ebf0' }}></div>
+        <img src="/assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 35, width: 'auto' }} />
+      </div>
+
+      <div style={{ maxWidth: 840, margin: '0 auto', background: '#fff', borderRadius: 32, padding: '40px 32px', boxShadow: '0 12px 40px rgba(0,0,0,0.04)', position: 'relative' }}>
         
-        {/* LOGOS HEADER */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 40, marginBottom: 40, flexWrap: 'wrap' }}>
-          <img src="assets/cnadot.png" alt="CNADOT" style={{ height: 70, objectFit: 'contain' }} />
-          <img src="assets/Logos_02_Salud-CENATRA.svg" alt="Salud CENATRA" style={{ height: 60, objectFit: 'contain' }} />
+        {/* STEP PROGRESS (Visual) */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 40 }}>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: step >= 1 ? '#1c3f4a' : '#e1ebf0', color: step >= 1 ? '#fff' : '#9cb1b8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 14 }}>1</div>
+          <div style={{ width: 40, height: 2, background: step >= 2 ? '#1c3f4a' : '#e1ebf0' }}></div>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: step >= 2 ? '#1c3f4a' : '#e1ebf0', color: step >= 2 ? '#fff' : '#9cb1b8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 14 }}>2</div>
+          <div style={{ width: 40, height: 2, background: step >= 3 ? '#1c3f4a' : '#e1ebf0' }}></div>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: step >= 3 ? '#1c3f4a' : '#e1ebf0', color: step >= 3 ? '#fff' : '#9cb1b8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 14 }}>3</div>
         </div>
 
-        <div style={{ textAlign: 'center', marginBottom: 50, animation: 'cnFadeIn .4s ease-out' }}>
-          <h1 style={{ fontSize: 38, color: '#1c3f4a', margin: '0 0 16px', fontWeight: 800 }}>Inscripción Oficial</h1>
-          <p style={{ color: '#556', fontSize: 18, margin: 0 }}>Selecciona tu perfil para continuar con el pago seguro.</p>
-        </div>
-
-        {displayPackages.map((pkg, i) => (
-          <div key={i} style={{ marginBottom: 50, animation: `cnFadeIn ${0.4 + i*0.1}s ease-out` }}>
-            <h2 style={{ fontSize: 22, color: '#0099CC', borderBottom: '2px solid #e1ebf0', paddingBottom: 10, marginBottom: 20 }}>{pkg.fase}</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
-              {pkg.options.map((opt, j) => (
-                <div 
-                  key={j} 
-                  onClick={() => openModal(pkg.fase, opt)}
-                  style={{ 
-                    background: '#fff', 
-                    borderRadius: 16, 
-                    padding: 24, 
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.05)', 
-                    cursor: 'pointer',
-                    transition: 'all .2s ease-in-out',
-                    border: '1px solid #e1ebf0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    minHeight: 120
+        {/* STEP 1: PROFILE */}
+        {step === 1 && (
+          <div style={{ animation: 'cnFadeIn .4s ease-out' }}>
+            <h1 style={{ fontSize: 32, color: '#102a33', margin: '0 0 12px', fontWeight: 800, textAlign: 'center', letterSpacing: '-0.5px' }}>Arma tu Plan de Inscripción</h1>
+            <p style={{ color: '#556', fontSize: 16, margin: '0 auto 40px', maxWidth: 600, lineHeight: 1.6, textAlign: 'center' }}>Selecciona tu perfil profesional para ver las opciones disponibles para ti.</p>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+              {profiles.map(p => (
+                <button
+                  key={p.id}
+                  onClick={() => handleProfileSelect(p.id)}
+                  style={{
+                    background: '#fcfcfc', color: '#1c3f4a', border: '1px solid #e1ebf0',
+                    borderRadius: 20, padding: '24px 20px', cursor: 'pointer',
+                    fontSize: 16, fontWeight: 700, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12,
+                    transition: 'all .3s cubic-bezier(0.4, 0, 0.2, 1)', 
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
                   }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,153,204,0.15)';
-                    e.currentTarget.style.borderColor = '#0099CC';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
-                    e.currentTarget.style.borderColor = '#e1ebf0';
-                  }}
+                  onMouseOver={(e) => { e.currentTarget.style.borderColor = '#c0d1d6'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.06)'; }}
+                  onMouseOut={(e) => { e.currentTarget.style.borderColor = '#e1ebf0'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.03)'; }}
                 >
-                  <h3 style={{ margin: 0, color: '#1c3f4a', fontSize: 18, fontWeight: 700, textAlign: 'center' }}>{opt.perfil}</h3>
-                  <div style={{ marginTop: 12 }}>
-                    <span style={{ fontSize: 14, color: '#0099CC', fontWeight: 600, background: '#f4fbfe', padding: '6px 12px', borderRadius: 20 }}>Seleccionar</span>
-                  </div>
-                </div>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#e1ebf0', transition: '.3s', marginBottom: 4 }}></div>
+                  <span style={{ textAlign: 'center' }}>{p.label}</span>
+                </button>
               ))}
             </div>
           </div>
-        ))}
-      </div>
+        )}
 
-      {/* MODAL */}
-      {selectedPkg && (
-        <div style={{ 
-          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, 
-          background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          zIndex: 9999, padding: 20, animation: 'cnFadeIn .2s ease-out'
-        }}>
-          <div style={{
-            background: '#fff', borderRadius: 24, width: '100%', maxWidth: 500,
-            maxHeight: '90vh', overflowY: 'auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)',
-            position: 'relative'
-          }}>
-            
-            <button 
-              onClick={closeModal}
-              style={{ position: 'absolute', top: 20, right: 20, background: '#f0f4f5', border: 'none', width: 36, height: 36, borderRadius: '50%', cursor: 'pointer', fontSize: 18, color: '#556', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '.2s' }}
-              onMouseOver={(e) => e.currentTarget.style.background = '#e1ebf0'}
-              onMouseOut={(e) => e.currentTarget.style.background = '#f0f4f5'}
-            >
-              ✕
-            </button>
+        {/* STEP 2: PHASES */}
+        {step === 2 && (
+          <div style={{ animation: 'cnFadeIn .4s ease-out' }}>
+            <h2 style={{ fontSize: 24, color: '#102a33', fontWeight: 800, marginBottom: 8, textAlign: 'center' }}>Selecciona tus Fases</h2>
+            <p style={{ color: '#556', fontSize: 15, textAlign: 'center', marginBottom: 30 }}>Perfil: <strong>{profile?.label}</strong>. Puedes elegir una o varias opciones.</p>
 
-            <div style={{ padding: '32px 32px 20px', background: '#f8fbfc', borderBottom: '1px solid #e1ebf0', borderTopLeftRadius: 24, borderTopRightRadius: 24 }}>
-              <span style={{ fontSize: 11, fontWeight: 800, color: '#0099CC', textTransform: 'uppercase', letterSpacing: 1 }}>{selectedPkg.fase}</span>
-              <h2 style={{ margin: '8px 0 0', color: '#1c3f4a', fontSize: 22, fontWeight: 700 }}>{selectedPkg.perfil}</h2>
-              <div style={{ marginTop: 12 }}>
-                <span style={{ fontSize: 34, fontWeight: 800, color: '#FF6600', letterSpacing: -1 }}>${selectedPkg.price.toLocaleString()}</span>
-                <span style={{ fontSize: 16, color: '#999', marginLeft: 6, fontWeight: 600 }}>MXN</span>
+            {errorMsg && (
+                <div style={{ background: '#ffeef0', color: '#e63946', padding: 16, borderRadius: 12, marginBottom: 24, fontSize: 14, fontWeight: 500, borderLeft: '4px solid #e63946', textAlign: 'center' }}>
+                  {errorMsg}
+                </div>
+            )}
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 30 }}>
+              {availablePhases.map(phase => {
+                const isSelected = selectedPhases.includes(phase.id);
+                let displayPrice = phase.price;
+                let showDiscount = false;
+                if (phase.id === 'fase-4-5-6' && selectedProfileId === 'coordinador' && selectedPhases.includes('fase-2-3')) {
+                  displayPrice = 3500;
+                  showDiscount = true;
+                }
+
+                return (
+                  <div 
+                    key={phase.id} onClick={() => togglePhase(phase.id)}
+                    style={{
+                      background: isSelected ? phase.colorLight : '#fcfcfc',
+                      border: `2px solid ${isSelected ? phase.color : '#e1ebf0'}`,
+                      borderRadius: 20, padding: '24px 28px', cursor: 'pointer',
+                      display: 'flex', flexWrap: 'wrap', gap: 20, justifyContent: 'space-between', alignItems: 'center',
+                      transition: 'all .3s cubic-bezier(0.4, 0, 0.2, 1)', 
+                      boxShadow: isSelected ? `0 12px 32px ${phase.color}25` : '0 4px 16px rgba(0,0,0,0.02)'
+                    }}
+                    onMouseOver={(e) => { if (!isSelected) { e.currentTarget.style.borderColor = phase.color; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
+                    onMouseOut={(e) => { if (!isSelected) { e.currentTarget.style.borderColor = '#e1ebf0'; e.currentTarget.style.transform = 'translateY(0)'; } }}
+                  >
+                    <div style={{ flex: '1 1 250px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 6 }}>
+                        <div style={{ width: 24, height: 24, flexShrink: 0, borderRadius: '50%', border: `2px solid ${isSelected ? phase.color : '#cbd5d8'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', background: isSelected ? phase.color : 'transparent', transition: '.2s' }}>
+                          {isSelected && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                        </div>
+                        <h3 style={{ margin: 0, fontSize: 18, color: '#102a33', fontWeight: 800 }}>{phase.name}</h3>
+                      </div>
+                      <p style={{ margin: '0 0 0 38px', color: '#556', fontSize: 14, lineHeight: 1.5 }}>{phase.desc}</p>
+                    </div>
+                    <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
+                      {showDiscount && <div style={{ fontSize: 11, color: '#fff', background: '#FF6600', padding: '4px 10px', borderRadius: 12, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4, display: 'inline-block' }}>50% Desc. Aplicado</div>}
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                         <span style={{ fontSize: 26, fontWeight: 800, color: phase.color, letterSpacing: -1 }}>${displayPrice.toLocaleString()}</span>
+                         <span style={{ fontSize: 13, fontWeight: 700, color: '#9cb1b8' }}>MXN</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div style={{ display: 'flex', gap: 16, justifyContent: 'space-between' }}>
+              <button onClick={() => setStep(1)} style={{ padding: '16px 24px', borderRadius: 16, background: '#f0f4f5', color: '#556', border: 'none', fontWeight: 700, fontSize: 15, cursor: 'pointer', transition: '.2s' }} onMouseOver={e=>e.currentTarget.style.background='#e1ebf0'} onMouseOut={e=>e.currentTarget.style.background='#f0f4f5'}>
+                ← Atrás
+              </button>
+              <button onClick={handleContinueToForm} style={{ padding: '16px 32px', borderRadius: 16, background: 'linear-gradient(135deg, #1c3f4a 0%, #2b5c6c 100%)', color: '#fff', border: 'none', fontWeight: 700, fontSize: 15, cursor: 'pointer', transition: '.2s', boxShadow: '0 8px 24px rgba(28,63,74,0.3)' }} onMouseOver={e=>e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e=>e.currentTarget.style.transform='translateY(0)'}>
+                Continuar al Pago →
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 3: FORM */}
+        {step === 3 && (
+          <div style={{ animation: 'cnFadeIn .4s ease-out' }}>
+            <h2 style={{ fontSize: 24, color: '#102a33', fontWeight: 800, marginBottom: 8, textAlign: 'center' }}>Datos del Estudiante y Pago</h2>
+            <p style={{ color: '#556', fontSize: 15, textAlign: 'center', marginBottom: 30 }}>Por favor completa tu información para procesar la inscripción de manera segura.</p>
+
+            <div style={{ background: '#f8fbfc', padding: 24, borderRadius: 20, marginBottom: 30, display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid #e1ebf0', flexWrap: 'wrap', gap: 16 }}>
+              <div>
+                <div style={{ fontSize: 13, color: '#556', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 }}>Total a Pagar</div>
+                <div style={{ fontSize: 14, color: '#1c3f4a', fontWeight: 600 }}>{selectedPhases.length} fase(s) seleccionada(s)</div>
+              </div>
+              <div style={{ fontSize: 36, fontWeight: 800, color: '#1c3f4a', letterSpacing: -1 }}>
+                ${calculateTotal().toLocaleString()} <span style={{fontSize: 16, color: '#9cb1b8'}}>MXN</span>
               </div>
             </div>
 
-            <form onSubmit={procesarPago} style={{ padding: 32 }}>
+            <form onSubmit={procesarPago}>
               {errorMsg && (
                 <div style={{ background: '#ffeef0', color: '#e63946', padding: 16, borderRadius: 12, marginBottom: 24, fontSize: 14, fontWeight: 500, borderLeft: '4px solid #e63946' }}>
                   {errorMsg}
                 </div>
               )}
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 16 }}>
                 <label>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Nombres *</span>
-                  <input required value={form.nombres} onChange={setF('nombres')} className="premium-input" placeholder="Ej. Juan" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Nombres *</span>
+                  <input required value={form.nombres} onChange={setF('nombres')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. Juan" />
                 </label>
                 <label>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Apellidos *</span>
-                  <input required value={form.apellidos} onChange={setF('apellidos')} className="premium-input" placeholder="Ej. Pérez" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Apellidos *</span>
+                  <input required value={form.apellidos} onChange={setF('apellidos')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. Pérez" />
                 </label>
               </div>
 
               <label style={{ display: 'block', marginBottom: 16 }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Correo Electrónico *</span>
-                <input required type="email" value={form.email} onChange={setF('email')} className="premium-input" placeholder="correo@hospital.com" />
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Correo Electrónico *</span>
+                <input required type="email" value={form.email} onChange={setF('email')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="correo@hospital.com" />
               </label>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 16 }}>
                 <label>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Teléfono *</span>
-                  <input required value={form.tel} onChange={setF('tel')} className="premium-input" placeholder="10 dígitos" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Teléfono *</span>
+                  <input required value={form.tel} onChange={setF('tel')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="10 dígitos" />
                 </label>
                 <label>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>País</span>
-                  <input value={form.pais} onChange={setF('pais')} className="premium-input" placeholder="Ej. México" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>País</span>
+                  <input value={form.pais} onChange={setF('pais')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. México" />
                 </label>
               </div>
 
-              <label style={{ display: 'block', marginBottom: 16 }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Institución de procedencia</span>
-                <input value={form.inst} onChange={setF('inst')} className="premium-input" placeholder="Hospital o Centro de Salud" />
+              <label style={{ display: 'block', marginBottom: 20 }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Institución de procedencia</span>
+                <input value={form.inst} onChange={setF('inst')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Hospital o Centro de Salud" />
               </label>
 
               {/* ESPECIALIDADES */}
-              {selectedPkg.perfil === 'Cirujano(a)' && (
+              {selectedProfileId === 'cirujano' && (
                 <label style={{ display: 'block', marginBottom: 16, animation: 'cnFadeIn .3s ease-out' }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Especialidad quirúrgica *</span>
-                  <CustomSelect 
-                    value={form.subEspecialidad} 
-                    onChange={setF('subEspecialidad')} 
-                    options={['Abdomen', 'Tórax', 'Cardiovasculares', 'Otro (especificar)']} 
-                    placeholder="-- Selecciona --" 
-                  />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especialidad quirúrgica *</span>
+                  <CustomSelect value={form.subEspecialidad} onChange={setF('subEspecialidad')} options={['Abdomen', 'Tórax', 'Cardiovasculares', 'Otro (especificar)']} placeholder="-- Selecciona --" />
                 </label>
               )}
 
-              {selectedPkg.perfil === 'Médico Especialista' && (
+              {selectedProfileId === 'medico' && (
                 <label style={{ display: 'block', marginBottom: 16, animation: 'cnFadeIn .3s ease-out' }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Especialidad Médica *</span>
-                  <CustomSelect 
-                    value={form.subEspecialidad} 
-                    onChange={setF('subEspecialidad')} 
-                    options={['Anestesiólogo', 'Intensivista', 'Urgenciólogo', 'Internista', 'Nefrólogo', 'Otro (especificar)']} 
-                    placeholder="-- Selecciona --" 
-                  />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especialidad Médica *</span>
+                  <CustomSelect value={form.subEspecialidad} onChange={setF('subEspecialidad')} options={['Anestesiólogo', 'Intensivista', 'Urgenciólogo', 'Internista', 'Nefrólogo', 'Otro (especificar)']} placeholder="-- Selecciona --" />
                 </label>
               )}
 
-              {(selectedPkg.perfil === 'Cirujano(a)' || selectedPkg.perfil === 'Médico Especialista') && form.subEspecialidad === 'Otro (especificar)' && (
+              {(selectedProfileId === 'cirujano' || selectedProfileId === 'medico') && form.subEspecialidad === 'Otro (especificar)' && (
                 <label style={{ display: 'block', marginBottom: 16, animation: 'cnFadeIn .3s ease-out' }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 8 }}>Especifica tu especialidad *</span>
-                  <input required value={form.subEspecialidadTexto} onChange={setF('subEspecialidadTexto')} className="premium-input" placeholder="Escribe tu especialidad" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especifica tu especialidad *</span>
+                  <input required value={form.subEspecialidadTexto} onChange={setF('subEspecialidadTexto')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Escribe tu especialidad" />
                 </label>
               )}
 
-              <button type="submit" disabled={loading} style={{ 
-                marginTop: 24, width: '100%',
-                background: loading ? '#d1d8dc' : 'linear-gradient(90deg, #FF6600, #ff8533)', 
-                color: '#fff', border: 'none', padding: '16px 20px', borderRadius: 12, 
-                fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 16, 
-                cursor: loading ? 'not-allowed' : 'pointer', 
-                boxShadow: loading ? 'none' : '0 6px 16px rgba(255,102,0,.25)', 
-                transition: '.2s', display: 'flex', justifyContent: 'center', alignItems: 'center' 
-              }}>
-                {loading ? 'Procesando...' : 'Pagar Inscripción Segura 🔒'}
-              </button>
+              <div style={{ display: 'flex', gap: 16, justifyContent: 'space-between', marginTop: 32 }}>
+                <button type="button" onClick={() => setStep(2)} disabled={loading} style={{ padding: '16px 24px', borderRadius: 16, background: '#f0f4f5', color: '#556', border: 'none', fontWeight: 700, fontSize: 15, cursor: loading ? 'not-allowed' : 'pointer', transition: '.2s' }} onMouseOver={e=>e.currentTarget.style.background='#e1ebf0'} onMouseOut={e=>e.currentTarget.style.background='#f0f4f5'}>
+                  ← Atrás
+                </button>
+                <button type="submit" disabled={loading} style={{ flex: 1, padding: '16px 32px', borderRadius: 16, background: loading ? '#d1d8dc' : 'linear-gradient(135deg, #1c3f4a 0%, #2b5c6c 100%)', color: '#fff', border: 'none', fontWeight: 700, fontSize: 16, cursor: loading ? 'not-allowed' : 'pointer', transition: '.2s', boxShadow: loading ? 'none' : '0 8px 24px rgba(28,63,74,0.3)', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseOver={e=>{if(!loading)e.currentTarget.style.transform='translateY(-2px)'}} onMouseOut={e=>{if(!loading)e.currentTarget.style.transform='translateY(0)'}}>
+                  {loading ? 'Procesando...' : `Pagar Inscripción Segura 🔒`}
+                </button>
+              </div>
               
-              <div style={{ textAlign: 'center', marginTop: 16 }}>
+              <div style={{ textAlign: 'center', marginTop: 24 }}>
                 <span style={{ fontSize: 12, color: '#889', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontWeight: 600 }}>
-                  Pagos seguros procesados por 
-                  <span style={{ color: '#635BFF', fontWeight: 800, fontSize: 16, letterSpacing: -0.5 }}>stripe</span>
+                  Pagos procesados de forma segura por <span style={{ color: '#635BFF', fontWeight: 800, fontSize: 18, letterSpacing: -0.5 }}>stripe</span>
                 </span>
               </div>
             </form>
-
           </div>
-        </div>
-      )}
+        )}
+
+      </div>
     </div>
   );
 }
