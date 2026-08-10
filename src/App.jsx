@@ -152,6 +152,7 @@ function MainApp() {
       formData.append("cedula", form.cedula);
       if (form.cv) formData.append("cv", form.cv);
       if (form.carta) formData.append("carta", form.carta);
+      formData.append("TAGS", "CNADOT");
 
       try {
         const response = await fetch("https://formspree.io/f/mojgyzqa", {
@@ -163,6 +164,21 @@ function MainApp() {
         });
         
         if (response.ok) {
+          // Registrar en Mailchimp (Backend)
+          try {
+            await fetch('/.netlify/functions/subscribe-mailchimp', {
+              method: 'POST',
+              body: JSON.stringify({
+                email: form.email,
+                nombre: form.nombres,
+                apellidos: form.apellidos,
+                tags: ["CNADOT"]
+              })
+            });
+          } catch (e) {
+            console.error("Error backend mailchimp:", e);
+          }
+
           setSubmitted(true);
           setErrors({});
         } else {
