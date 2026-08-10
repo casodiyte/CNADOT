@@ -35,7 +35,8 @@ exports.handler = async (event) => {
         status_if_new: 'subscribed',
         merge_fields: {
           FNAME: nombre || "",
-          LNAME: apellidos || ""
+          LNAME: apellidos || "",
+          YEAR: new Date().getFullYear().toString()
         },
         tags: tags || []
       })

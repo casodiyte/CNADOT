@@ -55,26 +55,21 @@ export const CnadotPagoEmail = ({ firstName = '*|FNAME|*' }: CnadotPagoProps) =>
           {/* Detalles del pago */}
           <Section style={detailsBox}>
             <Heading as="h3" style={detailsTitle}>Detalles de tu inscripción</Heading>
-            <Row style={detailRow}>
-              <Column style={detailLabel}>Fase Inscrita:</Column>
-              <Column style={detailValue}>*|FASE|*</Column>
-            </Row>
-            <Row style={detailRow}>
-              <Column style={detailLabel}>Asistencia:</Column>
-              <Column style={detailValue}>*|DIAS_ASISTENCIA|*</Column>
-            </Row>
-            <Row style={detailRow}>
-              <Column style={detailLabel}>Monto:</Column>
-              <Column style={detailValue}>*|PAYMENT_AMOUNT|*</Column>
-            </Row>
-            <Row style={detailRow}>
-              <Column style={detailLabel}>Referencia:</Column>
-              <Column style={detailValue}>*|ORDER_ID|*</Column>
-            </Row>
-            <Row style={detailRow}>
-              <Column style={detailLabel}>Fecha:</Column>
-              <Column style={detailValue}>*|PAYMENT_DATE|*</Column>
-            </Row>
+            <Text style={detailText}>
+              <span style={detailLabel}>Fase Inscrita:</span> <span style={detailValue}>*|FASE|*</span>
+            </Text>
+            <Text style={detailText}>
+              <span style={detailLabel}>Asistencia:</span> <span style={detailValue}>*|DIAS_ASISTENCIA|*</span>
+            </Text>
+            <Text style={detailText}>
+              <span style={detailLabel}>Monto:</span> <span style={detailValue}>*|PAYMENT_AMOUNT|*</span>
+            </Text>
+            <Text style={detailText}>
+              <span style={detailLabel}>Referencia:</span> <span style={detailValue}>*|ORDER_ID|*</span>
+            </Text>
+            <Text style={detailText}>
+              <span style={detailLabel}>Fecha:</span> <span style={detailValue}>*|PAYMENT_DATE|*</span>
+            </Text>
           </Section>
 
           <Text style={paragraph}>
@@ -193,19 +188,19 @@ const detailsTitle = {
   letterSpacing: '0.5px',
 };
 
-const detailRow = {
-  marginBottom: '8px',
+const detailText = {
+  fontSize: '15px',
+  margin: '0 0 10px 0',
+  lineHeight: '1.5',
 };
 
 const detailLabel = {
   color: '#718096',
-  fontSize: '15px',
-  width: '120px',
+  fontWeight: 'normal',
 };
 
 const detailValue = {
   color: '#2d3748',
-  fontSize: '15px',
   fontWeight: 'bold',
 };
 

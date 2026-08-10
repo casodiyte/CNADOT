@@ -19,6 +19,7 @@ exports.handler = async (event) => {
       metadata: {
         nombre: userDetails.nombre,
         email: userDetails.email,
+        paquete: packageType, // Fase 2 y 3, Múltiples Fases, etc.
         tags: 'CNADOTpago'
       },
       line_items: [
@@ -35,7 +36,7 @@ exports.handler = async (event) => {
         },
       ],
       mode: 'payment',
-      success_url: `${domain}/pago-exito`,
+      success_url: `${domain}/.netlify/functions/payment-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${domain}/pago-cancelado`,
       customer_email: userDetails.email,
     });
