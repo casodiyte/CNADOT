@@ -231,6 +231,21 @@ export default function PagoStripe() {
         console.error("Formspree error:", e);
       }
 
+      // Registro directo en Mailchimp (Backend) para Carritos Abandonados
+      try {
+        await fetch('/.netlify/functions/subscribe-mailchimp', {
+          method: 'POST',
+          body: JSON.stringify({
+            email: form.email,
+            nombre: form.nombres,
+            apellidos: form.apellidos,
+            tags: ["CNADOTpago"]
+          })
+        });
+      } catch (e) {
+        console.error("Error backend mailchimp:", e);
+      }
+
       // 2. Crear Checkout de Stripe
       const response = await fetch('/.netlify/functions/create-checkout', {
         method: 'POST',

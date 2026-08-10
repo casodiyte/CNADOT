@@ -54,7 +54,15 @@ export const CnadotPagoEmail = ({ firstName = '*|FNAME|*' }: CnadotPagoProps) =>
 
           {/* Detalles del pago */}
           <Section style={detailsBox}>
-            <Heading as="h3" style={detailsTitle}>Detalles de tu pago</Heading>
+            <Heading as="h3" style={detailsTitle}>Detalles de tu inscripción</Heading>
+            <Row style={detailRow}>
+              <Column style={detailLabel}>Fase Inscrita:</Column>
+              <Column style={detailValue}>*|FASE|*</Column>
+            </Row>
+            <Row style={detailRow}>
+              <Column style={detailLabel}>Asistencia:</Column>
+              <Column style={detailValue}>*|DIAS_ASISTENCIA|*</Column>
+            </Row>
             <Row style={detailRow}>
               <Column style={detailLabel}>Monto:</Column>
               <Column style={detailValue}>*|PAYMENT_AMOUNT|*</Column>
@@ -192,7 +200,7 @@ const detailRow = {
 const detailLabel = {
   color: '#718096',
   fontSize: '15px',
-  width: '100px',
+  width: '120px',
 };
 
 const detailValue = {
