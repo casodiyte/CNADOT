@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -144,34 +144,6 @@ export default function PagoStripe() {
     setLoading(true);
     const subProfileString = form.subEspecialidad === 'Otro (especificar)' ? form.subEspecialidadTexto : form.subEspecialidad;
     const packageTypeStr = selectedPhases.map(pid => availablePhases.find(p => p.id === pid).name).join(' + ');
-
-    // 1. Enviar a Formspree (Intento de Pago)
-    try {
-      const formData = new FormData();
-      formData.append("Nombres", form.nombres);
-      formData.append("Apellidos", form.apellidos);
-      formData.append("Email", form.email);
-      formData.append("Telefono", form.tel);
-      formData.append("Paquete", packageTypeStr);
-      await fetch("https://formspree.io/f/mgawkwgw", {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-    } catch (e) { console.error("Formspree error:", e); }
-
-    // 2. Registro directo en Mailchimp (Backend) para Carritos Abandonados
-    try {
-      await fetch('/.netlify/functions/subscribe-mailchimp', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: form.email,
-          nombre: form.nombres,
-          apellidos: form.apellidos,
-          tags: ["CNADOTpago"]
-        })
-      });
-    } catch (e) { console.error("Error backend mailchimp:", e); }
 
     try {
       const response = await fetch('/.netlify/functions/create-checkout', {
