@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+const code = `
 import React, { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
@@ -208,30 +211,6 @@ export default function PagoStripe() {
     try {
       const uniqueProfiles = [...new Set(selectedPkgs.map(p => p.perfil))].join(' y ');
       
-      // 1. Enviar datos a Formspree (Mailchimp)
-      const formData = new FormData();
-      formData.append("nombres", form.nombres);
-      formData.append("apellidos", form.apellidos);
-      formData.append("email", form.email);
-      formData.append("tel", form.tel);
-      formData.append("institucion", form.inst);
-      formData.append("pais", form.pais);
-      formData.append("perfil", uniqueProfiles);
-      formData.append("especialidad", getSubProfileString());
-      formData.append("paquete", selectedPkgs.length > 1 ? 'Múltiples Fases' : selectedPkgs[0].fase);
-      formData.append("TAGS", "CNADOTpago");
-      
-      try {
-        await fetch("https://formspree.io/f/mgawkwgw", {
-          method: "POST",
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-      } catch (e) {
-        console.error("Formspree error:", e);
-      }
-
-      // 2. Crear Checkout de Stripe
       const response = await fetch('/.netlify/functions/create-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -241,7 +220,7 @@ export default function PagoStripe() {
           packageType: selectedPkgs.length > 1 ? 'Múltiples Fases' : selectedPkgs[0].fase,
           precioCalculado: getTotalPrice(),
           userDetails: {
-            nombre: `${form.nombres} ${form.apellidos}`,
+            nombre: \`\${form.nombres} \${form.apellidos}\`,
             email: form.email,
             tel: form.tel,
             inst: form.inst,
@@ -266,12 +245,12 @@ export default function PagoStripe() {
   return (
     <div style={{ background: '#f8fbfc', minHeight: '100vh', padding: '60px 20px 140px', fontFamily: "'Poppins', sans-serif" }}>
       <style>
-        {`
+        {\`
           @keyframes slideUp {
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
           }
-        `}
+        \`}
       </style>
       <div style={{ maxWidth: 1000, margin: '0 auto' }}>
         
@@ -287,7 +266,7 @@ export default function PagoStripe() {
         </div>
 
         {displayPackages.map((pkg, i) => (
-          <div key={i} style={{ marginBottom: 50, animation: `cnFadeIn ${0.4 + i*0.1}s ease-out` }}>
+          <div key={i} style={{ marginBottom: 50, animation: \`cnFadeIn \${0.4 + i*0.1}s ease-out\` }}>
             <h2 style={{ fontSize: 22, color: '#0099CC', borderBottom: '2px solid #e1ebf0', paddingBottom: 10, marginBottom: 20 }}>{pkg.fase}</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
               {pkg.options.map((opt, j) => {
@@ -365,7 +344,7 @@ export default function PagoStripe() {
                 {selectedPkgs.length} {selectedPkgs.length === 1 ? 'Fase Seleccionada' : 'Fases Seleccionadas'}
               </span>
               <div style={{ fontSize: 32, fontWeight: 800, color: '#FF6600', lineHeight: 1.1 }}>
-                ${getTotalPrice().toLocaleString()} <span style={{fontSize:16, color:'#999'}}>MXN</span>
+                \${getTotalPrice().toLocaleString()} <span style={{fontSize:16, color:'#999'}}>MXN</span>
               </div>
             </div>
             <button onClick={() => setIsModalOpen(true)} style={{
@@ -412,7 +391,7 @@ export default function PagoStripe() {
               {selectedPkgs.map((p, idx) => (
                 <div key={idx} style={{ marginTop: 12, paddingBottom: 12, borderBottom: idx !== selectedPkgs.length -1 ? '1px dashed #d1d8dc' : 'none' }}>
                   <div style={{ fontSize: 13, color: '#556' }}>{p.fase}</div>
-                  <div style={{ fontWeight: 700, color: '#1c3f4a', fontSize: 16 }}>{p.perfil} <span style={{ float: 'right', color: '#0099CC' }}>${p.price.toLocaleString()}</span></div>
+                  <div style={{ fontWeight: 700, color: '#1c3f4a', fontSize: 16 }}>{p.perfil} <span style={{ float: 'right', color: '#0099CC' }}>\${p.price.toLocaleString()}</span></div>
                 </div>
               ))}
               
@@ -422,7 +401,7 @@ export default function PagoStripe() {
                   {selectedPkgs.some(p=>p.id==='f23-coordinador') && selectedPkgs.some(p=>p.id==='f456-coordinador') && (
                     <div style={{ fontSize: 12, color: '#e63946', fontWeight: 600, textAlign: 'right', marginBottom: 4 }}>- $2,000 Descuento Aplicado</div>
                   )}
-                  <span style={{ fontSize: 34, fontWeight: 800, color: '#FF6600', letterSpacing: -1 }}>${getTotalPrice().toLocaleString()}</span>
+                  <span style={{ fontSize: 34, fontWeight: 800, color: '#FF6600', letterSpacing: -1 }}>\${getTotalPrice().toLocaleString()}</span>
                   <span style={{ fontSize: 16, color: '#999', marginLeft: 6, fontWeight: 600 }}>MXN</span>
                 </div>
               </div>
@@ -525,3 +504,7 @@ export default function PagoStripe() {
     </div>
   );
 }
+\`;
+
+fs.writeFileSync('src/PagoStripe.jsx', code);
+console.log('PagoStripe reescrito correctamente');

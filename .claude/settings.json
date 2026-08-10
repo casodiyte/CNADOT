@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git check-ignore *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(git restore *)",
+      "Bash(GIT_SSH_COMMAND=\"ssh -o BatchMode=yes\" git push origin main)"
+    ]
+  }
+}
