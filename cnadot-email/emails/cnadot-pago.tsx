@@ -59,16 +59,16 @@ export const CnadotPagoEmail = ({ firstName = '*|FNAME|*' }: CnadotPagoProps) =>
               <span style={detailLabel}>Fase Inscrita:</span> <span style={detailValue}>*|FASE|*</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Asistencia:</span> <span style={detailValue}>*|DIAS_ASISTENCIA|*</span>
+              <span style={detailLabel}>Asistencia:</span> <span style={detailValue}>*|DIAS|*</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Monto:</span> <span style={detailValue}>*|PAYMENT_AMOUNT|*</span>
+              <span style={detailLabel}>Monto:</span> <span style={detailValue}>*|MONTO|*</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Referencia:</span> <span style={detailValue}>*|ORDER_ID|*</span>
+              <span style={detailLabel}>Referencia:</span> <span style={detailValue}>*|ORDEN|*</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Fecha:</span> <span style={detailValue}>*|PAYMENT_DATE|*</span>
+              <span style={detailLabel}>Fecha:</span> <span style={detailValue}>*|FECHA_P|*</span>
             </Text>
           </Section>
 
