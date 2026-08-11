@@ -292,8 +292,9 @@ export default function PagoStripe() {
                 const isSelected = selectedPhases.includes(phase.id);
                 let displayPrice = phase.price;
                 let showDiscount = false;
-                if (phase.id === 'fase-4-5-6' && selectedProfileId === 'coordinador' && selectedPhases.includes('fase-2-3')) {
-                  displayPrice = 3500;
+                const isDiscounted = phase.id === 'fase-4-5-6' && selectedProfileId === 'coordinador' && selectedPhases.includes('fase-2-3');
+                if (isDiscounted) {
+                  displayPrice = 2000;
                   showDiscount = true;
                 }
 
