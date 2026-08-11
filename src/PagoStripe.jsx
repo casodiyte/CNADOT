@@ -22,7 +22,7 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
         style={{ color: value ? '#1c3f4a' : '#9cb1b8', display: 'flex', alignItems: 'center', cursor: 'pointer', background: 'rgba(255,255,255,0.8)', border: '1px solid #e1ebf0', borderRadius: 12, padding: '14px 16px' }}
       >
         {value || placeholder}
-        <span style={{ marginLeft: 'auto', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: '.2s' }}>Ôîä</span>
+        <span style={{ marginLeft: 'auto', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: '.2s' }}>⌄</span>
       </div>
       {isOpen && (
         <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, marginTop: 6, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', borderRadius: 12, boxShadow: '0 10px 30px rgba(0,0,0,0.1)', border: '1px solid #e1ebf0', zIndex: 50, maxHeight: 250, overflowY: 'auto', animation: 'cnFadeIn .2s ease-out' }}>
@@ -39,17 +39,17 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
 
 const profiles = [
   { id: 'cirujano', label: 'Cirujano(a)' },
-  { id: 'medico', label: 'M├®dico Especialista' },
+  { id: 'medico', label: 'Médico Especialista' },
   { id: 'perfusionista', label: 'Perfusionista' },
   { id: 'enfermero', label: 'Enfermero(a)' },
-  { id: 'coordinador', label: 'Coordinador(a) de Donaci├│n' }
+  { id: 'coordinador', label: 'Coordinador(a) de Donación' }
 ];
 
 const getAvailablePhases = (profileId) => {
   const phases = [];
   phases.push({
     id: 'fase-2',
-    name: 'Fase 2 (Te├│rica An├íhuac)',
+    name: 'Fase 2 (Teórica Anáhuac)',
     desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
     price: 500,
     color: '#66CC00',
@@ -59,7 +59,7 @@ const getAvailablePhases = (profileId) => {
   if (profileId === 'coordinador') {
     phases.push({
       id: 'fase-2-3',
-      name: 'Fase 2 y 3 (Te├│rica y Simulaci├│n An├íhuac)',
+      name: 'Fase 2 y 3 (Teórica y Simulación Anáhuac)',
       desc: 'Exclusivo para Coordinadores. Cupo limitado a 24 personas.',
       price: 7000,
       color: '#FF6600',
@@ -71,7 +71,7 @@ const getAvailablePhases = (profileId) => {
   phases.push({
     id: 'fase-4-5-6',
     name: 'Fases 4, 5 y 6 (Experimental)',
-    desc: 'Simulaci├│n DAC y Pr├íctica Quir├║rgica Experimental UVM.',
+    desc: 'Simulación DAC y Práctica Quirúrgica Experimental UVM.',
     price: f456Prices[profileId],
     color: '#0099CC',
     colorLight: '#E6F7FF',
@@ -137,7 +137,7 @@ export default function PagoStripe() {
     setErrorMsg('');
     
     if (selectedProfileId === 'cirujano' || selectedProfileId === 'medico') {
-      if (!form.subEspecialidad) { setErrorMsg('Por favor selecciona tu especialidad m├®dica.'); return; }
+      if (!form.subEspecialidad) { setErrorMsg('Por favor selecciona tu especialidad médica.'); return; }
       if (form.subEspecialidad === 'Otro (especificar)' && !form.subEspecialidadTexto) { setErrorMsg('Por favor especifica tu especialidad.'); return; }
     }
 
@@ -196,7 +196,7 @@ export default function PagoStripe() {
       if (response.ok && data.url) window.location.href = data.url;
       else throw new Error(data.error || 'Error al iniciar el pago.');
     } catch (err) {
-      setErrorMsg(err.message || 'Error de conexi├│n. Intenta nuevamente.');
+      setErrorMsg(err.message || 'Error de conexión. Intenta nuevamente.');
       setLoading(false);
     }
   };
@@ -225,7 +225,7 @@ export default function PagoStripe() {
         {/* STEP 1: PROFILE */}
         {step === 1 && (
           <div style={{ animation: 'cnFadeIn .4s ease-out' }}>
-            <h1 style={{ fontSize: 32, color: '#102a33', margin: '0 0 12px', fontWeight: 800, textAlign: 'center', letterSpacing: '-0.5px' }}>Arma tu Plan de Inscripci├│n</h1>
+            <h1 style={{ fontSize: 32, color: '#102a33', margin: '0 0 12px', fontWeight: 800, textAlign: 'center', letterSpacing: '-0.5px' }}>Arma tu Plan de Inscripción</h1>
             <p style={{ color: '#556', fontSize: 16, margin: '0 auto 40px', maxWidth: 600, lineHeight: 1.6, textAlign: 'center' }}>Selecciona tu perfil profesional para ver las opciones disponibles para ti.</p>
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
@@ -264,7 +264,7 @@ export default function PagoStripe() {
             )}
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 30 }}>
-              {/* DEFAULT FASE 1 (Cortes├¡a) */}
+              {/* DEFAULT FASE 1 (Cortesía) */}
               <div 
                 style={{
                   background: '#f4fbf7', border: '2px solid #28a745', borderRadius: 20, padding: '24px 28px', cursor: 'default',
@@ -282,7 +282,7 @@ export default function PagoStripe() {
                 </div>
                 <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                     <span style={{ fontSize: 26, fontWeight: 800, color: '#28a745', letterSpacing: -1 }}>Cortes├¡a</span>
+                     <span style={{ fontSize: 26, fontWeight: 800, color: '#28a745', letterSpacing: -1 }}>Cortesía</span>
                   </div>
                 </div>
               </div>
@@ -334,10 +334,10 @@ export default function PagoStripe() {
 
             <div style={{ display: 'flex', gap: 16, justifyContent: 'space-between' }}>
               <button onClick={() => setStep(1)} style={{ padding: '16px 24px', borderRadius: 16, background: '#f0f4f5', color: '#556', border: 'none', fontWeight: 700, fontSize: 15, cursor: 'pointer', transition: '.2s' }} onMouseOver={e=>e.currentTarget.style.background='#e1ebf0'} onMouseOut={e=>e.currentTarget.style.background='#f0f4f5'}>
-                ÔåÉ Atr├ís
+                ← Atrás
               </button>
               <button onClick={handleContinueToForm} style={{ padding: '16px 32px', borderRadius: 16, background: 'linear-gradient(135deg, #1c3f4a 0%, #2b5c6c 100%)', color: '#fff', border: 'none', fontWeight: 700, fontSize: 15, cursor: 'pointer', transition: '.2s', boxShadow: '0 8px 24px rgba(28,63,74,0.3)' }} onMouseOver={e=>e.currentTarget.style.transform='translateY(-2px)'} onMouseOut={e=>e.currentTarget.style.transform='translateY(0)'}>
-                Continuar al Pago ÔåÆ
+                Continuar al Pago →
               </button>
             </div>
           </div>
@@ -347,7 +347,7 @@ export default function PagoStripe() {
         {step === 3 && (
           <div style={{ animation: 'cnFadeIn .4s ease-out' }}>
             <h2 style={{ fontSize: 24, color: '#102a33', fontWeight: 800, marginBottom: 8, textAlign: 'center' }}>Datos del Estudiante y Pago</h2>
-            <p style={{ color: '#556', fontSize: 15, textAlign: 'center', marginBottom: 30 }}>Por favor completa tu informaci├│n para procesar la inscripci├│n de manera segura.</p>
+            <p style={{ color: '#556', fontSize: 15, textAlign: 'center', marginBottom: 30 }}>Por favor completa tu información para procesar la inscripción de manera segura.</p>
 
             <div style={{ background: '#f8fbfc', padding: 24, borderRadius: 20, marginBottom: 30, display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid #e1ebf0', flexWrap: 'wrap', gap: 16 }}>
               <div>
@@ -373,43 +373,43 @@ export default function PagoStripe() {
                 </label>
                 <label>
                   <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Apellidos *</span>
-                  <input required value={form.apellidos} onChange={setF('apellidos')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. P├®rez" />
+                  <input required value={form.apellidos} onChange={setF('apellidos')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. Pérez" />
                 </label>
               </div>
 
               <label style={{ display: 'block', marginBottom: 16 }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Correo Electr├│nico *</span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Correo Electrónico *</span>
                 <input required type="email" value={form.email} onChange={setF('email')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="correo@hospital.com" />
               </label>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 16 }}>
                 <label>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Tel├®fono *</span>
-                  <input required value={form.tel} onChange={setF('tel')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="10 d├¡gitos" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Teléfono *</span>
+                  <input required value={form.tel} onChange={setF('tel')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="10 dígitos" />
                 </label>
                 <label>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Pa├¡s</span>
-                  <input value={form.pais} onChange={setF('pais')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. M├®xico" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>País</span>
+                  <input value={form.pais} onChange={setF('pais')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Ej. México" />
                 </label>
               </div>
 
               <label style={{ display: 'block', marginBottom: 20 }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Instituci├│n de procedencia</span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Institución de procedencia</span>
                 <input value={form.inst} onChange={setF('inst')} style={{ width: '100%', padding: '16px', borderRadius: 16, border: '1px solid #e1ebf0', background: '#fcfcfc', fontSize: 15, outline: 'none', transition: '.2s', boxSizing: 'border-box' }} onFocus={(e)=>{e.target.style.borderColor='#1c3f4a'; e.target.style.background='#fff'}} onBlur={(e)=>{e.target.style.borderColor='#e1ebf0'; e.target.style.background='#fcfcfc'}} placeholder="Hospital o Centro de Salud" />
               </label>
 
               {/* ESPECIALIDADES */}
               {selectedProfileId === 'cirujano' && (
                 <label style={{ display: 'block', marginBottom: 16, animation: 'cnFadeIn .3s ease-out' }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especialidad quir├║rgica *</span>
-                  <CustomSelect value={form.subEspecialidad} onChange={setF('subEspecialidad')} options={['Abdomen', 'T├│rax', 'Cardiovasculares', 'Otro (especificar)']} placeholder="-- Selecciona --" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especialidad quirúrgica *</span>
+                  <CustomSelect value={form.subEspecialidad} onChange={setF('subEspecialidad')} options={['Abdomen', 'Tórax', 'Cardiovasculares', 'Otro (especificar)']} placeholder="-- Selecciona --" />
                 </label>
               )}
 
               {selectedProfileId === 'medico' && (
                 <label style={{ display: 'block', marginBottom: 16, animation: 'cnFadeIn .3s ease-out' }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especialidad M├®dica *</span>
-                  <CustomSelect value={form.subEspecialidad} onChange={setF('subEspecialidad')} options={['Anestesi├│logo', 'Intensivista', 'Urgenci├│logo', 'Internista', 'Nefr├│logo', 'Otro (especificar)']} placeholder="-- Selecciona --" />
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#4a5b60', display: 'block', marginBottom: 6 }}>Especialidad Médica *</span>
+                  <CustomSelect value={form.subEspecialidad} onChange={setF('subEspecialidad')} options={['Anestesiólogo', 'Intensivista', 'Urgenciólogo', 'Internista', 'Nefrólogo', 'Otro (especificar)']} placeholder="-- Selecciona --" />
                 </label>
               )}
 
@@ -422,10 +422,10 @@ export default function PagoStripe() {
 
               <div style={{ display: 'flex', gap: 16, justifyContent: 'space-between', marginTop: 32 }}>
                 <button type="button" onClick={() => setStep(2)} disabled={loading} style={{ padding: '16px 24px', borderRadius: 16, background: '#f0f4f5', color: '#556', border: 'none', fontWeight: 700, fontSize: 15, cursor: loading ? 'not-allowed' : 'pointer', transition: '.2s' }} onMouseOver={e=>e.currentTarget.style.background='#e1ebf0'} onMouseOut={e=>e.currentTarget.style.background='#f0f4f5'}>
-                  ÔåÉ Atr├ís
+                  ← Atrás
                 </button>
                 <button type="submit" disabled={loading} style={{ flex: 1, padding: '16px 32px', borderRadius: 16, background: loading ? '#d1d8dc' : 'linear-gradient(135deg, #1c3f4a 0%, #2b5c6c 100%)', color: '#fff', border: 'none', fontWeight: 700, fontSize: 16, cursor: loading ? 'not-allowed' : 'pointer', transition: '.2s', boxShadow: loading ? 'none' : '0 8px 24px rgba(28,63,74,0.3)', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onMouseOver={e=>{if(!loading)e.currentTarget.style.transform='translateY(-2px)'}} onMouseOut={e=>{if(!loading)e.currentTarget.style.transform='translateY(0)'}}>
-                  {loading ? 'Procesando...' : `Pagar Inscripci├│n Segura ­ƒöÆ`}
+                  {loading ? 'Procesando...' : `Pagar Inscripción Segura 🔒`}
                 </button>
               </div>
               
