@@ -20,6 +20,7 @@ exports.handler = async (event) => {
         nombre: userDetails.nombre,
         email: userDetails.email,
         paquete: packageType, // Fase 2 y 3, Múltiples Fases, etc.
+        perfil: profile,
         tags: 'CNADOTpago'
       },
       line_items: [

@@ -88,6 +88,14 @@ export default function PagoStripe() {
   const [form, setForm] = useState({ nombres: '', apellidos: '', email: '', tel: '', inst: '', pais: '', subEspecialidad: '', subEspecialidadTexto: '' });
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [availability, setAvailability] = useState({ fase23SoldOut: false, fase456SoldOut: false });
+
+  useEffect(() => {
+    fetch('/.netlify/functions/check-availability')
+      .then(res => res.json())
+      .then(data => setAvailability(data))
+      .catch(err => console.error("Error fetching availability:", err));
+  }, []);
 
   const profile = profiles.find(p => p.id === selectedProfileId);
   const availablePhases = selectedProfileId ? getAvailablePhases(selectedProfileId) : [];
@@ -100,6 +108,10 @@ export default function PagoStripe() {
   };
 
   const togglePhase = (phaseId) => {
+    const isSoldOut = (phaseId === 'fase-2-3' && availability.fase23SoldOut) || 
+                      (phaseId === 'fase-4-5-6' && selectedProfileId === 'coordinador' && availability.fase456SoldOut);
+    if (isSoldOut) return; // Prevent selection if sold out
+
     setSelectedPhases(prev => {
       if (phaseId === 'fase-2' && prev.includes('fase-2-3')) return prev.filter(p => p !== 'fase-2-3').concat('fase-2');
       if (phaseId === 'fase-2-3' && prev.includes('fase-2')) return prev.filter(p => p !== 'fase-2').concat('fase-2-3');
@@ -298,35 +310,45 @@ export default function PagoStripe() {
                   showDiscount = true;
                 }
 
+                const isSoldOut = (phase.id === 'fase-2-3' && availability.fase23SoldOut) || 
+                                  (phase.id === 'fase-4-5-6' && selectedProfileId === 'coordinador' && availability.fase456SoldOut);
+
                 return (
                   <div 
                     key={phase.id} onClick={() => togglePhase(phase.id)}
                     style={{
-                      background: isSelected ? phase.colorLight : '#fcfcfc',
-                      border: `2px solid ${isSelected ? phase.color : '#e1ebf0'}`,
-                      borderRadius: 20, padding: '24px 28px', cursor: 'pointer',
+                      background: isSoldOut ? '#f5f5f5' : (isSelected ? phase.colorLight : '#fcfcfc'),
+                      border: `2px solid ${isSoldOut ? '#e0e0e0' : (isSelected ? phase.color : '#e1ebf0')}`,
+                      borderRadius: 20, padding: '24px 28px', cursor: isSoldOut ? 'not-allowed' : 'pointer',
                       display: 'flex', flexWrap: 'wrap', gap: 20, justifyContent: 'space-between', alignItems: 'center',
                       transition: 'all .3s cubic-bezier(0.4, 0, 0.2, 1)', 
-                      boxShadow: isSelected ? `0 12px 32px ${phase.color}25` : '0 4px 16px rgba(0,0,0,0.02)'
+                      boxShadow: isSelected ? `0 12px 32px ${phase.color}25` : '0 4px 16px rgba(0,0,0,0.02)',
+                      opacity: isSoldOut ? 0.6 : 1
                     }}
-                    onMouseOver={(e) => { if (!isSelected) { e.currentTarget.style.borderColor = phase.color; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
-                    onMouseOut={(e) => { if (!isSelected) { e.currentTarget.style.borderColor = '#e1ebf0'; e.currentTarget.style.transform = 'translateY(0)'; } }}
+                    onMouseOver={(e) => { if (!isSelected && !isSoldOut) { e.currentTarget.style.borderColor = phase.color; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
+                    onMouseOut={(e) => { if (!isSelected && !isSoldOut) { e.currentTarget.style.borderColor = '#e1ebf0'; e.currentTarget.style.transform = 'translateY(0)'; } }}
                   >
                     <div style={{ flex: '1 1 250px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 6 }}>
-                        <div style={{ width: 24, height: 24, flexShrink: 0, borderRadius: '50%', border: `2px solid ${isSelected ? phase.color : '#cbd5d8'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', background: isSelected ? phase.color : 'transparent', transition: '.2s' }}>
-                          {isSelected && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                        <div style={{ width: 24, height: 24, flexShrink: 0, borderRadius: '50%', border: `2px solid ${isSoldOut ? '#ccc' : (isSelected ? phase.color : '#cbd5d8')}`, display: 'flex', alignItems: 'center', justifyContent: 'center', background: isSoldOut ? '#eee' : (isSelected ? phase.color : 'transparent'), transition: '.2s' }}>
+                          {isSelected && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke={isSoldOut ? '#aaa' : 'white'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                         </div>
-                        <h3 style={{ margin: 0, fontSize: 18, color: '#102a33', fontWeight: 800 }}>{phase.name}</h3>
+                        <h3 style={{ margin: 0, fontSize: 18, color: isSoldOut ? '#999' : '#102a33', fontWeight: 800 }}>{phase.name}</h3>
                       </div>
                       <p style={{ margin: '0 0 0 38px', color: '#556', fontSize: 14, lineHeight: 1.5 }}>{phase.desc}</p>
                     </div>
                     <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
-                      {showDiscount && <div style={{ fontSize: 11, color: '#fff', background: '#FF6600', padding: '4px 10px', borderRadius: 12, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4, display: 'inline-block' }}>50% Desc. Aplicado</div>}
-                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                         <span style={{ fontSize: 26, fontWeight: 800, color: phase.color, letterSpacing: -1 }}>${displayPrice.toLocaleString()}</span>
-                         <span style={{ fontSize: 13, fontWeight: 700, color: '#9cb1b8' }}>MXN</span>
-                      </div>
+                      {isSoldOut ? (
+                        <div style={{ fontSize: 13, color: '#fff', background: '#e53e3e', padding: '6px 12px', borderRadius: 12, fontWeight: 800, textTransform: 'uppercase' }}>Agotado</div>
+                      ) : (
+                        <>
+                          {showDiscount && <div style={{ fontSize: 11, color: '#fff', background: '#FF6600', padding: '4px 10px', borderRadius: 12, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4, display: 'inline-block' }}>50% Desc. Aplicado</div>}
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                             <span style={{ fontSize: 26, fontWeight: 800, color: phase.color, letterSpacing: -1 }}>${displayPrice.toLocaleString()}</span>
+                             <span style={{ fontSize: 13, fontWeight: 700, color: '#9cb1b8' }}>MXN</span>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 );
