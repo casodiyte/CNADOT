@@ -51,7 +51,7 @@ const getAvailablePhases = (profileId) => {
     id: 'fase-2',
     name: 'Fase 2 (Teórica Anáhuac)',
     desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
-    price: 500,
+    price: 2000,
     color: '#66CC00',
     colorLight: '#EEF9D9',
   });
@@ -61,13 +61,13 @@ const getAvailablePhases = (profileId) => {
       id: 'fase-2-3',
       name: 'Fase 2 y 3 (Teórica y Simulación Anáhuac)',
       desc: 'Exclusivo para Coordinadores. Cupo limitado a 24 personas.',
-      price: 7000,
+      price: 4000,
       color: '#FF6600',
       colorLight: '#FFE6CC',
     });
   }
 
-  const f456Prices = { 'cirujano': 9000, 'perfusionista': 5000, 'enfermero': 4000, 'medico': 4000, 'coordinador': 7000 };
+  const f456Prices = { 'cirujano': 6000, 'perfusionista': 4000, 'enfermero': 3000, 'medico': 3000, 'coordinador': 4000 };
   phases.push({
     id: 'fase-4-5-6',
     name: 'Fases 4, 5 y 6 (Experimental)',
@@ -123,7 +123,7 @@ export default function PagoStripe() {
     selectedPhases.forEach(pid => {
       const phase = availablePhases.find(p => p.id === pid);
       if (phase) {
-        if (pid === 'fase-4-5-6' && selectedProfileId === 'coordinador' && hasF23) total += 3500;
+        if (pid === 'fase-4-5-6' && selectedProfileId === 'coordinador' && hasF23) total += 2000;
         else total += phase.price;
       }
     });
