@@ -51,7 +51,7 @@ const getAvailablePhases = (profileId) => {
     id: 'fase-2',
     name: 'Fase 2 (Teórica Anáhuac)',
     desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
-    price: 2000,
+    price: 500,
     color: '#66CC00',
     colorLight: '#EEF9D9',
   });
