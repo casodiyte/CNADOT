@@ -38,7 +38,6 @@ const LogosGrid = () => (
       <h4 style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c5b76', marginBottom: 24, fontSize: 16, letterSpacing: 1, textTransform: 'uppercase' }}>ALIADOS:</h4>
       <div style={{ display: 'flex', gap: 40, justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', marginBottom: 30 }}>
         <img src="assets/Logos_01_HCE.svg" alt="HCE" style={{ height: 50, objectFit: 'contain' }} />
-        <img src="assets/Logos_05_Anahuac.svg" alt="Anahuac" style={{ height: 55, objectFit: 'contain' }} />
         <img src="assets/Logos_06_UVM.svg" alt="UVM" style={{ height: 45, objectFit: 'contain' }} />
         <img src="assets/Logos_07_UFV.svg" alt="UFV" style={{ height: 50, objectFit: 'contain' }} />
         <img src="assets/TransPlantChild.png" alt="TransPlantChild" style={{ height: 85, objectFit: 'contain' }} />
@@ -227,15 +226,6 @@ function MainApp() {
 
   const renderInfoCards = () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-      <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22 }}>
-        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
-        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede Anáhuac</h4>
-        <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-          <li><strong style={{color:'#0099CC'}}>28 de Septiembre</strong> · Auditorio de Rectoría</li>
-          <li><strong style={{color:'#0099CC'}}>29 y 30 de Septiembre</strong> · Centro de Simulación</li>
-        </ul>
-        <iframe src="https://maps.google.com/maps?q=Universidad+Anahuac+Mexico+Norte&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
-      </div>
       <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
         <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>

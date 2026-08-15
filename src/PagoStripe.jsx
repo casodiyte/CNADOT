@@ -49,7 +49,7 @@ const getAvailablePhases = (profileId) => {
   const phases = [];
   phases.push({
     id: 'fase-2',
-    name: 'Fase 2 (Teórica Anáhuac)',
+    name: 'Fase 2 (Teórica UVM)',
     desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
     price: 500,
     color: '#66CC00',
@@ -59,7 +59,7 @@ const getAvailablePhases = (profileId) => {
   if (profileId === 'coordinador') {
     phases.push({
       id: 'fase-2-3',
-      name: 'Fase 2 y 3 (Teórica y Simulación Anáhuac)',
+      name: 'Fase 2 y 3 (Teórica y Simulación UVM)',
       desc: 'Exclusivo para Coordinadores. Cupo limitado a 24 personas.',
       price: 4000,
       color: '#FF6600',

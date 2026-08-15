@@ -40,7 +40,6 @@ export const logos = [
   'assets/Logos_02_Salud-CENATRA.svg',
   'assets/Logos_03_UNAM.svg',
   'assets/Logos_04_Facultad de Medicina.svg',
-  'assets/Logos_05_Anahuac.svg',
   'assets/Logos_06_UVM.svg',
   'assets/Logos_07_UFV.svg',
   'assets/Logos_08_SET.svg',
@@ -78,7 +77,7 @@ export const programa = [
     ]
   },
   {
-    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 8:30 AM – 4:00 PM', meta: 'Auditorio de Rectoría · Universidad Anáhuac', color: green, color2: green, tint: '#EEF9D9',
+    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 8:30 AM – 4:00 PM', meta: 'Auditorio UVM', color: green, color2: green, tint: '#EEF9D9',
     objetivo: 'Integrar los paradigmas asistenciales, legales y bioéticos de vanguardia en donación y trasplantes mediante ponencias magistrales interactivas con expertos de la red nacional e internacional.',
     temas: [
       { t: 'El Modelo Mexicano de Donación y Trasplantes: Realidad Actual y Retos Normativos (CENATRA)', d: 'Objetivo: Contextualizar el marco legal y regulatorio vigente en México frente al panorama global para identificar áreas de oportunidad en la práctica institucional.' },
@@ -101,7 +100,7 @@ export const programa = [
     ]
   },
   {
-    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026 | Horario: 9:00 AM – 3:00 PM', meta: 'Centro de Simulación Anáhuac', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
+    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026 | Horario: 9:00 AM – 3:00 PM', meta: 'Centro de Simulación UVM', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
     objetivo: 'Aplicación en tiempo real de habilidades no técnicas en escenarios de crisis (Muerte encefálica y comunicación de malas noticias), mediante la inmersión en escenarios simulados de alta fidelidad y técnicas estructuradas de debriefing.',
     temas: [
       { t: '29 de Septiembre', d: 'Escenario 1: Diagnóstico Muerte Encefálica\nEscenario 2: Comunicación de Malas Noticias\nEscenario 3: Manejo ECMO\nEscenario 4: Logística DAC' },
@@ -346,9 +345,9 @@ export const escenarios = [
 
 export const timeline = [
   { week: '17 - 28 Sept', titulo: 'Fase 1: Teórica Virtual Híbrida', color: blue, items: ['Modalidad: En línea', 'Acceso desde el 17 de sept. (duración 1 semana)', '21 Sept (9:00 AM – 12:00 PM): Clase virtual sincrónica', '24 o 25 Sept: Clase virtual'] },
-  { week: '28 Sept', titulo: 'Fase 2: Teórica Presencial', color: green, items: ['Sede: Auditorio de Rectoría, Universidad Anáhuac', 'Horario: 8:30 AM – 4:00 PM'] },
-  { week: '29 Sept', titulo: 'Fase 3: Práctica Presencial (Día 1)', color: orange, items: ['Sede: Centro de Simulación Anáhuac', 'Horario: 9:00 AM – 3:00 PM'] },
-  { week: '30 Sept', titulo: 'Dos Bloques: Anáhuac → UVM', color: blue, items: ['MAÑANA (9:00 AM – 3:00 PM): Fase 3 en Centro de Simulación Anáhuac', 'TARDE (4:00 PM – 6:45 PM): Fase 4 en UVM, Hospital Veterinario'] },
+  { week: '28 Sept', titulo: 'Fase 2: Teórica Presencial', color: green, items: ['Sede: Auditorio UVM', 'Horario: 8:30 AM – 4:00 PM'] },
+  { week: '29 Sept', titulo: 'Fase 3: Práctica Presencial (Día 1)', color: orange, items: ['Sede: Centro de Simulación UVM', 'Horario: 9:00 AM – 3:00 PM'] },
+  { week: '30 Sept', titulo: 'Dos Bloques: UVM', color: blue, items: ['MAÑANA (9:00 AM – 3:00 PM): Fase 3 en Centro de Simulación UVM', 'TARDE (4:00 PM – 6:45 PM): Fase 4 en UVM, Hospital Veterinario'] },
   { week: '1 Oct', titulo: 'Dos Bloques en UVM: Teoría → Práctica', color: orange, items: ['MAÑANA (8:30 AM – 1:25 PM): Fase 5 en UVM', 'TARDE (2:20 PM – 6:00 PM): Fase 6 en UVM'] },
   { week: '2 Oct', titulo: 'Fase 6: Práctica Experimental (Día 2)', color: green, items: ['Sede: UVM, Hospital Veterinario', 'Horario: 8:45 AM – 4:30 PM'] }
 ];
