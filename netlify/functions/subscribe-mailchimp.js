@@ -37,10 +37,24 @@ exports.handler = async (event) => {
           FNAME: nombre || "",
           LNAME: apellidos || "",
           YEAR: new Date().getFullYear().toString()
-        },
-        tags: tags || []
+        }
       })
     });
+
+    const data = await response.json();
+
+    if (tags && tags.length > 0) {
+      await fetch(`${mailchimpUrl}/tags`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Basic ${Buffer.from(`any:${API_KEY}`).toString('base64')}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          tags: tags.map(tag => ({ name: tag, status: "active" }))
+        })
+      });
+    }
 
     const data = await response.json();
     

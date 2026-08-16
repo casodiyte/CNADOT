@@ -56,7 +56,7 @@ exports.handler = async (event) => {
           }
 
           // Enviar datos actualizados a Mailchimp para el correo de recibo de pago
-          await fetch(mailchimpUrl, {
+          const putResponse = await fetch(mailchimpUrl, {
             method: 'PUT',
             headers: {
               Authorization: `Basic ${Buffer.from(`any:${API_KEY}`).toString('base64')}`,
@@ -74,10 +74,31 @@ exports.handler = async (event) => {
                 ORDEN: orderId.slice(-8),// Etiqueta Mailchimp: *|ORDEN|* (últimos 8)
                 FECHA_P: paymentDate,    // Etiqueta Mailchimp: *|FECHA_P|*
                 YEAR: currentYear        // Etiqueta Mailchimp: *|YEAR|*
-              },
-              tags: ["CNADOTpagado"] // Tag clave para disparar la automatización de "Pago Exitoso"
+              }
             })
           });
+
+          if (!putResponse.ok) {
+             console.error("Mailchimp PUT error:", await putResponse.text());
+          }
+
+          // Mailchimp requires a separate endpoint to safely add tags
+          const tagsResponse = await fetch(`${mailchimpUrl}/tags`, {
+            method: 'POST',
+            headers: {
+              Authorization: `Basic ${Buffer.from(`any:${API_KEY}`).toString('base64')}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              tags: [
+                { name: "CNADOTpagado", status: "active" }
+              ]
+            })
+          });
+
+          if (!tagsResponse.ok) {
+             console.error("Mailchimp TAGS error:", await tagsResponse.text());
+          }
         }
       }
     }
