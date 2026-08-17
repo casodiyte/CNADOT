@@ -26,16 +26,18 @@ exports.handler = async (event) => {
       const orderId = session.id;
       const currentYear = new Date().getFullYear().toString();
       
-      // Días de asistencia aproximados
+      // Días de asistencia exactos basados en el paquete
       let diasAsistencia = "Fechas por definir";
-      if (paquete.includes('Fase 2')) {
-        diasAsistencia = "Sujeto a calendario oficial (Fase 2)";
-      }
-      if (paquete.includes('4, 5 y 6')) {
-        diasAsistencia = "Sujeto a calendario oficial (Fase 4,5,6)";
-      }
-      if (paquete === 'Múltiples Fases') {
-         diasAsistencia = "Ambos calendarios (Teórico y Experimental)";
+      if (paquete.includes('Fase 2 y 3') && paquete.includes('4, 5 y 6')) {
+        diasAsistencia = "Del 28 de Septiembre al 2 de Octubre de 2026";
+      } else if (paquete.includes('Fase 2 y 3')) {
+        diasAsistencia = "28, 29 y 30 de Septiembre de 2026";
+      } else if (paquete.includes('Fase 2')) {
+        diasAsistencia = "28 de Septiembre de 2026";
+      } else if (paquete.includes('4, 5 y 6')) {
+        diasAsistencia = "30 de Sept., 1 y 2 de Octubre de 2026";
+      } else if (paquete === 'Múltiples Fases') {
+        diasAsistencia = "Del 28 de Septiembre al 2 de Octubre de 2026";
       }
 
       if (email) {
