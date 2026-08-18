@@ -356,18 +356,27 @@ function MainApp() {
             <p style={{ color: '#666', margin: '0 0 26px' }}>Un programa escalado de complejidad creciente.</p>
             <div className="grid-3">
               {programa.map((f, i) => (
-                <div key={i} className="cn-reveal fase-card" style={{ borderImage: `linear-gradient(90deg,${f.color},${f.color2}) 1` }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-                    <div style={{ width: 52, height: 52, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Poppins'", fontWeight: 800, fontSize: 24, color: '#fff', background: `linear-gradient(135deg,${f.color},${f.color2})` }}>{f.n}</div>
-                    <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 12, color: '#888' }}>FASE {f.n}</div>
+                <React.Fragment key={i}>
+                  <div className="cn-reveal fase-card" style={{ borderImage: `linear-gradient(90deg,${f.color},${f.color2}) 1` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
+                      <div style={{ width: 52, height: 52, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Poppins'", fontWeight: 800, fontSize: 24, color: '#fff', background: `linear-gradient(135deg,${f.color},${f.color2})` }}>{f.n}</div>
+                      <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 12, color: '#888' }}>FASE {f.n}</div>
+                    </div>
+                    <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 19, color: '#1c3f4a', margin: '0 0 8px', lineHeight: 1.25 }}>{f.titulo}</h3>
+                    <p style={{ color: '#666', fontSize: 14, margin: '0 0 4px' }}><strong style={{ color: f.color }}>{f.cuando}</strong></p>
+                    <p style={{ color: '#888', fontSize: 13, margin: '0 0 6px' }}>{f.meta}</p>
+                    {f.alerta && <p style={{ color: '#D32F2F', fontSize: 12.5, fontWeight: 600, margin: '0 0 12px' }}>{f.alerta}</p>}
+                    <div style={{ flex: 1 }}></div>
+                    <button onClick={() => go('programa')} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14, color: f.color, cursor: 'pointer', padding: 0 }}>Ver programa completo →</button>
                   </div>
-                  <h3 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 19, color: '#1c3f4a', margin: '0 0 8px', lineHeight: 1.25 }}>{f.titulo}</h3>
-                  <p style={{ color: '#666', fontSize: 14, margin: '0 0 4px' }}><strong style={{ color: f.color }}>{f.cuando}</strong></p>
-                  <p style={{ color: '#888', fontSize: 13, margin: '0 0 6px' }}>{f.meta}</p>
-                  {f.alerta && <p style={{ color: '#D32F2F', fontSize: 12.5, fontWeight: 600, margin: '0 0 12px' }}>{f.alerta}</p>}
-                  <div style={{ flex: 1 }}></div>
-                  <button onClick={() => go('programa')} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14, color: f.color, cursor: 'pointer', padding: 0 }}>Ver programa completo →</button>
-                </div>
+                  
+                  {/* Caja indicadora para las fases 1, 2 y 3 */}
+                  {i === 2 && (
+                    <div style={{ gridColumn: '1 / -1', background: '#f0f9ff', padding: '16px', borderRadius: 12, textAlign: 'center', color: '#005b9f', fontWeight: 700, fontFamily: "'Poppins'", border: '2px solid #82cdff', margin: '0 0 10px 0', letterSpacing: '0.5px' }}>
+                      OBLIGATORIAS PARA RECERTIFICACIÓN DE COORDINADORES.
+                    </div>
+                  )}
+                </React.Fragment>
               ))}
             </div>
 

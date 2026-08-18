@@ -47,14 +47,16 @@ const profiles = [
 
 const getAvailablePhases = (profileId) => {
   const phases = [];
-  phases.push({
-    id: 'fase-2',
-    name: 'Fase 2 (Teórica UVM)',
-    desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
-    price: 500,
-    color: '#66CC00',
-    colorLight: '#EEF9D9',
-  });
+  if (profileId !== 'coordinador') {
+    phases.push({
+      id: 'fase-2',
+      name: 'Fase 2 (Teórica UVM)',
+      desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
+      price: 500,
+      color: '#66CC00',
+      colorLight: '#EEF9D9',
+    });
+  }
 
   if (profileId === 'coordinador') {
     phases.push({
