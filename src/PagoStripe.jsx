@@ -47,16 +47,6 @@ const profiles = [
 
 const getAvailablePhases = (profileId) => {
   const phases = [];
-  if (profileId !== 'coordinador') {
-    phases.push({
-      id: 'fase-2',
-      name: 'Fase 2 (Teórica UVM)',
-      desc: 'Obligatoria para coordinadores, opcional para el resto. Modalidad presencial.',
-      price: 500,
-      color: '#66CC00',
-      colorLight: '#EEF9D9',
-    });
-  }
 
   if (profileId === 'coordinador') {
     phases.push({
@@ -67,17 +57,28 @@ const getAvailablePhases = (profileId) => {
       color: '#FF6600',
       colorLight: '#FFE6CC',
     });
+    phases.push({
+      id: 'fase-4-5-6',
+      name: 'Fases 4, 5 y 6 (Experimental)',
+      desc: 'Simulación DAC y Práctica Quirúrgica Experimental UVM.',
+      price: 4000,
+      color: '#0099CC',
+      colorLight: '#E6F7FF',
+    });
+  } else {
+    // Para todos los demás, una sola opción obligatoria (Fase 2 + 4,5,6)
+    const f456Prices = { 'cirujano': 6000, 'perfusionista': 4000, 'enfermero': 3000, 'medico': 3000 };
+    const basePrice = f456Prices[profileId] || 3000;
+    
+    phases.push({
+      id: 'fase-2-4-5-6',
+      name: 'Fase 2 (Teórica) + Fases 4, 5 y 6 (Experimental)',
+      desc: 'Obligatoria Fase 2 presencial + Simulación DAC y Práctica Quirúrgica Experimental UVM.',
+      price: basePrice + 500,
+      color: '#0099CC',
+      colorLight: '#E6F7FF',
+    });
   }
-
-  const f456Prices = { 'cirujano': 6000, 'perfusionista': 4000, 'enfermero': 3000, 'medico': 3000, 'coordinador': 4000 };
-  phases.push({
-    id: 'fase-4-5-6',
-    name: 'Fases 4, 5 y 6 (Experimental)',
-    desc: 'Simulación DAC y Práctica Quirúrgica Experimental UVM.',
-    price: f456Prices[profileId],
-    color: '#0099CC',
-    colorLight: '#E6F7FF',
-  });
 
   return phases;
 };

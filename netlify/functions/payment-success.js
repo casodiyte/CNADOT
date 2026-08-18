@@ -32,6 +32,8 @@ exports.handler = async (event) => {
         diasAsistencia = "Del 28 de Septiembre al 2 de Octubre de 2026";
       } else if (paquete.includes('Fase 2 y 3')) {
         diasAsistencia = "28, 29 y 30 de Septiembre de 2026";
+      } else if (paquete.includes('Fase 2') && paquete.includes('4, 5 y 6')) {
+        diasAsistencia = "28, 30 de Sept., 1 y 2 de Octubre de 2026";
       } else if (paquete.includes('Fase 2')) {
         diasAsistencia = "28 de Septiembre de 2026";
       } else if (paquete.includes('4, 5 y 6')) {
