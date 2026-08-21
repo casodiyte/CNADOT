@@ -42,6 +42,27 @@ exports.handler = async (event) => {
         diasAsistencia = "Del 28 de Septiembre al 2 de Octubre de 2026";
       }
 
+      // Notificar a Formspree como COMPRA EXITOSA
+      try {
+        await fetch("https://formspree.io/f/mgawkwgw", {
+          method: "POST",
+          body: JSON.stringify({
+            Nombres: nombreCompleto,
+            Email: email,
+            Telefono: metadata.tel || "No proporcionado",
+            Paquete: paquete,
+            MontoPagado: `$${paymentAmount} MXN`,
+            OrderId: orderId
+          }),
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json' 
+          }
+        });
+      } catch(err) {
+        console.error("Error al enviar a Formspree backend:", err);
+      }
+
       if (email) {
         const API_KEY = process.env.MAILCHIMP_API_KEY;
         const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;

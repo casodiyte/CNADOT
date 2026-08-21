@@ -19,6 +19,7 @@ exports.handler = async (event) => {
       metadata: {
         nombre: userDetails.nombre,
         email: userDetails.email,
+        tel: userDetails.tel,
         paquete: packageType, // Fase 2 y 3, Múltiples Fases, etc.
         perfil: profile,
         tags: 'CNADOTpago'
