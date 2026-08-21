@@ -137,8 +137,8 @@ export const programa = [
     ]
   },
   {
-    n: '6', titulo: 'Práctica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 7:45 AM – 6:45 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9',
-    objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad. *Nota: Si las prácticas se extienden, una sesión práctica podrá recorrerse a la mañana del 2 de Octubre.*',
+    n: '6', titulo: 'Práctica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 7:45 AM – 6:45 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9', alerta: '*Nota: Si las prácticas se extienden, una sesión práctica podrá recorrerse a la mañana del 2 de Octubre.*',
+    objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad.',
     temas: [
       { t: 'Estación A: Donación en Asistolia Controlada (DAC)', d: 'Objetivo: Entrenar DAC con el fin de aprender una estrategia adicional para incrementar la tasa de donación con visión a futuro cercano en México.' },
       { t: 'Estación B: Perfusión de Órganos Ex Situ', d: 'Objetivo: Optimizar los resultados de supervivencia en trasplantes e incrementar la tasa de rescate de órganos con criterios expandidos (marginales) mediante la implementación de tecnología de perfusión ex situ.' },
