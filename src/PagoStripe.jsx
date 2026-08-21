@@ -160,7 +160,36 @@ export default function PagoStripe() {
     const subProfileString = form.subEspecialidad === 'Otro (especificar)' ? form.subEspecialidadTexto : form.subEspecialidad;
     const packageTypeStr = selectedPhases.map(pid => availablePhases.find(p => p.id === pid).name).join(' + ');
 
+    // 1. Enviar a Formspree (Intento de Pago)
+    try {
+      const formData = new FormData();
+      formData.append("Nombres", form.nombres);
+      formData.append("Apellidos", form.apellidos);
+      formData.append("Email", form.email);
+      formData.append("Telefono", form.tel);
+      formData.append("Paquete", packageTypeStr);
+      // Agregamos await para que termine antes de redirigir a Stripe
+      await fetch("https://formspree.io/f/mgawkwgw", {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+    } catch (err) {
+      console.error("Error al enviar a Formspree:", err);
+    }
 
+    // 2. Registro directo en Mailchimp (Backend) para Carritos Abandonados
+    try {
+      await fetch('/.netlify/functions/subscribe-mailchimp', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: form.email,
+          nombre: form.nombres,
+          apellidos: form.apellidos,
+          tags: ["CNADOTpago"]
+        })
+      });
+    } catch (e) { console.error("Error backend mailchimp:", e); }
 
     try {
       const response = await fetch('/.netlify/functions/create-checkout', {
