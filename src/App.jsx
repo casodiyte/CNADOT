@@ -64,6 +64,7 @@ function MainApp() {
   const [showErr, setShowErr] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openPrograma, setOpenPrograma] = useState({});
+  const [expandedExperts, setExpandedExperts] = useState({});
 
   const trackRef = useRef(null);
   const confettiRef = useRef(null);
@@ -620,8 +621,16 @@ function MainApp() {
                     {x.sintesis && (
                       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                         <p style={{ color: '#889', fontSize: 12.5, margin: 0, lineHeight: 1.5, borderTop: '1px solid #edf2f4', paddingTop: 12, marginTop: 'auto' }}>
-                          {x.sintesis.length > 200 ? x.sintesis.substring(0, 200).trim() + '...' : x.sintesis}
+                          {expandedExperts[i] ? x.sintesis : (x.sintesis.length > 200 ? x.sintesis.substring(0, 200).trim() + '...' : x.sintesis)}
                         </p>
+                        {x.sintesis.length > 200 && (
+                          <button
+                            onClick={() => setExpandedExperts(s => ({ ...s, [i]: !s[i] }))}
+                            style={{ background: 'none', border: 'none', color: x.color, fontSize: 12.5, fontWeight: 600, padding: '4px 0 0', cursor: 'pointer', textAlign: 'left', alignSelf: 'flex-start', fontFamily: "'Poppins'" }}
+                          >
+                            {expandedExperts[i] ? 'Ver menos' : 'Ver más +'}
+                          </button>
+                        )}
                       </div>
                     )}
                   </div>
