@@ -58,7 +58,7 @@ const LogosGrid = () => (
 function MainApp() {
   const [section, setSection] = useState('home');
   const [query, setQuery] = useState('');
-  const [form, setForm] = useState({nombre:'',email:'',tel:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
+  const [form, setForm] = useState({nombres:'',apellidos:'',email:'',tel:'',pais:'',estado:'',inst:'',profesion:'',rol:'',cedula:'',cv:null,carta:null});
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [showErr, setShowErr] = useState(false);
@@ -120,8 +120,10 @@ function MainApp() {
     if (!form.nombres.trim()) er.nombres = 1;
     if (!form.apellidos.trim()) er.apellidos = 1;
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) er.email = 1;
-    if (!/^\d{10}$/.test(form.tel.replace(/\D/g, ''))) er.tel = 1;
-    if (!form.inst.trim()) er.inst = 1;
+    if (!form.tel || !/^\d{10}$/.test(form.tel.replace(/\D/g, ''))) er.tel = 1;
+    if (!form.pais || !form.pais.trim()) er.pais = 1;
+    if (!form.estado || !form.estado.trim()) er.estado = 1;
+    if (!form.inst || !form.inst.trim()) er.inst = 1;
     if (!form.profesion) er.profesion = 1;
     if (!form.rol) er.rol = 1;
     if (!form.cedula.trim()) er.cedula = 1;
@@ -145,6 +147,8 @@ function MainApp() {
       formData.append("Apellidos", form.apellidos);
       formData.append("email", form.email);
       formData.append("tel", form.tel);
+      formData.append("pais", form.pais);
+      formData.append("estado", form.estado);
       formData.append("inst", form.inst);
       formData.append("profesion", form.profesion);
       formData.append("rol", form.rol);
@@ -230,8 +234,8 @@ function MainApp() {
         <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
         <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
-          <li><strong style={{color:'#66CC00'}}>30 de Septiembre</strong> · Centro de Simulación UVM</li>
-          <li><strong style={{color:'#66CC00'}}>1 y 2 de Octubre</strong> · UVM Hospital Veterinario</li>
+          <li>Centro de Simulación UVM</li>
+          <li>UVM Hospital Veterinario</li>
         </ul>
         <iframe src="https://maps.google.com/maps?q=Calz.+de+Tlalpan+3058,+Coapa,+Sta.+Ursula+Coapa,+Coyoacan,+CDMX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style={{ border: 0, borderRadius: 8 }} allowFullScreen="" loading="lazy"></iframe>
       </div>
@@ -273,7 +277,7 @@ function MainApp() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Reacreditación</h4>
-        <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Servirá de reacreditación para los coordinadores.</p>
+        <p style={{ margin: 0, padding: 0, color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Servirá de reacreditación para los coordinadores siempre y cuando cursen el curso completo teórico-práctico de simulación o experimental.</p>
       </div>
       <div style={{ background: '#FFE6CC', borderRadius: 16, padding: 22 }}>
         <div style={{ width: 42, height: 42, borderRadius: 11, background: '#FF6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
@@ -694,6 +698,14 @@ function MainApp() {
                       <label style={{ display: 'block' }}>
                         <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Teléfono *</span>
                         <input value={form.tel} onChange={setF('tel')} placeholder="10 dígitos" style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.tel ? red : '#d6e3e8'}`, borderRadius: 10 }} />
+                      </label>
+                      <label style={{ display: 'block' }}>
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>País *</span>
+                        <input value={form.pais} onChange={setF('pais')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.pais ? red : '#d6e3e8'}`, borderRadius: 10 }} />
+                      </label>
+                      <label style={{ display: 'block' }}>
+                        <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Estado *</span>
+                        <input value={form.estado} onChange={setF('estado')} style={{ width: '100%', fontFamily: "'Inter'", fontSize: 14, padding: '11px 14px', border: `1px solid ${errors.estado ? red : '#d6e3e8'}`, borderRadius: 10 }} />
                       </label>
                       <label style={{ display: 'block' }}>
                         <span style={{ fontFamily: "'Poppins'", fontWeight: 500, fontSize: 13, color: '#556', display: 'block', marginBottom: 6 }}>Institución / Hospital *</span>
