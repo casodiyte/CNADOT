@@ -235,6 +235,7 @@ function MainApp() {
         <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede UVM</h4>
         <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#556', fontSize: 13.5, lineHeight: 1.7, marginBottom: 12 }}>
+          <li>Auditorio UVM</li>
           <li>Centro de Simulación UVM</li>
           <li>UVM Hospital Veterinario</li>
         </ul>
