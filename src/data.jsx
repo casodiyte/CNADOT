@@ -40,7 +40,6 @@ export const logos = [
   'assets/Logos_02_Salud-CENATRA.svg',
   'assets/Logos_03_UNAM.svg',
   'assets/Logos_04_Facultad de Medicina.svg',
-  'assets/Logos_06_UVM.svg',
   'assets/Logos_07_UFV.svg',
   'assets/Logos_08_SET.svg',
   'assets/logo-SERMAS_SMS.png',
