@@ -168,9 +168,9 @@ function MainApp() {
         });
         
         if (response.ok) {
-          // Registrar en Mailchimp (Backend)
+          // Registrar en Brevo (Backend)
           try {
-            await fetch('/.netlify/functions/subscribe-mailchimp', {
+            await fetch('/.netlify/functions/subscribe-brevo', {
               method: 'POST',
               body: JSON.stringify({
                 email: form.email,
@@ -180,7 +180,7 @@ function MainApp() {
               })
             });
           } catch (e) {
-            console.error("Error backend mailchimp:", e);
+            console.error("Error backend Brevo:", e);
           }
 
           setSubmitted(true);

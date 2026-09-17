@@ -160,9 +160,9 @@ export default function PagoStripe() {
     const subProfileString = form.subEspecialidad === 'Otro (especificar)' ? form.subEspecialidadTexto : form.subEspecialidad;
     const packageTypeStr = selectedPhases.map(pid => availablePhases.find(p => p.id === pid).name).join(' + ');
 
-    // 2. Registro directo en Mailchimp (Backend) para Carritos Abandonados
+    // 2. Registro directo en Brevo (Backend) para Carritos Abandonados
     try {
-      await fetch('/.netlify/functions/subscribe-mailchimp', {
+      await fetch('/.netlify/functions/subscribe-brevo', {
         method: 'POST',
         body: JSON.stringify({
           email: form.email,
@@ -171,7 +171,7 @@ export default function PagoStripe() {
           tags: ["CNADOTpago"]
         })
       });
-    } catch (e) { console.error("Error backend mailchimp:", e); }
+    } catch (e) { console.error("Error backend Brevo:", e); }
 
     try {
       const response = await fetch('/.netlify/functions/create-checkout', {

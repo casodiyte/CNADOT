@@ -18,7 +18,7 @@ interface CnadotPagoProps {
   firstName?: string;
 }
 
-export const CnadotPagoEmail = ({ firstName = '*|FNAME|*' }: CnadotPagoProps) => (
+export const CnadotPagoEmail = ({ firstName = '{{ params.FNAME }}' }: CnadotPagoProps) => (
   <Html>
     <Head />
     <Preview>¡Pago exitoso! Tu lugar está asegurado.</Preview>
@@ -56,19 +56,19 @@ export const CnadotPagoEmail = ({ firstName = '*|FNAME|*' }: CnadotPagoProps) =>
           <Section style={detailsBox}>
             <Heading as="h3" style={detailsTitle}>Detalles de tu inscripción</Heading>
             <Text style={detailText}>
-              <span style={detailLabel}>Fase Inscrita:</span> <span style={detailValue}>*|FASE|*</span>
+              <span style={detailLabel}>Fase Inscrita:</span> <span style={detailValue}>{'{{ params.FASE }}'}</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Asistencia:</span> <span style={detailValue}>*|DIAS|*</span>
+              <span style={detailLabel}>Asistencia:</span> <span style={detailValue}>{'{{ params.DIAS }}'}</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Monto:</span> <span style={detailValue}>*|MONTO|*</span>
+              <span style={detailLabel}>Monto:</span> <span style={detailValue}>{'{{ params.MONTO }}'}</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Referencia:</span> <span style={detailValue}>*|ORDEN|*</span>
+              <span style={detailLabel}>Referencia:</span> <span style={detailValue}>{'{{ params.ORDEN }}'}</span>
             </Text>
             <Text style={detailText}>
-              <span style={detailLabel}>Fecha:</span> <span style={detailValue}>*|FECHA_P|*</span>
+              <span style={detailLabel}>Fecha:</span> <span style={detailValue}>{'{{ params.FECHA_P }}'}</span>
             </Text>
           </Section>
 
@@ -101,7 +101,7 @@ export const CnadotPagoEmail = ({ firstName = '*|FNAME|*' }: CnadotPagoProps) =>
             style={footerLogo}
           />
           <Text style={footerText}>
-            © *|CURRENT_YEAR|* CNADOT. Todos los derechos reservados.
+            © {'{{ params.YEAR }}'} CNADOT. Todos los derechos reservados.
           </Text>
         </Section>
       </Container>

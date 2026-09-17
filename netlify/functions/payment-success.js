@@ -1,5 +1,4 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const crypto = require('crypto');
 
 exports.handler = async (event) => {
   const sessionId = event.queryStringParameters.session_id;
@@ -14,7 +13,7 @@ exports.handler = async (event) => {
 
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-    
+
     // Solo procesamos si el pago fue un éxito real
     if (session.payment_status === 'paid') {
       const metadata = session.metadata || {};
@@ -25,7 +24,7 @@ exports.handler = async (event) => {
       const paymentDate = new Date(session.created * 1000).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
       const orderId = session.id;
       const currentYear = new Date().getFullYear().toString();
-      
+
       // Días de asistencia exactos basados en el paquete
       let diasAsistencia = "Fechas por definir";
       if (paquete.includes('Fase 2 y 3') && paquete.includes('4, 5 y 6')) {
@@ -54,76 +53,89 @@ exports.handler = async (event) => {
             MontoPagado: `$${paymentAmount} MXN`,
             OrderId: orderId
           }),
-          headers: { 
+          headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json' 
+            'Accept': 'application/json'
           }
         });
-      } catch(err) {
+      } catch (err) {
         console.error("Error al enviar a Formspree backend:", err);
       }
 
-      if (email) {
-        const API_KEY = process.env.MAILCHIMP_API_KEY;
-        const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
-        
-        if (API_KEY && AUDIENCE_ID) {
-          const SERVER = process.env.MAILCHIMP_SERVER || API_KEY.split('-')[1];
-          const md5 = crypto.createHash('md5').update(email.toLowerCase()).digest("hex");
-          const mailchimpUrl = `https://${SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members/${md5}`;
+      const API_KEY = process.env.BREVO_API_KEY;
+      // Valores por defecto de la cuenta de Brevo (lista CNADOT y plantilla "CNADOT · Pago confirmado")
+      const LIST_ID = process.env.BREVO_LIST_ID || 17;
+      const TEMPLATE_ID = process.env.BREVO_TEMPLATE_PAGO || 15;
 
-          let nombre = nombreCompleto;
-          let apellidos = "";
-          if (nombreCompleto.includes(" ")) {
-             const parts = nombreCompleto.split(" ");
-             nombre = parts[0];
-             apellidos = parts.slice(1).join(" ");
+      if (email && API_KEY) {
+        const brevoHeaders = {
+          'api-key': API_KEY,
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        };
+
+        let nombre = nombreCompleto;
+        let apellidos = "";
+        if (nombreCompleto.includes(" ")) {
+          const parts = nombreCompleto.split(" ");
+          nombre = parts[0];
+          apellidos = parts.slice(1).join(" ");
+        }
+
+        // 1. Guardar/actualizar el contacto en la lista de CNADOT
+        if (LIST_ID) {
+          try {
+            const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
+              method: 'POST',
+              headers: brevoHeaders,
+              body: JSON.stringify({
+                email,
+                updateEnabled: true,
+                listIds: [Number(LIST_ID)],
+                attributes: {
+                  FIRSTNAME: nombre,
+                  LASTNAME: apellidos,
+                  FASE: paquete,
+                  DIAS: diasAsistencia,
+                  MONTO: `$${paymentAmount} MXN`,
+                  ORDEN: orderId.slice(-8),
+                  FECHA_P: paymentDate,
+                  ETIQUETAS: 'CNADOTpagado'
+                }
+              })
+            });
+            if (!contactRes.ok) console.error("Brevo contacto error:", await contactRes.text());
+          } catch (err) {
+            console.error("Error al guardar contacto en Brevo:", err);
           }
+        }
 
-          // Enviar datos actualizados a Mailchimp para el correo de recibo de pago
-          const putResponse = await fetch(mailchimpUrl, {
-            method: 'PUT',
-            headers: {
-              Authorization: `Basic ${Buffer.from(`any:${API_KEY}`).toString('base64')}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              email_address: email,
-              status_if_new: 'subscribed',
-              merge_fields: {
-                FNAME: nombre,
-                LNAME: apellidos,
-                FASE: paquete,           // Etiqueta Mailchimp: *|FASE|*
-                DIAS: diasAsistencia,    // Etiqueta Mailchimp: *|DIAS|*
-                MONTO: `$${paymentAmount} MXN`, // Etiqueta Mailchimp: *|MONTO|*
-                ORDEN: orderId.slice(-8),// Etiqueta Mailchimp: *|ORDEN|* (últimos 8)
-                FECHA_P: paymentDate,    // Etiqueta Mailchimp: *|FECHA_P|*
-                YEAR: currentYear        // Etiqueta Mailchimp: *|YEAR|*
-              }
-            })
-          });
-
-          if (!putResponse.ok) {
-             console.error("Mailchimp PUT error:", await putResponse.text());
+        // 2. Enviar el correo de pago confirmado (transaccional)
+        if (TEMPLATE_ID) {
+          try {
+            const mailRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+              method: 'POST',
+              headers: brevoHeaders,
+              body: JSON.stringify({
+                to: [{ email, name: nombreCompleto || email }],
+                templateId: Number(TEMPLATE_ID),
+                params: {
+                  FNAME: nombre,
+                  FASE: paquete,
+                  DIAS: diasAsistencia,
+                  MONTO: `$${paymentAmount} MXN`,
+                  ORDEN: orderId.slice(-8),
+                  FECHA_P: paymentDate,
+                  YEAR: currentYear
+                }
+              })
+            });
+            if (!mailRes.ok) console.error("Brevo email error:", await mailRes.text());
+          } catch (err) {
+            console.error("Error al enviar correo con Brevo:", err);
           }
-
-          // Mailchimp requires a separate endpoint to safely add tags
-          const tagsResponse = await fetch(`${mailchimpUrl}/tags`, {
-            method: 'POST',
-            headers: {
-              Authorization: `Basic ${Buffer.from(`any:${API_KEY}`).toString('base64')}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              tags: [
-                { name: "CNADOTpagado", status: "active" }
-              ]
-            })
-          });
-
-          if (!tagsResponse.ok) {
-             console.error("Mailchimp TAGS error:", await tagsResponse.text());
-          }
+        } else {
+          console.error("Falta BREVO_TEMPLATE_PAGO: no se envió el correo de confirmación.");
         }
       }
     }
@@ -131,7 +143,7 @@ exports.handler = async (event) => {
     console.error("Error validando pago en servidor:", error);
   }
 
-  // Después de registrar en Mailchimp, Redirigimos al usuario a la página bonita de Éxito
+  // Redirigimos al usuario a la página de Éxito
   return {
     statusCode: 302,
     headers: { Location: '/pago-exito' },
