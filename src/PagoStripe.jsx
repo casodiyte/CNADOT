@@ -51,7 +51,7 @@ const getAvailablePhases = (profileId) => {
   if (profileId === 'coordinador') {
     phases.push({
       id: 'fase-2-3',
-      name: 'Fase 2 y 3 (Teórica y Simulación UVM)',
+      name: 'Fase 2 y 3 (Teórica y Simulación TEC)',
       desc: 'Exclusivo para Coordinadores. Cupo limitado a 24 personas.',
       price: 4000,
       color: '#FF6600',
@@ -60,7 +60,7 @@ const getAvailablePhases = (profileId) => {
     phases.push({
       id: 'fase-4-5-6',
       name: 'Fases 4, 5 y 6 (Experimental)',
-      desc: 'Simulación DAC y Práctica Quirúrgica Experimental UVM.',
+      desc: 'Simulación DAC y Práctica Quirúrgica Experimental TEC.',
       price: 4000,
       color: '#0099CC',
       colorLight: '#E6F7FF',
@@ -73,7 +73,7 @@ const getAvailablePhases = (profileId) => {
     phases.push({
       id: 'fase-2-4-5-6',
       name: 'Fase 2 (Teórica) + Fases 4, 5 y 6 (Experimental)',
-      desc: 'Obligatoria Fase 2 presencial + Simulación DAC y Práctica Quirúrgica Experimental UVM.',
+      desc: 'Obligatoria Fase 2 presencial + Simulación DAC y Práctica Quirúrgica Experimental TEC.',
       price: basePrice + 500,
       color: '#0099CC',
       colorLight: '#E6F7FF',

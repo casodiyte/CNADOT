@@ -40,6 +40,7 @@ export const logos = [
   'assets/Logos_02_Salud-CENATRA.svg',
   'assets/Logos_03_UNAM.svg',
   'assets/Logos_04_Facultad de Medicina.svg',
+  'assets/Logo_TecSalud_EMCS.png',
   'assets/Logos_07_UFV.svg',
   'assets/Logos_08_SET.svg',
   'assets/logo-SERMAS_SMS.png',
@@ -76,7 +77,7 @@ export const programa = [
     ]
   },
   {
-    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 8:30 AM – 4:00 PM', meta: 'Auditorio UVM', color: green, color2: green, tint: '#EEF9D9',
+    n: '2', titulo: 'Fase Teórica Presencial', cuando: '28 de Septiembre 2026 | Horario: 8:30 AM – 4:00 PM', meta: 'Centro de Simulación Clínica, Edificio CEDETEC planta baja', color: green, color2: green, tint: '#EEF9D9',
     objetivo: 'Integrar los paradigmas asistenciales, legales y bioéticos de vanguardia en donación y trasplantes mediante ponencias magistrales interactivas con expertos de la red nacional e internacional.',
     temas: [
       { t: 'El Modelo Mexicano de Donación y Trasplantes: Realidad Actual y Retos Normativos (CENATRA)', d: 'Objetivo: Contextualizar el marco legal y regulatorio vigente en México frente al panorama global para identificar áreas de oportunidad en la práctica institucional.' },
@@ -99,7 +100,7 @@ export const programa = [
     ]
   },
   {
-    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 Sept: 9:00 AM – 3:00 PM / 30 Sept: 7:45 AM – 1:45 PM', meta: 'Centro de Simulación UVM', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
+    n: '3', titulo: 'Práctica Presencial: Simulación Clínica', cuando: '29 y 30 de Septiembre 2026 | Horario: 9:00 AM – 3:00 PM', meta: 'Centro de Simulación Clínica, Edificio CEDETEC planta baja', color: orange, color2: '#ff9900', tint: '#FFF0F0', alerta: 'Cupo limitado exclusivo para Coordinadores de Donación',
     objetivo: 'Aplicación en tiempo real de habilidades no técnicas en escenarios de crisis (Muerte encefálica y comunicación de malas noticias), mediante la inmersión en escenarios simulados de alta fidelidad y técnicas estructuradas de debriefing.',
     temas: [
       { t: '29 de Septiembre', d: 'Escenario 1: Diagnóstico Muerte Encefálica\nEscenario 2: Comunicación de Malas Noticias\nEscenario 3: Manejo ECMO\nEscenario 4: Logística DAC' },
@@ -107,14 +108,14 @@ export const programa = [
     ]
   },
   {
-    n: '4', titulo: 'Simulación Clínica DAC (Donación en Asistolia Controlada)', cuando: '29 de Septiembre 2026 | Horario: 4:00 PM – 6:45 PM', meta: 'Centro de Simulación UVM', color: blue, color2: blue, tint: '#E6F7FF',
+    n: '4', titulo: 'Simulación Clínica DAC (Donación en Asistolia Controlada)', cuando: '30 de Septiembre 2026 | Horario: 4:00 PM – 6:45 PM', meta: 'Centro de Simulación Clínica, Edificio CEDETEC planta baja', color: blue, color2: blue, tint: '#E6F7FF',
     objetivo: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).',
     temas: [
       { t: 'Simulación Clínica DAC', d: 'Simulación Práctica de Donación en Asistolia Controlada (DAC).' }
     ]
   },
   {
-    n: '5', titulo: 'Teórica Quirúrgica Experimental', cuando: '30 de Septiembre 2026 | Horario: 1:45 PM – 7:15 PM', meta: 'Auditorio UVM', color: orange, color2: orange, tint: '#FFE6CC',
+    n: '5', titulo: 'Teórica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 8:30 AM – 1:25 PM', meta: 'Centro de Simulación Clínica, Edificio CEDETEC planta baja', color: orange, color2: orange, tint: '#FFE6CC',
     objetivo: 'Integrar y sistematizar los fundamentos anatómicos, criterios de selección avanzados, innovaciones tecnológicas y variantes de técnica quirúrgica compleja (Split, DAC, Robótica y Perfusión Dinámica), con el fin de unificar criterios clínicos y estandarizar la toma de decisiones críticas que los cirujanos y equipo multidisciplinario ejecutarán de forma práctica e inmediata en los modelos biológicos in vivo y ex situ.',
     temas: [
       { t: 'De la Donación Convencional a la Vanguardia: Evolución y Perspectivas de la Procuración Multiorgánica en México', d: 'Objetivo: Introducción a la fase teórica quirúrgica experimental.' },
@@ -136,7 +137,7 @@ export const programa = [
     ]
   },
   {
-    n: '6', titulo: 'Práctica Quirúrgica Experimental', cuando: '1 de Octubre 2026 | Horario: 7:45 AM – 7:00 PM', meta: 'UVM Hospital Veterinario', color: green, color2: orange, tint: '#EEF9D9', alerta: '*Nota: Si las prácticas se extienden, una sesión práctica podrá recorrerse a la mañana del 2 de Octubre.*',
+    n: '6', titulo: 'Práctica Quirúrgica Experimental', cuando: '1 y 2 de Octubre 2026 | Horario 1 Oct: 2:20 PM – 6:00 PM / Horario 2 Oct: 8:45 AM – 4:30 PM', meta: 'Centro de Simulación Clínica, Edificio CEDETEC planta baja', color: green, color2: orange, tint: '#EEF9D9',
     objetivo: 'Perfeccionar destrezas psicomotrices, técnicas quirúrgicas de canulación y modelos de preservación dinámica mediante práctica in vivo y cirugía ex situ de alta especialidad.',
     temas: [
       { t: 'Estación A: Donación en Asistolia Controlada (DAC)', d: 'Objetivo: Entrenar DAC con el fin de aprender una estrategia adicional para incrementar la tasa de donación con visión a futuro cercano en México.' },
@@ -149,8 +150,7 @@ export const programa = [
 const expertosRaw = [
   {nombre:'Dr. Rosa Erro Aboytia',pais:'MX',color:blue,org:'CENATRA',expertise:'Directora General del Centro Nacional de Trasplantes.', foto:'assets/expertos/dra_rosa_erro_aboytia.jpeg', sintesis:'Egresada de la Facultad de Medicina de la Universidad Autónoma de Nayarit. Realizó su residencia en Pediatría en el Nuevo Hospital Civil de Guadalajara "Juan I. Menchaca". Sub-especialidad en Cirugía Pediátrica en el Antiguo Hospital Civil de Guadalajara "Fray Antonio Alcalde". Alta Especialidad en Trasplante Renal Pediátrico en el Hospital Infantil de México Federico Gómez y la UNAM. Adiestramiento en Trasplante Hepático, Intestinal y Multivisceral en el Hospital Infantil Universitario La Paz (Madrid). Certificada por múltiples consejos nacionales. Profesora asociada en cursos de bipartición hepática y donación en asistolia controlada. Actualmente es Directora General del Centro Nacional de Trasplantes CENATRA.'},
   {nombre:'Dr. Alonso Mateos Rodríguez',pais:'ES',color:orange,org:'ONT · España',expertise:'Coordinador adjunto oficina regional de coordinación de trasplantes comunidad de Madrid.', foto:'assets/expertos/dr._alonso_mateos_rodriguez.jpg', sintesis:'Doctor en Medicina (MD, PhD). Especialista en Medicina Familiar y Comunitaria y en Medicina de Urgencias y Emergencias. Profesor en la Facultad de Medicina de la Universidad Francisco de Vitoria. Coordinador Adjunto de la Oficina Regional de Coordinación de Trasplantes de la Comunidad de Madrid.'},
-  {nombre:'Dr. Constantino Fondevila Campo',pais:'ES',color:green,org:'España',expertise:'Presidente de la sociedad española de trasplantes.', foto:'assets/expertos/constantino_fondevila_campo.jfif', sintesis:'Profesor Titular de cirugía en la Universidad de Barcelona y Jefe del Servicio de Cirugía General y del Aparato Digestivo del Hospital Universitario La Paz. Líder del Grupo de Investigación Traslacional e Innovación en Cirugía General y Digestiva, y Líder del Grupo de Investigación en Trasplante Hepático de CIBERehd. Cuenta con más de 20 años de experiencia en trasplante hepático.'},
-  {nombre:'Dr. Francisco Hernández Oliveros',pais:'ES',color:orange,org:'España',expertise:'Jefe de sección de trasplante pediátrico. Hospital Universitario la Paz.', foto:'assets/placeholder_user.png', sintesis:''},
+  {nombre:'Dra. Ane Miren Andrés Moreno',pais:'ES',color:orange,org:'España',expertise:'Cirugía Pediátrica y Trasplante Hepático, Intestinal y Multivisceral. Hospital Universitario La Paz.', foto:'assets/placeholder_user.png', sintesis:'Médico Adjunto de Cirugía Pediátrica en el Hospital Universitario La Paz (Madrid) e integrante del equipo nacional de trasplante hepático, intestinal y multivisceral pediátrico. Licenciada en Medicina y Cirugía por la Universidad de Valencia. Profesora Asociada de Ciencias de la Salud en el área de Anatomía de la Facultad de Medicina de la Universidad Autónoma de Madrid. Formación especializada en trasplante hepático e intestinal en el University of Nebraska Medical Center (EE. UU.). Dedicación especial a la cirugía hepatobiliar e intestinal, con participación en múltiples proyectos de investigación y programas docentes internacionales de trasplante pediátrico.'},
   {nombre:'Dr. Héctor Vilca Meléndez',pais:'GB',color:green,org:'Inglaterra',expertise:'Consultant Transplant Surgeon at the Birmingham Children\'s Hospital.', foto:'assets/expertos/dr._hector_vilca-melendez.jpg', sintesis:'Cirujano especialista en trasplantes en el Birmingham Children\'s Hospital (Reino Unido), donde realiza trasplantes de hígado, intestinales y multiviscerales en pacientes pediátricos. Inició su trayectoria en la Universidad de São Paulo y obtuvo su doctorado en Trasplante Hepático en el King\'s College de Londres.'},
   {nombre:'Dr. Juan Ignacio Torres González',pais:'ES',color:blue,org:'Hospital Clínico San Carlos',expertise:'Enfermero coordinador de trasplantes Hospital Clínico San Carlos.', foto:'assets/expertos/juan_ignacio_torres_gonzalez.jpg', sintesis:'Enfermero (RN, MsC, PhD) y Coordinador de Trasplantes en el Hospital Clínico San Carlos. Doctor por la Universidad Complutense de Madrid y Máster de Investigación en Cuidados. Profesor de cursos de comunicación, donación y trasplantes. Revisor en la revista Enfermería Intensiva y miembro del comité científico de la SEECiR.'},
   {nombre:'Dra. Belén Estébanez Montiel',pais:'ES',color:orange,org:'España',expertise:'Coordinadora Médica de Trasplantes del Hospital Universitario La Paz, Madrid.', foto:'assets/expertos/dra._belen_estebanez_montiel.jpeg', sintesis:'Especialista en Medicina Intensiva, Máster en Cuidados Paliativos y Coordinadora Médica de Donación y Trasplantes del Hospital Universitario La Paz (Madrid). Amplia experiencia en donación de órganos y tejidos, trasplante pediátrico y de adultos, y en el desarrollo de programas de donación en asistolia, incluyendo la donación cardíaca.'},
@@ -344,9 +344,9 @@ export const escenarios = [
 
 export const timeline = [
   { week: '17 - 28 Sept', titulo: 'Fase 1: Teórica Virtual Híbrida', color: blue, items: ['Modalidad: En línea', 'Acceso desde el 17 de sept. (duración 1 semana)', '21 Sept (9:00 AM – 12:00 PM): Clase virtual sincrónica', '24 o 25 Sept: Clase virtual'] },
-  { week: '28 Sept', titulo: 'Fase 2: Teórica Presencial', color: green, items: ['Sede: Auditorio UVM', 'Horario: 8:30 AM – 4:00 PM'] },
-  { week: '29 Sept', titulo: 'Fase 3: Práctica Presencial (Día 1)', color: orange, items: ['Sede: Centro de Simulación UVM', 'Horario: 9:00 AM – 3:00 PM'] },
-  { week: '30 Sept', titulo: 'Dos Bloques: UVM', color: blue, items: ['MAÑANA (9:00 AM – 3:00 PM): Fase 3 en Centro de Simulación UVM', 'TARDE (4:00 PM – 6:45 PM): Fase 4 en UVM, Hospital Veterinario'] },
-  { week: '1 Oct', titulo: 'Dos Bloques en UVM: Teoría → Práctica', color: orange, items: ['MAÑANA (8:30 AM – 1:25 PM): Fase 5 en UVM', 'TARDE (2:20 PM – 6:00 PM): Fase 6 en UVM'] },
-  { week: '2 Oct', titulo: 'Fase 6: Práctica Experimental (Día 2)', color: green, items: ['Sede: UVM, Hospital Veterinario', 'Horario: 8:45 AM – 4:30 PM'] }
+  { week: '28 Sept', titulo: 'Fase 2: Teórica Presencial', color: green, items: ['Sede: Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'Horario: 8:30 AM – 4:00 PM'] },
+  { week: '29 Sept', titulo: 'Fase 3: Práctica Presencial (Día 1)', color: orange, items: ['Sede: Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'Horario: 9:00 AM – 3:00 PM'] },
+  { week: '30 Sept', titulo: 'Dos Bloques: TEC', color: blue, items: ['MAÑANA (9:00 AM – 3:00 PM): Fase 3 en Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'TARDE (4:00 PM – 6:45 PM): Fase 4 en Centro de Simulación Clínica, Edificio CEDETEC planta baja'] },
+  { week: '1 Oct', titulo: 'Dos Bloques en TEC: Teoría → Práctica', color: orange, items: ['MAÑANA (8:30 AM – 1:25 PM): Fase 5 en Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'TARDE (2:20 PM – 6:00 PM): Fase 6 en Centro de Simulación Clínica, Edificio CEDETEC planta baja'] },
+  { week: '2 Oct', titulo: 'Fase 6: Práctica Experimental (Día 2)', color: green, items: ['Sede: Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'Horario: 8:45 AM – 4:30 PM'] }
 ];
