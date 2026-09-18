@@ -23,7 +23,6 @@ exports.handler = async (event) => {
       const paymentAmount = (session.amount_total / 100).toLocaleString('es-MX', { minimumFractionDigits: 2 });
       const paymentDate = new Date(session.created * 1000).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
       const orderId = session.id;
-      const currentYear = new Date().getFullYear().toString();
 
       // Días de asistencia exactos basados en el paquete
       let diasAsistencia = "Fechas por definir";
@@ -65,7 +64,6 @@ exports.handler = async (event) => {
       const API_KEY = process.env.BREVO_API_KEY;
       // Lista de PAGADOS (CNADOT #17) y plantilla "CNADOT · Pago confirmado"
       const LIST_ID = process.env.BREVO_LIST_PAGADOS || process.env.BREVO_LIST_ID || 17;
-      const TEMPLATE_ID = process.env.BREVO_TEMPLATE_PAGO || 15;
 
       if (email && API_KEY) {
         const brevoHeaders = {
@@ -92,13 +90,20 @@ exports.handler = async (event) => {
                 email,
                 updateEnabled: true,
                 listIds: [Number(LIST_ID)],
-                // Solo atributos que existen en la cuenta de Brevo. FASE/MONTO/ORDEN/
-                // FECHA_P no existen, por eso el correo los recibe como params.
+                // Estos atributos alimentan el correo de la automatizacion #12,
+                // que los lee como {{ contact.FASE }}, {{ contact.MONTO }}, etc.
+                // Se escriben en la misma llamada que mete el contacto a la lista,
+                // asi ya estan listos cuando la automatizacion arranca.
                 attributes: {
                   FIRSTNAME: nombre,
                   LASTNAME: apellidos,
                   TELEFONO: metadata.tel || '',
-                  TAGS: 'CNADOTpagado'
+                  TAGS: 'CNADOTpagado',
+                  FASE: paquete,
+                  DIAS: diasAsistencia,
+                  MONTO: `$${paymentAmount} MXN`,
+                  ORDEN: orderId.slice(-8),
+                  FECHA_P: paymentDate
                 }
               })
             });
@@ -108,33 +113,10 @@ exports.handler = async (event) => {
           }
         }
 
-        // 2. Enviar el correo de pago confirmado (transaccional)
-        if (TEMPLATE_ID) {
-          try {
-            const mailRes = await fetch('https://api.brevo.com/v3/smtp/email', {
-              method: 'POST',
-              headers: brevoHeaders,
-              body: JSON.stringify({
-                to: [{ email, name: nombreCompleto || email }],
-                templateId: Number(TEMPLATE_ID),
-                params: {
-                  FNAME: nombre,
-                  FASE: paquete,
-                  DIAS: diasAsistencia,
-                  MONTO: `$${paymentAmount} MXN`,
-                  ORDEN: orderId.slice(-8),
-                  FECHA_P: paymentDate,
-                  YEAR: currentYear
-                }
-              })
-            });
-            if (!mailRes.ok) console.error("Brevo email error:", await mailRes.text());
-          } catch (err) {
-            console.error("Error al enviar correo con Brevo:", err);
-          }
-        } else {
-          console.error("Falta BREVO_TEMPLATE_PAGO: no se envió el correo de confirmación.");
-        }
+        // El correo de pago NO se manda desde aqui: lo dispara la automatizacion
+        // "cnadot pago" (#12) cuando el contacto entra a la lista 17, usando los
+        // atributos de arriba. Si se apaga esa automatizacion, hay que volver a
+        // mandarlo con la plantilla 15 por /v3/smtp/email.
       }
     }
   } catch (error) {
