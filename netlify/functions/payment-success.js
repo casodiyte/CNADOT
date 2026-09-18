@@ -63,8 +63,8 @@ exports.handler = async (event) => {
       }
 
       const API_KEY = process.env.BREVO_API_KEY;
-      // Valores por defecto de la cuenta de Brevo (lista CNADOT y plantilla "CNADOT · Pago confirmado")
-      const LIST_ID = process.env.BREVO_LIST_ID || 17;
+      // Lista de PAGADOS (CNADOT #17) y plantilla "CNADOT · Pago confirmado"
+      const LIST_ID = process.env.BREVO_LIST_PAGADOS || process.env.BREVO_LIST_ID || 17;
       const TEMPLATE_ID = process.env.BREVO_TEMPLATE_PAGO || 15;
 
       if (email && API_KEY) {

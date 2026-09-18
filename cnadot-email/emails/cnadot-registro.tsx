@@ -15,7 +15,7 @@ interface CnadotEmailProps {
   firstName?: string;
 }
 
-export const CnadotEmail = ({ firstName = '*|FNAME|*' }: CnadotEmailProps) => (
+export const CnadotEmail = ({ firstName = '{{ params.FNAME }}' }: CnadotEmailProps) => (
   <Html>
     <Head />
     <Preview>¡Registro Exitoso! Tu solicitud se encuentra en revisión.</Preview>
@@ -76,7 +76,7 @@ export const CnadotEmail = ({ firstName = '*|FNAME|*' }: CnadotEmailProps) => (
             style={footerLogo}
           />
           <Text style={footerText}>
-            © *|CURRENT_YEAR|* CNADOT. Todos los derechos reservados.
+            © {'{{ params.YEAR }}'} CNADOT. Todos los derechos reservados.
           </Text>
         </Section>
       </Container>
