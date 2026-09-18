@@ -92,15 +92,13 @@ exports.handler = async (event) => {
                 email,
                 updateEnabled: true,
                 listIds: [Number(LIST_ID)],
+                // Solo atributos que existen en la cuenta de Brevo. FASE/MONTO/ORDEN/
+                // FECHA_P no existen, por eso el correo los recibe como params.
                 attributes: {
                   FIRSTNAME: nombre,
                   LASTNAME: apellidos,
-                  FASE: paquete,
-                  DIAS: diasAsistencia,
-                  MONTO: `$${paymentAmount} MXN`,
-                  ORDEN: orderId.slice(-8),
-                  FECHA_P: paymentDate,
-                  ETIQUETAS: 'CNADOTpagado'
+                  TELEFONO: metadata.tel || '',
+                  TAGS: 'CNADOTpagado'
                 }
               })
             });
