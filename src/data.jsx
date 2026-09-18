@@ -72,8 +72,7 @@ export const programa = [
     temas: [
       { t: 'Duración: 1 semana', d: 'Acceso desde el 17 de Septiembre. Revisión de Material Previo. Examen Diagnóstico Inicial.' },
       { t: 'Material Previo', d: 'Revisión del Manual Clínico de Comunicación en Situaciones de Crisis y Malas Noticias.' },
-      { t: 'Clase Virtual', d: 'Comunicación Intrahospitalaria, Herramientas de Comunicación y Entrevista Familiar.' },
-      { t: 'Clase Virtual', d: 'Perspectiva Internacional de la Donación y Marco Normativo (OPS).' }
+      { t: 'Clase Virtual', d: 'Comunicación Intrahospitalaria, Herramientas de Comunicación y Entrevista Familiar.' }
     ]
   },
   {
@@ -343,7 +342,7 @@ export const escenarios = [
 ];
 
 export const timeline = [
-  { week: '17 - 28 Sept', titulo: 'Fase 1: Teórica Virtual Híbrida', color: blue, items: ['Modalidad: En línea', 'Acceso desde el 17 de sept. (duración 1 semana)', '21 Sept (9:00 AM – 12:00 PM): Clase virtual sincrónica', '24 o 25 Sept: Clase virtual'] },
+  { week: '17 - 28 Sept', titulo: 'Fase 1: Teórica Virtual Híbrida', color: blue, items: ['Modalidad: En línea', 'Acceso desde el 17 de sept. (duración 1 semana)', '21 Sept (9:00 AM – 12:00 PM): Clase virtual sincrónica'] },
   { week: '28 Sept', titulo: 'Fase 2: Teórica Presencial', color: green, items: ['Sede: Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'Horario: 8:30 AM – 4:00 PM'] },
   { week: '29 Sept', titulo: 'Fase 3: Práctica Presencial (Día 1)', color: orange, items: ['Sede: Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'Horario: 9:00 AM – 3:00 PM'] },
   { week: '30 Sept', titulo: 'Dos Bloques: TEC', color: blue, items: ['MAÑANA (9:00 AM – 3:00 PM): Fase 3 en Centro de Simulación Clínica, Edificio CEDETEC planta baja', 'TARDE (4:00 PM – 6:45 PM): Fase 4 en Centro de Simulación Clínica, Edificio CEDETEC planta baja'] },
