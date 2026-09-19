@@ -54,6 +54,21 @@ const LogosGrid = () => (
   </div>
 );
 
+const BotonPrograma = ({ style }) => (
+  <a
+    href="assets/CNADOT_Programa_Completo.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'linear-gradient(135deg, #1c5b76, #0099CC)', color: '#fff', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, textDecoration: 'none', padding: '14px 30px', borderRadius: 999, boxShadow: '0 6px 18px rgba(28,91,118,.3)', transition: '.2s', ...style }}
+  >
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+    Ver programa completo
+  </a>
+);
+
 
 function MainApp() {
   const [section, setSection] = useState('home');
@@ -340,6 +355,7 @@ function MainApp() {
                 <p style={{ fontSize: 17, lineHeight: 1.6, color: '#555', maxWidth: 560 }}>Programa escalado de complejidad creciente: entornos virtuales, simulación de alta fidelidad y modelos experimentales in vivo para el equipo multidisciplinario de donación y trasplantes.</p>
                 <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 26 }}>
                   <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(255,102,0,.3)', transition: '.2s' }}>{ctaLabel}</button>
+                  <BotonPrograma />
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -481,18 +497,7 @@ function MainApp() {
             <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Programa Completo</h2>
             <p style={{ color: '#666', margin: '0 0 18px', fontSize: 16 }}>Un programa escalado de complejidad creciente. Haz clic en cada fase para ver el detalle de los temas.</p>
-            <a
-              href="assets/CNADOT_Programa_Completo.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'linear-gradient(135deg, #1c5b76, #0099CC)', color: '#fff', fontFamily: "'Poppins'", fontWeight: 700, fontSize: 15, textDecoration: 'none', padding: '13px 24px', borderRadius: 999, marginBottom: 28, boxShadow: '0 4px 14px rgba(28,91,118,.25)' }}
-            >
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-              </svg>
-              Ver programa completo
-            </a>
+            <BotonPrograma style={{ marginBottom: 28 }} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {programa.map((f, i) => {
                 const isOpen = openPrograma[f.n];
