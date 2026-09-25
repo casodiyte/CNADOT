@@ -69,6 +69,23 @@ const BotonPrograma = ({ style }) => (
   </a>
 );
 
+const hoteles = [
+  {
+    nombre: 'City Express Plus by Marriott Ciudad de México Periférico Sur',
+    ventaja: 'La opción más cercana a la sede: 1.2 km, 17 minutos caminando.',
+    direccion: 'Av. Adolfo Ruiz Cortines (Periférico Sur) 4860, Col. Guadalupe, Tlalpan, CDMX',
+    tarifa: 'Desde $1,507 MXN / noche',
+    mapa: 'City Express Plus by Marriott Ciudad de Mexico Periferico Sur Tlalpan, Adolfo Ruiz Cortines 4860, Tlalpan, CDMX'
+  },
+  {
+    nombre: 'Hotel Royal Pedregal',
+    ventaja: 'Excelente servicio e incluye desayuno. A 7.9 km, 10 minutos en automóvil.',
+    direccion: 'Periférico Sur 4363, Col. Jardines en la Montaña, C.P. 14210, Tlalpan, CDMX',
+    tarifa: 'Desde $2,500 MXN / noche',
+    mapa: 'Hotel Royal Pedregal, Periferico Sur 4363, Jardines en la Montana, 14210 Tlalpan, CDMX'
+  }
+];
+
 const BotonWebinar = ({ style }) => (
   <a
     href="https://us06web.zoom.us/webinar/register/WN_YsYMvEzHTVGhM30PK9inbw"
@@ -327,16 +344,26 @@ function MainApp() {
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 4px' }}>Opciones de Hospedaje</h4>
         <p style={{ margin: '0 0 14px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Para participantes foráneos, dos opciones recomendadas cerca de la sede:</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 14 }}>
-          <div style={{ background: '#fff', borderRadius: 12, padding: 16 }}>
-            <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14.5, color: '#1c3f4a', marginBottom: 6 }}>City Express Plus by Marriott Ciudad de México Periférico Sur</div>
-            <p style={{ margin: '0 0 8px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>La opción más cercana a la sede: 1.2 km, 17 minutos caminando.</p>
-            <div style={{ color: '#0099CC', fontWeight: 700, fontSize: 14 }}>Desde $1,507 MXN / noche</div>
-          </div>
-          <div style={{ background: '#fff', borderRadius: 12, padding: 16 }}>
-            <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14.5, color: '#1c3f4a', marginBottom: 6 }}>Hotel Royal Pedregal</div>
-            <p style={{ margin: '0 0 8px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Excelente servicio e incluye desayuno. A 7.9 km, 10 minutos en automóvil.</p>
-            <div style={{ color: '#0099CC', fontWeight: 700, fontSize: 14 }}>Desde $2,500 MXN / noche</div>
-          </div>
+          {hoteles.map((h, i) => (
+            <a
+              key={i}
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.mapa)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'block', background: '#fff', borderRadius: 12, padding: 16, textDecoration: 'none', border: '1px solid #d9eef8', transition: '.2s' }}
+            >
+              <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14.5, color: '#1c3f4a', marginBottom: 6 }}>{h.nombre}</div>
+              <p style={{ margin: '0 0 8px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>{h.ventaja}</p>
+              <p style={{ margin: '0 0 10px', color: '#7a8a90', fontSize: 12.5, lineHeight: 1.6 }}>{h.direccion}</p>
+              <div style={{ color: '#0099CC', fontWeight: 700, fontSize: 14, marginBottom: 8 }}>{h.tarifa}</div>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#0099CC', fontWeight: 600, fontSize: 13 }}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" />
+                </svg>
+                Ver en mapa
+              </span>
+            </a>
+          ))}
         </div>
         <p style={{ margin: '12px 0 0', color: '#7a8a90', fontSize: 12.5, lineHeight: 1.6 }}>Tarifas aproximadas y sujetas a cambio. La reservación corre por cuenta de cada participante.</p>
       </div>
