@@ -69,6 +69,21 @@ const BotonPrograma = ({ style }) => (
   </a>
 );
 
+const BotonWebinar = ({ style }) => (
+  <a
+    href="https://us06web.zoom.us/webinar/register/WN_YsYMvEzHTVGhM30PK9inbw"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'linear-gradient(135deg, #66CC00, #12d2b3)', color: '#fff', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, textDecoration: 'none', padding: '14px 30px', borderRadius: 999, boxShadow: '0 6px 18px rgba(102,204,0,.3)', transition: '.2s', ...style }}
+  >
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m22 8-6 4 6 4V8z" />
+      <rect x="2" y="6" width="14" height="12" rx="2" ry="2" />
+    </svg>
+    Webinar Transmedics
+  </a>
+);
+
 
 function MainApp() {
   const [section, setSection] = useState('home');
@@ -305,6 +320,26 @@ function MainApp() {
           <li>Correo: <a href="mailto:dgcenatra@salud.gob.mx" style={{color: '#FF6600', fontWeight: 600, textDecoration: 'none'}}>dgcenatra@salud.gob.mx</a></li>
         </ul>
       </div>
+      <div style={{ background: '#E6F7FF', borderRadius: 16, padding: 22, gridColumn: '1 / -1' }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: '#0099CC', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20" /><path d="M4 20V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v13" /><path d="M12 20V11a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9" /><path d="M7 10h.01M7 14h.01M16 14h.01M16 17h.01" /></svg>
+        </div>
+        <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 4px' }}>Opciones de Hospedaje</h4>
+        <p style={{ margin: '0 0 14px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Para participantes foráneos, dos opciones recomendadas cerca de la sede:</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 14 }}>
+          <div style={{ background: '#fff', borderRadius: 12, padding: 16 }}>
+            <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14.5, color: '#1c3f4a', marginBottom: 6 }}>City Express Plus by Marriott Ciudad de México Periférico Sur</div>
+            <p style={{ margin: '0 0 8px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>La opción más cercana a la sede: 1.2 km, 17 minutos caminando.</p>
+            <div style={{ color: '#0099CC', fontWeight: 700, fontSize: 14 }}>Desde $1,507 MXN / noche</div>
+          </div>
+          <div style={{ background: '#fff', borderRadius: 12, padding: 16 }}>
+            <div style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14.5, color: '#1c3f4a', marginBottom: 6 }}>Hotel Royal Pedregal</div>
+            <p style={{ margin: '0 0 8px', color: '#556', fontSize: 13.5, lineHeight: 1.7 }}>Excelente servicio e incluye desayuno. A 7.9 km, 10 minutos en automóvil.</p>
+            <div style={{ color: '#0099CC', fontWeight: 700, fontSize: 14 }}>Desde $2,500 MXN / noche</div>
+          </div>
+        </div>
+        <p style={{ margin: '12px 0 0', color: '#7a8a90', fontSize: 12.5, lineHeight: 1.6 }}>Tarifas aproximadas y sujetas a cambio. La reservación corre por cuenta de cada participante.</p>
+      </div>
     </div>
   );
 
@@ -356,6 +391,7 @@ function MainApp() {
                 <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 26 }}>
                   <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(255,102,0,.3)', transition: '.2s' }}>{ctaLabel}</button>
                   <BotonPrograma />
+                  <BotonWebinar />
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
