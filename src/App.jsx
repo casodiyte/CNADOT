@@ -278,6 +278,24 @@ function MainApp() {
 
   const renderInfoCards = () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+      <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22, gridColumn: '1 / -1', display: 'flex', gap: 22, flexWrap: 'wrap', alignItems: 'center' }}>
+        <a href="https://www.entusmarcas.com" target="_blank" rel="noopener noreferrer" style={{ flex: '0 0 auto' }}>
+          <img src="assets/carrera_donacion_2026.jpg" alt="2da Carrera con Causa por la Donación de Órganos, 11 de octubre de 2026" style={{ width: 200, maxWidth: '100%', borderRadius: 12, display: 'block', boxShadow: '0 4px 14px rgba(0,0,0,.12)' }} />
+        </a>
+        <div style={{ flex: '1 1 280px' }}>
+          <div style={{ display: 'inline-block', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 12, letterSpacing: '.08em', textTransform: 'uppercase', color: '#66CC00', background: '#fff', padding: '5px 12px', borderRadius: 999, marginBottom: 10 }}>CENATRA · Evento</div>
+          <h4 style={{ fontFamily: "'Poppins'", fontWeight: 700, fontSize: 19, color: '#1c3f4a', margin: '0 0 6px' }}>2ª Carrera con Causa por la Donación de Órganos</h4>
+          <p style={{ margin: '0 0 12px', color: '#556', fontSize: 14, lineHeight: 1.7 }}>Por un México Sin Lista de Espera. Domingo 11 de octubre de 2026, con distancias de 3, 5 y 10 km.</p>
+          <a
+            href="https://www.entusmarcas.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: 'linear-gradient(135deg, #66CC00, #12d2b3)', color: '#fff', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 14.5, textDecoration: 'none', padding: '11px 24px', borderRadius: 999, boxShadow: '0 4px 14px rgba(102,204,0,.3)' }}
+          >
+            Inscríbete en entusmarcas.com
+          </a>
+        </div>
+      </div>
       <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
         <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede TEC</h4>
