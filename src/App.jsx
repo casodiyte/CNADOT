@@ -100,22 +100,6 @@ const hoteles = [
   }
 ];
 
-const BotonWebinar = ({ style }) => (
-  <a
-    href="https://us06web.zoom.us/webinar/register/WN_YsYMvEzHTVGhM30PK9inbw"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'linear-gradient(135deg, #66CC00, #12d2b3)', color: '#fff', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, textDecoration: 'none', padding: '14px 30px', borderRadius: 999, boxShadow: '0 6px 18px rgba(102,204,0,.3)', transition: '.2s', ...style }}
-  >
-    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m22 8-6 4 6 4V8z" />
-      <rect x="2" y="6" width="14" height="12" rx="2" ry="2" />
-    </svg>
-    Webinar Transmedics
-  </a>
-);
-
-
 function MainApp() {
   const [section, setSection] = useState('home');
   const [query, setQuery] = useState('');
@@ -435,8 +419,6 @@ function MainApp() {
         </div>
       </header>
 
-
-
       <main style={{ position: 'relative', zIndex: 10, maxWidth: 1240, margin: '0 auto', padding: '0 24px 80px' }}>
         
         {/* HOME */}
@@ -452,7 +434,6 @@ function MainApp() {
                     ? <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(255,102,0,.3)', transition: '.2s' }}>{ctaLabel}</button>
                     : <RegistroCerrado />}
                   <BotonPrograma />
-                  <BotonWebinar />
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
