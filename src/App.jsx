@@ -2,6 +2,20 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PagoStripe from './PagoStripe';
 import './index.css';
+
+// Pre-registro e inscripción cerrados (5 de octubre de 2026). Para volver a
+// abrirlos, cambiar a true: regresan los botones, el formulario y la liga de pago.
+const REGISTRO_ABIERTO = false;
+
+// La 2ª Carrera con Causa es el domingo 11 de octubre de 2026: su tarjeta se
+// quita sola al terminar ese día (hora del centro de México).
+const MOSTRAR_CARRERA = () => new Date() < new Date('2026-10-12T00:00:00-06:00');
+
+const RegistroCerrado = ({ claro = false }) => (
+  <span style={{ display: 'inline-block', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 15, padding: '12px 26px', borderRadius: 999, background: claro ? 'rgba(255,255,255,.18)' : '#eef2f5', color: claro ? '#fff' : '#556', border: claro ? '1px solid rgba(255,255,255,.4)' : '1px solid #dde6ec' }}>
+    Pre-registro e inscripciones cerrados
+  </span>
+);
 import {
   blue, green, orange,
   icBook, icMsg, icBolt, icPin, icMoney, icPhone,
@@ -278,7 +292,7 @@ function MainApp() {
 
   const renderInfoCards = () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-      <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22, gridColumn: '1 / -1', display: 'flex', gap: 22, flexWrap: 'wrap', alignItems: 'center' }}>
+      {MOSTRAR_CARRERA() && <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22, gridColumn: '1 / -1', display: 'flex', gap: 22, flexWrap: 'wrap', alignItems: 'center' }}>
         <a href="https://www.entusmarcas.com" target="_blank" rel="noopener noreferrer" style={{ flex: '0 0 auto' }}>
           <img src="assets/carrera_donacion_2026.jpg" alt="2da Carrera con Causa por la Donación de Órganos, 11 de octubre de 2026" style={{ width: 200, maxWidth: '100%', borderRadius: 12, display: 'block', boxShadow: '0 4px 14px rgba(0,0,0,.12)' }} />
         </a>
@@ -295,7 +309,7 @@ function MainApp() {
             Inscríbete en entusmarcas.com
           </a>
         </div>
-      </div>
+      </div>}
       <div style={{ background: '#EEF9D9', borderRadius: 16, padding: 22 }}>
         <div style={{ width: 42, height: 42, borderRadius: 11, background: '#66CC00', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>{icPin}</div>
         <h4 style={{ fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, color: '#1c3f4a', margin: '0 0 8px' }}>Sede TEC</h4>
@@ -415,9 +429,9 @@ function MainApp() {
               </button>
             ))}
           </nav>
-          <button onClick={() => go('inscripcion')} style={{ flex: '0 0 auto', background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14, padding: '10px 20px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 4px 12px rgba(255,102,0,.28)', transition: '.2s' }}>
+          {REGISTRO_ABIERTO && <button onClick={() => go('inscripcion')} style={{ flex: '0 0 auto', background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins',sans-serif", fontWeight: 600, fontSize: 14, padding: '10px 20px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 4px 12px rgba(255,102,0,.28)', transition: '.2s' }}>
             {ctaLabel}
-          </button>
+          </button>}
         </div>
       </header>
 
@@ -434,7 +448,9 @@ function MainApp() {
                 <h1 className="text-hero" style={{ fontFamily: "'Poppins'", fontWeight: 800, lineHeight: 1.12, color: '#1c3f4a', margin: '18px 0 10px', textWrap: 'balance' }}>Donación de Órganos y Tejidos<br /><span style={{ background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Hacia un Modelo Mexicano</span></h1>
                 <p style={{ fontSize: 17, lineHeight: 1.6, color: '#555', maxWidth: 560 }}>Programa escalado de complejidad creciente: entornos virtuales, simulación de alta fidelidad y modelos experimentales in vivo para el equipo multidisciplinario de donación y trasplantes.</p>
                 <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 26 }}>
-                  <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(255,102,0,.3)', transition: '.2s' }}>{ctaLabel}</button>
+                  {REGISTRO_ABIERTO
+                    ? <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 30px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(255,102,0,.3)', transition: '.2s' }}>{ctaLabel}</button>
+                    : <RegistroCerrado />}
                   <BotonPrograma />
                   <BotonWebinar />
                 </div>
@@ -517,7 +533,9 @@ function MainApp() {
               <h2 className="text-hero" style={{ fontFamily: "'Poppins'", fontWeight: 800, margin: '0 0 12px', textWrap: 'balance' }}>Únete a la Red de Especialistas en Donación y Trasplantes</h2>
               <p style={{ fontSize: 17, opacity: 0.92, margin: '0 0 28px' }}>Plazas limitadas para profesionales de la cadena crítica de donación.</p>
               <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 34px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(0,0,0,.2)', transition: '.2s' }}>{ctaLabel}</button>
+                {REGISTRO_ABIERTO
+                  ? <button onClick={() => go('inscripcion')} style={{ background: accentColor, color: '#fff', border: 'none', fontFamily: "'Poppins'", fontWeight: 600, fontSize: 16, padding: '14px 34px', borderRadius: 999, cursor: 'pointer', boxShadow: '0 6px 18px rgba(0,0,0,.2)', transition: '.2s' }}>{ctaLabel}</button>
+                  : <RegistroCerrado claro />}
               </div>
             </div>
           </section>
@@ -771,7 +789,14 @@ function MainApp() {
         )}
 
         {/* INSCRIPCION */}
-        {section === 'inscripcion' && (
+        {section === 'inscripcion' && !REGISTRO_ABIERTO && (
+          <section className="cn-reveal pad-section" style={{ textAlign: 'center' }}>
+            <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 12px' }}>El pre-registro está cerrado</h2>
+            <p style={{ color: '#666', margin: '0 auto 24px', fontSize: 16, maxWidth: 560, lineHeight: 1.6 }}>Gracias por tu interés en el Curso Nacional Avanzado en Donación de Órganos y Tejidos. Por ahora no estamos recibiendo pre-registros ni inscripciones.</p>
+            <button onClick={() => go(navItems[0][0])} style={{ background: 'none', border: '2px solid #cfe9f2', color: '#0099CC', fontFamily: "'Poppins'", fontWeight: 600, padding: '10px 24px', borderRadius: 999, cursor: 'pointer' }}>Volver al inicio</button>
+          </section>
+        )}
+        {section === 'inscripcion' && REGISTRO_ABIERTO && (
           <section className="cn-reveal pad-section">
             <div style={{ height: 5, width: 120, borderRadius: 5, background: 'linear-gradient(90deg, #1c5b76, #12d2b3, #8af298)', marginBottom: 16 }}></div>
             <h2 className="text-section" style={{ fontFamily: "'Poppins'", fontWeight: 800, color: '#1c3f4a', margin: '0 0 4px' }}>Pre-regístrate al Programa</h2>
@@ -909,14 +934,24 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainApp />} />
-        <Route path="/pago-de-inscripcion" element={<PagoStripe />} />
-        <Route path="/pago-de-inscripcion/:faseUrl" element={<PagoStripe />} />
+        <Route path="/pago-de-inscripcion" element={REGISTRO_ABIERTO ? <PagoStripe /> : <InscripcionCerrada />} />
+        <Route path="/pago-de-inscripcion/:faseUrl" element={REGISTRO_ABIERTO ? <PagoStripe /> : <InscripcionCerrada />} />
         <Route path="/pago-exito" element={<PagoExito />} />
         <Route path="/pago-cancelado" element={<PagoCancelado />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
+const InscripcionCerrada = () => (
+  <div style={{ minHeight: '100vh', background: 'linear-gradient(160deg, #f4fbfe 0%, #ffffff 50%, #eaf7ef 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 20px', fontFamily: "'Poppins', sans-serif" }}>
+    <div style={{ width: '100%', maxWidth: 540, background: '#fff', border: '1px solid #e8f1f0', borderRadius: 24, padding: '50px 32px', textAlign: 'center', boxShadow: '0 10px 40px rgba(0,0,0,.06)' }}>
+      <h2 style={{ fontWeight: 800, color: '#1c3f4a', margin: '0 0 12px', fontSize: 28 }}>Inscripciones cerradas</h2>
+      <p style={{ color: '#556', fontSize: 15.5, lineHeight: 1.7, margin: '0 0 24px' }}>Por ahora no estamos recibiendo pagos de inscripción al CNADOT. Gracias por tu interés.</p>
+      <a href="/" style={{ display: 'inline-block', background: 'linear-gradient(135deg, #1c5b76, #12d2b3)', color: '#fff', fontWeight: 600, padding: '12px 28px', borderRadius: 999, textDecoration: 'none' }}>Ir al inicio</a>
+    </div>
+  </div>
+);
 
 const PagoExito = () => (
   <div style={{ position: 'relative', minHeight: '100vh', background: 'linear-gradient(160deg, #f4fbfe 0%, #ffffff 50%, #eaf7ef 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '60px 20px', fontFamily: "'Poppins', sans-serif" }}>
